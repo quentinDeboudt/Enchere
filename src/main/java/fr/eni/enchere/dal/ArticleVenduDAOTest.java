@@ -27,6 +27,13 @@ public class ArticleVenduDAOTest {
 			dao.insert(new ArticleVendu(2, "écran", "magnifique écran", LocalDate.of(2021, 3, 22), LocalDate.of(2021, 4, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email", "telephone",
 					"rue", 35000, "ville", "motDePasse", 50, "administrateur"), new Categorie(5, "Informatique")));
 		
+			dao.selectAll();
+			
+			System.out.println(dao.selectAll());
+			
+			dao.selectById(5);
+			
+			System.out.println(dao.selectById(5));
 		
 	}
 
