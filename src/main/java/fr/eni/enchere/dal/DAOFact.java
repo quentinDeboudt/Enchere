@@ -13,9 +13,10 @@ public class DAOFact {
 		return new UtilisateurDAOImpl();
 	}
 	
-	/*public static ArticleVenduDAO getArticleVenduDAO() {
-		return new ArticleVenduDAOImpl();
-	}*/
+	public static ArticleVenduDAO getArticleVenduDAO() {
+		return new ArticleVenduDAOMock();
+		}
+		
 	
 	public static CategorieDAO getCategorieDAO() {
 		return new CategorieDAOImp();
