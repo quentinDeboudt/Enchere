@@ -24,5 +24,9 @@ public class DAOFact {
 		return new ArticleVenduDAOImpl();
 	}
 	
+	
+	public static CategorieDAO getCategorieDAO() {
+		return new CategorieDAOImp();
+	}
 }
 

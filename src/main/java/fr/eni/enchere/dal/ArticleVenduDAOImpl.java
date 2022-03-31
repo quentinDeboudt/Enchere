@@ -80,22 +80,25 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 	 */
 	@Override
 	public List<ArticleVendu> selectAll() throws DalException {
+		UtilisateurDAO daoUtilisateur = DAOFact.getUtilisateurDAO();
+		CategorieDAO daoCategorie = DAOFact.getCategorieDAO();
 		List<ArticleVendu> result = new ArrayList<ArticleVendu>();
+
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SELECT);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				ArticleVendu articleVendu = new ArticleVendu(
-				rs.getInt("no_article"),
-				rs.getString("nom_article"),
-				rs.getString("description"),
-				rs.getDate("date_debut_encheres").toLocalDate(),
-				rs.getDate("date_fin_encheres").toLocalDate(),
-				rs.getInt("prix_initial"),
-				rs.getInt("prix_vente")
-				//rs.getUtilisateur.("no_utilisateur"),
-				//rs.getCategorie.("no_categorie")
-				);
+				ArticleVendu articleVendu = new ArticleVendu();
+				articleVendu.setNoArticle(rs.getInt("no_article"));
+				articleVendu.setNomArticle(rs.getString("nom_article"));
+				articleVendu.setDescription(rs.getString("description"));
+				articleVendu.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
+				articleVendu.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
+				articleVendu.setMiseAPrix(rs.getInt("prix_initial"));
+				articleVendu.setPrixVente(rs.getInt("prix_vente"));
+				articleVendu.setUtilisateur(daoUtilisateur.selectById(rs.getInt("no_utilisateur")));
+				articleVendu.setCategorie(daoCategorie.selectByNoCategorie(rs.getInt("no-categorie")));
+
 				result.add(articleVendu);
 			}
 		} catch (Exception e) {
@@ -104,29 +107,31 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 		return result;
 	}
 
-	public ArticleVendu selectById (int noArticle) throws DalException {
-		ArticleVendu articleVendu = null;
+	public ArticleVendu selectById(int noArticle) throws DalException {
+
+		UtilisateurDAO daoUtilisateur = DAOFact.getUtilisateurDAO();
+		CategorieDAO daoCategorie = DAOFact.getCategorieDAO();
+		ArticleVendu articleVendu = new ArticleVendu();
+		
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SelectById);
 			stmt.setInt(1, noArticle);
 			ResultSet rs = stmt.executeQuery();
-			if (rs.next()){
-				articleVendu = new ArticleVendu(
-						rs.getInt("no_article"),
-						rs.getString("nom_article"),
-						rs.getString("description"),
-						rs.getDate("date_debut_encheres").toLocalDate(),
-						rs.getDate("date_fin_encheres").toLocalDate(),
-						rs.getInt("prix_initial"),
-						rs.getInt("prix_vente")
-						//rs.getUtilisateur.("no_utilisateur"),
-						//rs.getCategorie.("no_categorie")
-						);
+			if (rs.next()) {
+				articleVendu.setNoArticle(rs.getInt("no_article"));
+				articleVendu.setNomArticle(rs.getString("nom_article"));
+				articleVendu.setDescription(rs.getString("description"));
+				articleVendu.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
+				articleVendu.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
+				articleVendu.setMiseAPrix(rs.getInt("prix_initial"));
+				articleVendu.setPrixVente(rs.getInt("prix_vente"));
+				articleVendu.setUtilisateur(daoUtilisateur.selectById(rs.getInt("no_utilisateur")));
+				articleVendu.setCategorie(daoCategorie.selectByNoCategorie(rs.getInt("no-categorie")));
 			}
 		} catch (Exception e) {
 			throw new DalException("Probleme dans le selectById");
 		}
 		return articleVendu;
-		
+
 	}
 }
