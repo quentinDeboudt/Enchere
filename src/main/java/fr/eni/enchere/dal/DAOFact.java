@@ -18,8 +18,8 @@ public class DAOFact {
 	}*/
 	
 	public static CategorieDAO getCategorieDAO() {
-		return new CategorieDAOImpl();
+		return new CategorieDAOImp();
 	}
-	
+
 }
 
