@@ -24,15 +24,5 @@ public class DAOFact {
 		return new ArticleVenduDAOImpl();
 	}
 	
-	//nouvelement ajouter
-	public static EnchereDAO getEnchereDAO() {
-		return new EnchereDAOImpl();	
-	}
-	
-	//nouvelement ajouter
-	public static EnchereDAO getEnchereDAOMock() {
-		return new EnchereDAOMock();
-	}
-
 }
 
