@@ -15,10 +15,6 @@ public class DAOFact {
 		return new UtilisateurDAOImpl();
 	}
 	
-	//nouvelement ajouter
-	public static UtilisateurDAO getUtilisateurDAOMock() {
-		return new UtilisateurDAOMock();
-	}
 	
 	public static ArticleVenduDAO getArticleVenduDAO() {
 		return new ArticleVenduDAOImpl();
