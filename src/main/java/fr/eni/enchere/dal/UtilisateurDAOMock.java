@@ -7,12 +7,12 @@ import fr.eni.enchere.bo.Utilisateur;
 
 public class UtilisateurDAOMock implements UtilisateurDAO{
 	
-	private static Integer cpt=0;
+	//private static Integer cpt=0;//cacher car le noUtilisateur est ajouter directement par le contructeur la class Utilisateur
 	private List<Utilisateur> listeUtilisateur = new ArrayList<>();
 	
 	@Override
 	public void insert(Utilisateur utilisateur) {
-		utilisateur.setNoUtilisateur(cpt++);
+		//utilisateur.setNoUtilisateur(cpt++);//cacher car le noUtilisateur est ajouter directement par le contructeur la class Utilisateur
 		listeUtilisateur.add(utilisateur);
 	}
 
@@ -42,7 +42,7 @@ public class UtilisateurDAOMock implements UtilisateurDAO{
 		return utilisateur;
 	}
 		else {
-			throw new DalException("Erreur de selectById");
+			throw new DalException("Erreur de selectById : la liste a parcourir pour avoir id est vide !!!");
 		}
 	}
 }
