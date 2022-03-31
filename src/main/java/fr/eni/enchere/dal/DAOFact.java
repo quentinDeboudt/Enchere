@@ -16,6 +16,10 @@ public class DAOFact {
 	/*public static ArticleVenduDAO getArticleVenduDAO() {
 		return new ArticleVenduDAOImpl();
 	}*/
+	
+	public static CategorieDAO getCategorieDAO() {
+		return new CategorieDAOImp();
+	}
 
 }
 
