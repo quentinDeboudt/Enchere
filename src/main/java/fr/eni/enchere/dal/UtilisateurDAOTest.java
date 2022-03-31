@@ -11,7 +11,7 @@ public class UtilisateurDAOTest {
 		//tout ici est nouvelemnt rajouter
 		
 		//INSTANCIATION D'UN UtilisateurDAOMock()
-				UtilisateurDAO dao=DAOFact.getUtilisateurDAOMock();
+				UtilisateurDAO dao=DAOFact.getUtilisateurDAO();
 				
 				
 				//JEUX D'ESSAI A INSERER ET/OU SELECTIONNER
