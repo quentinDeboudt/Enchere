@@ -53,7 +53,7 @@ public class CategorieDAOImp implements CategorieDAO {
 		return result;
 	}
 
-	public Categorie selectByNoCategorie() throws DalException {
+	public Categorie selectByNoCategorie(Integer noCategorie) throws DalException {
 		Categorie categorie = null;
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SelectById);

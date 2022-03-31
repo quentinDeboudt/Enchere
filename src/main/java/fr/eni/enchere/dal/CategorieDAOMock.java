@@ -27,7 +27,7 @@ public class CategorieDAOMock implements CategorieDAO {
 	}
 
 	
-	public Categorie selectByNoCategorie() throws DalException {
+	public Categorie selectByNoCategorie(Integer noCategorie) throws DalException {
 		return categorie;
 	}
 

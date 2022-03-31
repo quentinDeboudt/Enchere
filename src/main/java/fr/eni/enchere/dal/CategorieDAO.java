@@ -15,5 +15,5 @@ import fr.eni.enchere.bo.Retrait;
 public interface CategorieDAO {
 	public void insert(Categorie categorie) throws Exception;
 	public List<Categorie> selectAll() throws Exception;
-	public Categorie selectByNoCategorie() throws DalException;
+	public Categorie selectByNoCategorie(Integer noCategorie) throws DalException;
 }
