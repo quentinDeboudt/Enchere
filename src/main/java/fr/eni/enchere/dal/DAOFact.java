@@ -13,8 +13,12 @@ public class DAOFact {
 		return new UtilisateurDAOImpl();
 	}
 	
-	public static ArticleVenduDAO getArticleVenduDAO() {
+	/*public static ArticleVenduDAO getArticleVenduDAO() {
 		return new ArticleVenduDAOImpl();
+	}*/
+	
+	public static CategorieDAO getCategorieDAO() {
+		return new CategorieDAOImpl();
 	}
 	
 }
