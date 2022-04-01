@@ -26,6 +26,18 @@
 	<label for="motDePasse">Mot de Passe:</label>
 		<input type="password" name="motDePasse" value="${model.current.motDePasse}"><br>
 </div>
+<div>
+	<label for="nom">Nom:</label>
+		<input type="text" name="nom" value="${model.current.nom}"><br>
+	<label for="email">Email:</label>
+		<input type="email" name="email" value="${model.current.email}"><br>
+	<label for="rue">Rue:</label>
+		<input type="texte" name="rue" value="${model.current.rue}"><br>
+	<label for="ville">Ville:</label>
+		<input type="text" name="ville" value="${model.current.ville}"><br>
+	<label for="motDePasse">Confirmation:</label>
+		<input type="password" name="motDePasse" value="${model.current.motDePasse}"><br>
+</div>
 
 </body>
 </html>
