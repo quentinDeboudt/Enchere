@@ -7,17 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.enchere.bll.UtilisateurManager;
+
 /**
- * Servlet implementation class creationProfilServlet
+ * Servlet implementation class CreationProfilServlet
  */
-@WebServlet("/creationProfilServlet")
-public class creationProfilServlet extends HttpServlet {
+@WebServlet("/CreationProfilServlet")
+public class CreationProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UtilisateurManager manager = UtilisateurManager.getInstance();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public creationProfilServlet() {
+    public CreationProfilServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
