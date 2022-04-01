@@ -44,6 +44,30 @@ public class UtilisateurModel {
 		super();
 	}
 
+	public Utilisateur getCurrent() {
+		return current;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public List<Utilisateur> getLstUtilisateurs() {
+		return lstUtilisateurs;
+	}
+
+	public void setCurrent(Utilisateur current) {
+		this.current = current;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public void setLstUtilisateurs(List<Utilisateur> lstUtilisateurs) {
+		this.lstUtilisateurs = lstUtilisateurs;
+	}
+
 	/**
 	 * Constructeur.
 	 * 
