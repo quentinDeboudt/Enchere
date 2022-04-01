@@ -21,7 +21,7 @@ public class CategorieDAOImp implements CategorieDAO {
 	private final String SELECT = "SELECT no_categorie, libelle FROM CATEGORIES";
 	private final String SelectById = "SELECT no_categorie, libelle FROM CATEGORIES";
 
-	public void insert(Categorie categorie) throws DalException {
+	public void insert(Categorie categorie) throws DALException {
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(INSERT);
 			stmt.setInt(1, categorie.getNoCategorie());
@@ -29,12 +29,12 @@ public class CategorieDAOImp implements CategorieDAO {
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {
-			throw new DalException("Probleme de Insert -> (CategorieDAOImpl)");
+			throw new DALException("Probleme de Insert -> (CategorieDAOImpl)");
 		}
 
 	}
 
-	public List<Categorie> selectAll() throws DalException {
+	public List<Categorie> selectAll() throws DALException {
 		List<Categorie> result= new ArrayList<Categorie>();
 		try(Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SELECT);
@@ -48,12 +48,12 @@ public class CategorieDAOImp implements CategorieDAO {
 				result.add(categorie);
 			}
 		}catch (SQLException e) {
-			throw new DalException("Probleme de select -> (CategorieDAOImpl)");
+			throw new DALException("Probleme de select -> (CategorieDAOImpl)");
 		}
 		return result;
 	}
 
-	public Categorie selectByNoCategorie(Integer noCategorie) throws DalException {
+	public Categorie selectByNoCategorie(Integer noCategorie) throws DALException {
 		Categorie categorie = null;
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SelectById);
@@ -66,7 +66,7 @@ public class CategorieDAOImp implements CategorieDAO {
 						);
 			}
 		} catch (Exception e) {
-			throw new DalException("Probleme dans le selectByNoCategorie -> (CategorieDAOImpl)");
+			throw new DALException("Probleme dans le selectByNoCategorie -> (CategorieDAOImpl)");
 		}
 		return categorie;
 

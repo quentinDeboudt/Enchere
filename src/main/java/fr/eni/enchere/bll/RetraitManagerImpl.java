@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.eni.enchere.bo.Retrait;
 import fr.eni.enchere.dal.DAOFact;
-import fr.eni.enchere.dal.DalException;
+import fr.eni.enchere.dal.DALException;
 import fr.eni.enchere.dal.RetraitDAO;
 
 public class RetraitManagerImpl implements RetraitManager {

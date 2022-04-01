@@ -6,7 +6,7 @@ import java.util.List;
 import fr.eni.enchere.bo.ArticleVendu;
 import fr.eni.enchere.dal.ArticleVenduDAO;
 import fr.eni.enchere.dal.DAOFact;
-import fr.eni.enchere.dal.DalException;
+import fr.eni.enchere.dal.DALException;
 
 public class ArticleVenduManagerImpl implements ArticleVenduManager {
 	private ArticleVenduDAO dao = DAOFact.getArticleVenduDAO();
@@ -21,7 +21,7 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager {
 	public void addArticleVendu(ArticleVendu articleVendu) throws BLLException {
 		try {
 			dao.insert(articleVendu);
-		} catch (DalException e) {
+		} catch (DALException e) {
 			throw new BLLException(e.getMessage());
 		}
 	}
@@ -34,7 +34,7 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager {
 	public List<ArticleVendu> getAllArticleVendu() throws BLLException {
 		try {
 			dao.selectAll();
-		} catch (DalException e) {
+		} catch (DALException e) {
 			throw new BLLException(e.getMessage());
 		}
 		return lstArticlesVendus;

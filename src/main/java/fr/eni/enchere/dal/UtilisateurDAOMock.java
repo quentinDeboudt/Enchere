@@ -18,18 +18,18 @@ public class UtilisateurDAOMock implements UtilisateurDAO{
 
 	
 	@Override
-	public List<Utilisateur> selectAll()throws DalException {
+	public List<Utilisateur> selectAll()throws DALException {
 		if(this.listeUtilisateur.isEmpty()==false) {
 			return listeUtilisateur;
 		}else {
-			throw new DalException("Erreur de selectAll:la liste que vous esseyez d'affichez est vide!!!");
+			throw new DALException("Erreur de selectAll:la liste que vous esseyez d'affichez est vide!!!");
 		}
 	}
 
 	
 	
 	@Override
-	public Utilisateur selectById(Integer id)throws DalException{
+	public Utilisateur selectById(Integer id)throws DALException{
 		
 		if(this.listeUtilisateur.isEmpty()==false) {
 			Utilisateur utilisateur =new Utilisateur();
@@ -42,7 +42,7 @@ public class UtilisateurDAOMock implements UtilisateurDAO{
 		return utilisateur;
 	}
 		else {
-			throw new DalException("Erreur de selectById : la liste a parcourir pour avoir id est vide !!!");
+			throw new DALException("Erreur de selectById : la liste a parcourir pour avoir id est vide !!!");
 		}
 	}
 }

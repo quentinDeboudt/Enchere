@@ -17,7 +17,7 @@ import fr.eni.enchere.bo.Enchere;
  */
 public interface EnchereDAO {
 	
-	public void insert (Enchere enchere) throws DalException;
-	public List<Enchere> selectAll() throws DalException;
+	public void insert (Enchere enchere) throws DALException;
+	public List<Enchere> selectAll() throws DALException;
 
 }
