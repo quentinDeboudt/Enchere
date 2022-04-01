@@ -10,5 +10,4 @@ public interface EnchereManager {
 
 	public List<Enchere> getAllEnchere() throws BLLException;
 
-	
 }
