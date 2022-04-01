@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Enchere {
 	
+	private Integer noEnchere;
 	private LocalDate dateEnchere;
 	private Integer montant_enchere;
 	
@@ -19,13 +20,16 @@ public class Enchere {
 
 	/**
 	 * Constructeur.
+	 * @param noEnchere
 	 * @param dateEnchere
 	 * @param montant_enchere
 	 * @param utilisateur
 	 * @param articleVendu
 	 */
-	public Enchere(LocalDate dateEnchere, Integer montant_enchere, Utilisateur utilisateur, ArticleVendu articleVendu) {
+	public Enchere(Integer noEnchere, LocalDate dateEnchere, Integer montant_enchere, Utilisateur utilisateur,
+			ArticleVendu articleVendu) {
 		super();
+		this.noEnchere = noEnchere;
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
 		this.utilisateur = utilisateur;
@@ -34,26 +38,21 @@ public class Enchere {
 
 	/**
 	 * Constructeur.
-	 * @param dateEnchere
-	 * @param montant_enchere
-	 */
-	public Enchere(LocalDate dateEnchere, Integer montant_enchere) {
-		super();
-		this.dateEnchere = dateEnchere;
-		this.montant_enchere = montant_enchere;
-	}
-
-	/**
-	 * Constructeur.
+	 * @param noEnchere
 	 * @param dateEnchere
 	 * @param montant_enchere
 	 * @param utilisateur
 	 */
-	public Enchere(LocalDate dateEnchere, Integer montant_enchere, Utilisateur utilisateur) {
+	public Enchere(Integer noEnchere, LocalDate dateEnchere, Integer montant_enchere, Utilisateur utilisateur) {
 		super();
+		this.noEnchere = noEnchere;
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
 		this.utilisateur = utilisateur;
+	}
+
+	public Integer getNoEnchere() {
+		return noEnchere;
 	}
 
 	public LocalDate getDateEnchere() {
@@ -70,6 +69,10 @@ public class Enchere {
 
 	public ArticleVendu getArticleVendu() {
 		return articleVendu;
+	}
+
+	public void setNoEnchere(Integer noEnchere) {
+		this.noEnchere = noEnchere;
 	}
 
 	public void setDateEnchere(LocalDate dateEnchere) {
@@ -92,6 +95,11 @@ public class Enchere {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Enchere [");
+		if (noEnchere != null) {
+			builder.append("noEnchere=");
+			builder.append(noEnchere);
+			builder.append(", ");
+		}
 		if (dateEnchere != null) {
 			builder.append("dateEnchere=");
 			builder.append(dateEnchere);

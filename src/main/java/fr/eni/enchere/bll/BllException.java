@@ -1,5 +1,9 @@
 package fr.eni.enchere.bll;
 
-public class BllException {
+public class BLLException extends Exception {
+
+	public BLLException(String message) {
+		super(message);
+	}
 
 }
