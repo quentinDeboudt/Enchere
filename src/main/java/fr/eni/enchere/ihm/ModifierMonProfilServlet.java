@@ -36,12 +36,12 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			Utilisateur utilisateur = new Utilisateur();
 			
-			if (request.getParameter("newMotDePasse").equals(request.getParameter("Confirmation"))) {
+			if (request.getParameter("newMotDePasse").equals(request.getParameter("confirmation"))) {
 			
 				utilisateur.setPseudo(request.getParameter("pseudo"));
 				utilisateur.setPrenom(request.getParameter("prenom"));
 				utilisateur.setTelephone(request.getParameter("telephone"));
-				utilisateur.setCodePostal(request.getParameter("codePostal")); //Mettre le code postal en String (suprimer ce massage quand c'est fais)...
+				utilisateur.setCodePostal(request.getParameter("codePostal")); //Mettre le code postal en String (suprimer ce massage quand c'est fais )...
 				utilisateur.setMotDePasse(request.getParameter("newMotDePasse")); // Je remplace "MotDePasse"  par  "NewMotDePasse"...
 				
 				utilisateur.setNom(request.getParameter("nom"));
@@ -53,7 +53,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 			}
 			
 			try {
-				manager.UpDateUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
+				manager.addUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}

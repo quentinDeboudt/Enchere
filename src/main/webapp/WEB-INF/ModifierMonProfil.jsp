@@ -16,7 +16,7 @@
 			<h2>Mon Profil</h2>
 			
 			<div>
-				<form action="ModifierMonProfil" method="post">
+				<form action="ModifierMonProfilServlet" method="post">
 					
 					<div>
 						Pseudo: <input type="text" name="pseudo" value="${model.current.pseudo}" /><br>
@@ -29,7 +29,7 @@
 						 
 						Mot de passe actuel: <input type="password" name="motDePasse" value="${model.current.motDePasse}" /><br>
 						
-						Nouveau mot de passe: <input type="password" name="newMotDePasse" value="${model.current.newMotDePasse}" /><br>
+						Nouveau mot de passe: <input type="password" name="newMotDePasse" value="${newMotDePasse}" /><br>
 					</div>
 					
 					<div>
