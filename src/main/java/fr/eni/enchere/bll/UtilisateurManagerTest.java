@@ -7,7 +7,7 @@ public class UtilisateurManagerTest {
 	public static void main(String[] args) throws BLLException {
 		UtilisateurManager manager = UtilisateurManagerSing.getInstance();
 		Utilisateur utilisateur1 = new Utilisateur(1, "DINO", "MAHAMOUD", "Inzoudine",
-				"inzoudine.mahamoud2022@campus-eni.fr", "06.12.91.93.61", "rue de fougères", 35700, "RENNES",
+				"inzoudine.mahamoud2022@campus-eni.fr", "06.12.91.93.61", "rue de fougères", "35700", "RENNES",
 				"rennes35", 1000, "admin");
 		try {
 			manager.addUtilisateur(utilisateur1);
