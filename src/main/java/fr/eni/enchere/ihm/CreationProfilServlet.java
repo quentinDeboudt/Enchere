@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.enchere.bll.UtilisateurManager;
+import fr.eni.enchere.bll.UtilisateurManagerSing;
 
 /**
  * Servlet implementation class CreationProfilServlet
@@ -15,7 +16,7 @@ import fr.eni.enchere.bll.UtilisateurManager;
 @WebServlet("/CreationProfilServlet")
 public class CreationProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UtilisateurManager manager = UtilisateurManager.getInstance();
+	private UtilisateurManager manager = UtilisateurManagerSing.getInstance();
        
     /**
      * @see HttpServlet#HttpServlet()
