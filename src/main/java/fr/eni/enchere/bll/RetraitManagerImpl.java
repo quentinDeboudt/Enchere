@@ -11,22 +11,22 @@ public class RetraitManagerImpl implements RetraitManager {
 	private RetraitDAO dao = DAOFact.getRetraitDAO();
 
 	@Override
-	public void addRetrait(Retrait retrait) throws BllException {
+	public void addRetrait(Retrait retrait) throws BLLException {
 
 		try {
 			dao.insert(retrait);
 		} catch (Exception e) {
-			throw new BllException("Probleme a l'insertion de bll Retrait");
+			throw new BLLException("Probleme a l'insertion de bll Retrait");
 		}
 
 	}
 
 	@Override
-	public List<Retrait> getAllRetrait() throws BllException {
+	public List<Retrait> getAllRetrait() throws BLLException {
 		try {
 			return dao.selectAll();
 		} catch (Exception e) {
-			throw new BllException("Probl�me � la selection des bi�res");
+			throw new BLLException("Probl�me � la selection des bi�res");
 		}
 	}
 

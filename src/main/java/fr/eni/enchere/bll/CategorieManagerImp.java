@@ -17,32 +17,32 @@ public class CategorieManagerImp implements CategorieManager {
 	private CategorieDAO dao = DAOFact.getCategorieDAO();
 
 	@Override
-	public void addCategorie(Categorie categorie) throws BllException {
+	public void addCategorie(Categorie categorie) throws BLLException {
 
 		try {
 			dao.insert(categorie);
 		} catch (Exception e) {
-			throw new DalException("Probleme a l'insertion de bll Categorie");
+			throw new BLLException("Probleme a l'insertion de bll Categorie");
 		}
 		
 	}
 
 	@Override
-	public List<Categorie> getAllCategorie() throws BllException {
+	public List<Categorie> getAllCategorie() throws BLLException {
 		try {
 			return dao.selectAll();
 		} catch (Exception e) {
-			throw new DalException("Probleme a la selection des Categorie");
+			throw new BLLException("Probleme a la selection des Categorie");
 		}
 		
 	}
 
 	@Override
-	public Categorie getCategorieById(Integer noCategorie) throws BllException {
+	public Categorie getCategorieById(Integer noCategorie) throws BLLException {
 		try {
 			return dao.selectByNoCategorie(noCategorie);
 		} catch (Exception e) {
-			throw new DalException("Probleme a la selection des Categorie");
+			throw new BLLException("Probleme a la selection des Categorie");
 		}
 		
 	}
