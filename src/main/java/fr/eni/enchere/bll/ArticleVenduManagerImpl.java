@@ -11,7 +11,6 @@ import fr.eni.enchere.dal.DALException;
 public class ArticleVenduManagerImpl implements ArticleVenduManager {
 	private ArticleVenduDAO dao = DAOFact.getArticleVenduDAO();
 	private List<ArticleVendu> lstArticlesVendus = new ArrayList<ArticleVendu>();
-	private ArticleVendu articleVendu = new ArticleVendu();
 
 	/**
 	 * {@inheritedDoc}
@@ -46,7 +45,9 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager {
 	 */
 	@Override
 	public ArticleVendu getById(Integer noArticleVendu) throws BLLException {
+		ArticleVendu articleVendu = new ArticleVendu();
 		try {
+			
 			dao.selectById(noArticleVendu);
 		} catch (Exception e) {
 			throw new BLLException(e.getMessage());
