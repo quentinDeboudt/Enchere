@@ -43,7 +43,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 				}
 			}
 		}catch (SQLException e) {
-			throw new DALException("Probl�me de Insert");
+			throw new DALException("Probl�me de Insert dans la DAL : "+e.getMessage());
 		}
 	}
 
@@ -62,7 +62,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 				result.add(utilisateur);
 			}
 		}catch (SQLException e) {
-			throw new DALException("Probl�me de select");
+			throw new DALException("Probl�me de select Dand la DAL : "+e.getMessage());
 		}
 		return result;
 	}
@@ -83,8 +83,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 			}
 			return result;
 		}
-		catch(Exception e) {
-			throw new DALException(e.getMessage());
+		catch(SQLException e) {
+			throw new DALException("erreur de selecById dans la DAL : "+e.getMessage());
 		}
 	}
 }

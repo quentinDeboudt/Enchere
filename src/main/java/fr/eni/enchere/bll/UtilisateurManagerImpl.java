@@ -15,7 +15,7 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 		try {
 			dao.insert(utilisateur);
 		} catch (DALException e) {
-			throw new BLLException("erreur de addUtilisateur !!! :" + e.getMessage());
+			throw new BLLException("erreur de addUtilisateur !!! : " + e.getMessage());
 		}
 	}
 
@@ -25,7 +25,7 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 			dao.selectAll();
 			return null;
 		} catch (DALException e) {
-			throw new BLLException("erreur de getAll !!! :" + e.getMessage());
+			throw new BLLException("erreur de getAll !!! : " + e.getMessage());
 		}
 	}
 
