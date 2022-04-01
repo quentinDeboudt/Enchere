@@ -3,6 +3,9 @@
  */
 package fr.eni.enchere.ihm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.eni.enchere.bo.Utilisateur;
 
 /**
@@ -17,29 +20,35 @@ import fr.eni.enchere.bo.Utilisateur;
 public class UtilisateurModel {
 
 	private Utilisateur current;
+	private List<Utilisateur> lstUtilisateurs = new ArrayList<Utilisateur>();
 	private String message;
-
-	/**
-	 * Constructeur.
-	 * 
-	 * @param current
-	 * @param message
-	 */
-	public UtilisateurModel(Utilisateur current, String message) {
-		super();
-		this.current = current;
-		this.message = message;
-	}
-
+	
 	/**
 	 * Constructeur.
 	 */
 	public UtilisateurModel() {
 		super();
 	}
+	
+	/**
+	 * Constructeur.
+	 * @param current
+	 * @param lstUtilisateurs
+	 * @param message
+	 */
+	public UtilisateurModel(Utilisateur current, List<Utilisateur> lstUtilisateurs, String message) {
+		super();
+		this.current = current;
+		this.lstUtilisateurs = lstUtilisateurs;
+		this.message = message;
+	}
 
 	public Utilisateur getCurrent() {
 		return current;
+	}
+
+	public List<Utilisateur> getLstUtilisateurs() {
+		return lstUtilisateurs;
 	}
 
 	public String getMessage() {
@@ -50,6 +59,10 @@ public class UtilisateurModel {
 		this.current = current;
 	}
 
+	public void setLstUtilisateurs(List<Utilisateur> lstUtilisateurs) {
+		this.lstUtilisateurs = lstUtilisateurs;
+	}
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
@@ -57,8 +70,22 @@ public class UtilisateurModel {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UtilisateurModel []");
+		builder.append("UtilisateurModel [");
+		if (current != null) {
+			builder.append("current=");
+			builder.append(current);
+			builder.append(", ");
+		}
+		if (lstUtilisateurs != null) {
+			builder.append("lstUtilisateurs=");
+			builder.append(lstUtilisateurs);
+			builder.append(", ");
+		}
+		if (message != null) {
+			builder.append("message=");
+			builder.append(message);
+		}
+		builder.append("]");
 		return builder.toString();
 	}
-
 }

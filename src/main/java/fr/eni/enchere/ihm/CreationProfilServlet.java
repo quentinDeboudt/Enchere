@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CreationProfilServlet
+ * Servlet implementation class creationProfilServlet
  */
-@WebServlet("/CreationProfilServlet")
-public class CreationProfilServlet extends HttpServlet {
+@WebServlet("/creationProfilServlet")
+public class creationProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreationProfilServlet() {
+    public creationProfilServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,8 @@ public class CreationProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.getRequestDispatcher("/WEB-INF/creationProfil.jsp").forward(request, response);
 	}
 
 	/**
