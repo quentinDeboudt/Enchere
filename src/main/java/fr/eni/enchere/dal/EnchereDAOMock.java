@@ -24,7 +24,7 @@ public class EnchereDAOMock implements EnchereDAO {
 	*{@inheritedDoc}
 	*/
 	@Override
-	public void insert(Enchere enchere) throws DalException {
+	public void insert(Enchere enchere) throws DALException {
 		lstEnchere.add(enchere);
 	}
 
@@ -32,7 +32,7 @@ public class EnchereDAOMock implements EnchereDAO {
 	*{@inheritedDoc}
 	*/
 	@Override
-	public List<Enchere> selectAll() throws DalException {
+	public List<Enchere> selectAll() throws DALException {
 		return lstEnchere;
 	}
 	

@@ -11,9 +11,9 @@ package fr.eni.enchere.dal;
  * @since  29 mars 2022 - 15:29:45
  *
  */
-public class DalException extends Exception {
+public class DALException extends Exception {
 
-	public DalException(String message) {
+	public DALException(String message) {
 		super(message);
 	}
 	

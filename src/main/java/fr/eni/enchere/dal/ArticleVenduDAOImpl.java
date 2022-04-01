@@ -48,7 +48,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 	 * @throws DALException
 	 */
 	@Override
-	public void insert(ArticleVendu articleVendu) throws DalException {
+	public void insert(ArticleVendu articleVendu) throws DALException {
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, articleVendu.getNomArticle());
@@ -68,7 +68,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DalException("Probleme d'insert");
+			throw new DALException("Probleme d'insert");
 		}
 
 	}
@@ -79,7 +79,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 	 * @throws DALException
 	 */
 	@Override
-	public List<ArticleVendu> selectAll() throws DalException {
+	public List<ArticleVendu> selectAll() throws DALException {
 		UtilisateurDAO daoUtilisateur = DAOFact.getUtilisateurDAO();
 		CategorieDAO daoCategorie = DAOFact.getCategorieDAO();
 		List<ArticleVendu> result = new ArrayList<ArticleVendu>();
@@ -102,12 +102,12 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 				result.add(articleVendu);
 			}
 		} catch (Exception e) {
-			throw new DalException("Problème de select");
+			throw new DALException("Problème de select");
 		}
 		return result;
 	}
 
-	public ArticleVendu selectById(int noArticle) throws DalException {
+	public ArticleVendu selectById(int noArticle) throws DALException {
 
 		UtilisateurDAO daoUtilisateur = DAOFact.getUtilisateurDAO();
 		CategorieDAO daoCategorie = DAOFact.getCategorieDAO();
@@ -129,7 +129,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 				articleVendu.setCategorie(daoCategorie.selectByNoCategorie(rs.getInt("no-categorie")));
 			}
 		} catch (Exception e) {
-			throw new DalException("Probleme dans le selectById");
+			throw new DALException("Probleme dans le selectById");
 		}
 		return articleVendu;
 

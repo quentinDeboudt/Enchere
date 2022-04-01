@@ -20,7 +20,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 	private final String SELECT_BY_ID= "SELECT * FROM UTILISATEURS WHERE noUtilisateur = ?";
 	
 	@Override
-	public void insert(Utilisateur utilisateur) throws DalException {//comunication directe avec la bdd ou mock apres le controle bll dans addUtilisateur()
+	public void insert(Utilisateur utilisateur) throws DALException {//comunication directe avec la bdd ou mock apres le controle bll dans addUtilisateur()
 		try(Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, utilisateur.getNoUtilisateur());
@@ -43,7 +43,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 				}
 			}
 		}catch (SQLException e) {
-			throw new DalException("Probl�me de Insert");
+			throw new DALException("Probl�me de Insert");
 		}
 	}
 
@@ -51,7 +51,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 	
 
 	@Override
-	public List<Utilisateur> selectAll() throws DalException {
+	public List<Utilisateur> selectAll() throws DALException {
 		List<Utilisateur> result= new ArrayList<Utilisateur>();
 		try(Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SELECT);
@@ -62,7 +62,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 				result.add(utilisateur);
 			}
 		}catch (SQLException e) {
-			throw new DalException("Probl�me de select");
+			throw new DALException("Probl�me de select");
 		}
 		return result;
 	}
@@ -71,7 +71,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 
 
 	@Override
-	public Utilisateur selectById(Integer id) throws DalException{
+	public Utilisateur selectById(Integer id) throws DALException{
 		Utilisateur result= new Utilisateur();
 		try(Connection con = ConnectionProvider.getConnection()){
 			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID);
@@ -84,7 +84,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 			return result;
 		}
 		catch(Exception e) {
-			throw new DalException(e.getMessage());
+			throw new DALException(e.getMessage());
 		}
 	}
 }

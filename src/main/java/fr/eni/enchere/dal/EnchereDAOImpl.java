@@ -37,7 +37,7 @@ public class EnchereDAOImpl implements EnchereDAO {
 	*{@inheritedDoc}
 	*/
 	@Override
-	public void insert(Enchere enchere) throws DalException {
+	public void insert(Enchere enchere) throws DALException {
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
 			stmt.setDate(1, Date.valueOf(enchere.getDateEnchere()));
@@ -53,14 +53,14 @@ public class EnchereDAOImpl implements EnchereDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DalException("Probleme d'insert");		}
+			throw new DALException("Probleme d'insert");		}
 	}
 
 	/**
 	*{@inheritedDoc}
 	*/
 	@Override
-	public List<Enchere> selectAll() throws DalException {
+	public List<Enchere> selectAll() throws DALException {
 		List<Enchere> result = new ArrayList<Enchere>();
 		UtilisateurDAO daoUtilisateur = DAOFact.getUtilisateurDAO();
 		ArticleVenduDAO daoArticleVendu = DAOFact.getArticleVenduDAO();
@@ -79,7 +79,7 @@ public class EnchereDAOImpl implements EnchereDAO {
 				result.add(enchere);
 			}
 			} catch (Exception e) {
-				throw new DalException("Problème de select");
+				throw new DALException("Problème de select");
 			}
 			return result;
 	}

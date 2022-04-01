@@ -6,7 +6,7 @@ import fr.eni.enchere.bo.Utilisateur;
 
 public class UtilisateurDAOTest {
 
-	public static void main(String[] args) throws DalException {
+	public static void main(String[] args) throws DALException {
 		
 		//tout ici est nouvelemnt rajouter
 		
