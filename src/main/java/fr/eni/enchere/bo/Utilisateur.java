@@ -10,7 +10,7 @@ public class Utilisateur {
 	private String email;
 	private String telephone;
 	private String rue;
-	private Integer codePostal;
+	private String codePostal;
 	private String ville;
 	private String motDePasse;
 	private Integer credit;
@@ -24,7 +24,7 @@ public class Utilisateur {
 	}
 
 	public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, Integer codePostal, String ville, String motDePasse, Integer crédis, String administrateur) {
+			String rue, String codePostal, String ville, String motDePasse, Integer crédis, String administrateur) {
 		
 		this.noUtilisateur = noUtilisateur;
 		this.pseudo = pseudo;
@@ -99,11 +99,11 @@ public class Utilisateur {
 		this.rue = rue;
 	}
 
-	public Integer getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(Integer codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
@@ -205,6 +205,8 @@ public class Utilisateur {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 
 	
 	

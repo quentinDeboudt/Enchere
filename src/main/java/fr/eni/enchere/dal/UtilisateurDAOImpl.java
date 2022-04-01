@@ -30,7 +30,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 			stmt.setString(5, utilisateur.getEmail());
 			stmt.setString(6, utilisateur.getTelephone());
 			stmt.setString(7, utilisateur.getRue());
-			stmt.setInt(8, utilisateur.getCodePostal());
+			stmt.setString(8, utilisateur.getCodePostal());
 			stmt.setString(9, utilisateur.getVille());
 			stmt.setString(10, utilisateur.getMotDePasse());
 			stmt.setInt(11, utilisateur.getCredit());
@@ -57,7 +57,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 			PreparedStatement stmt = con.prepareStatement(SELECT);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				Utilisateur utilisateur = new Utilisateur(rs.getInt("noUtilisateur"),rs.getString("pseudo") ,rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getInt("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getString("administrateur"));
+				Utilisateur utilisateur = new Utilisateur(rs.getInt("noUtilisateur"),rs.getString("pseudo") ,rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getString("administrateur"));
 				utilisateur.setNoUtilisateur(rs.getInt("noUtilisateur"));
 				result.add(utilisateur);
 			}
@@ -77,7 +77,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO{
 			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				Utilisateur utilisateur = new Utilisateur(rs.getInt("noUtilisateur"),rs.getString("pseudo") ,rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getInt("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getString("administrateur"));
+				Utilisateur utilisateur = new Utilisateur(rs.getInt("noUtilisateur"),rs.getString("pseudo") ,rs.getString("nom"),rs.getString("prenom"),rs.getString("email"),rs.getString("telephone"),rs.getString("rue"),rs.getString("codePostal"),rs.getString("ville"),rs.getString("motDePasse"),rs.getInt("credit"),rs.getString("administrateur"));
 				utilisateur.setNoUtilisateur(rs.getInt("noUtilisateur"));
 				result=utilisateur;
 			}

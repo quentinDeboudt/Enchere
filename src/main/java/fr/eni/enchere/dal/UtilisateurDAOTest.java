@@ -15,7 +15,7 @@ public class UtilisateurDAOTest {
 
 		// JEUX D'ESSAI A INSERER ET/OU SELECTIONNER
 		Utilisateur utilisateur1 = new Utilisateur(1, "DINO", "MAHAMOUD", "Inzoudine",
-				"inzoudine.mahamoud2022@campus-eni.fr", "06.12.91.93.61", "rue de fougères", 35700, "RENNES",
+				"inzoudine.mahamoud2022@campus-eni.fr", "06.12.91.93.61", "rue de fougères", "35700", "RENNES",
 				"rennes35", 1000, "admin");
 		/*
 		 * Utilisateur utilisateur2=new Utilisateur(); Utilisateur utilisateur3=new
