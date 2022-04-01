@@ -18,7 +18,7 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/ModifierMonProfilServlet")
 public class ModifierMonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UtilisateurManager manager = UtilisateurManagerSing.getIntance();
+	private UtilisateurManager manager = UtilisateurManagerSing.getInstance();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -77,7 +77,6 @@ public class ModifierMonProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
