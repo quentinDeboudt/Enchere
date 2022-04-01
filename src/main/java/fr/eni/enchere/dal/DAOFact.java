@@ -20,4 +20,8 @@ public class DAOFact {
 	public static CategorieDAO getCategorieDAO() {
 		return new CategorieDAOImp();
 	}
+	
+	public static EnchereDAO getEnchereDAO() {
+		return new EnchereDAOImpl();
+	}
 }
