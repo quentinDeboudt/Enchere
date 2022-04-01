@@ -16,25 +16,24 @@ import fr.eni.enchere.dal.util.ConnectionProvider;
 public class UtilisateurDAOImpl implements UtilisateurDAO{
 	
 	private final String SELECT = "noUtilisateur, pseudo, nom, prenom,email,telephone,rue,codePostal,ville,motDePasse,credit,administrateur, FROM UTILISATEURS";
-	private final String INSERT = "INSERT INTO UTILISATEURS (noUtilisateur, pseudo, nom, prenom,email,telephone,rue,codePostal,ville,motDePasse,credit,administrateur,) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+	private final String INSERT = "INSERT INTO UTILISATEURS (pseudo, nom, prenom,email,telephone,rue,codePostal,ville,motDePasse,credit,administrateur,) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private final String SELECT_BY_ID= "SELECT * FROM UTILISATEURS WHERE noUtilisateur = ?";
 	
 	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {//comunication directe avec la bdd ou mock apres le controle bll dans addUtilisateur()
 		try(Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-			stmt.setInt(1, utilisateur.getNoUtilisateur());
-			stmt.setString(2, utilisateur.getPseudo());
-			stmt.setString(3, utilisateur.getNom());
-			stmt.setString(4, utilisateur.getPrenom());
-			stmt.setString(5, utilisateur.getEmail());
-			stmt.setString(6, utilisateur.getTelephone());
-			stmt.setString(7, utilisateur.getRue());
-			stmt.setString(8, utilisateur.getCodePostal());
-			stmt.setString(9, utilisateur.getVille());
-			stmt.setString(10, utilisateur.getMotDePasse());
-			stmt.setInt(11, utilisateur.getCredit());
-			stmt.setString(12, utilisateur.getAdministrateur());
+			stmt.setString(1, utilisateur.getPseudo());
+			stmt.setString(2, utilisateur.getNom());
+			stmt.setString(3, utilisateur.getPrenom());
+			stmt.setString(4, utilisateur.getEmail());
+			stmt.setString(5, utilisateur.getTelephone());
+			stmt.setString(6, utilisateur.getRue());
+			stmt.setString(7, utilisateur.getCodePostal());
+			stmt.setString(8, utilisateur.getVille());
+			stmt.setString(9, utilisateur.getMotDePasse());
+			stmt.setInt(10, utilisateur.getCredit());
+			stmt.setString(11, utilisateur.getAdministrateur());
 			int nb = stmt.executeUpdate();
 			if(nb>0) {
 				ResultSet rs = stmt.getGeneratedKeys();

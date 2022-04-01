@@ -1,6 +1,9 @@
+<<<<<<< HEAD
+=======
 /**
  * 
  */
+>>>>>>> 9950017c635bc3cc63cdd8cdbc40c212ab3eced0
 package fr.eni.enchere.ihm;
 
 import java.util.ArrayList;
@@ -8,6 +11,25 @@ import java.util.List;
 
 import fr.eni.enchere.bo.Utilisateur;
 
+<<<<<<< HEAD
+public class UtilisateurModel {
+	private Utilisateur current;
+	private List<Utilisateur> lstUtilisateur = new ArrayList<>();
+	private String message;
+
+	public UtilisateurModel() {
+
+	}
+
+	public UtilisateurModel(Utilisateur current, List<Utilisateur> lstUtilisateur, String message) {
+
+		this.current = current;
+		this.lstUtilisateur = lstUtilisateur;
+		this.message = message;
+	}
+
+	
+=======
 /**
  * Classe en charge de
  * 
@@ -43,15 +65,33 @@ public class UtilisateurModel {
 	public UtilisateurModel() {
 		super();
 	}
+>>>>>>> 9950017c635bc3cc63cdd8cdbc40c212ab3eced0
 
 	public Utilisateur getCurrent() {
 		return current;
 	}
 
+<<<<<<< HEAD
+	public void setCurrent(Utilisateur current) {
+		this.current = current;
+	}
+
+	public List<Utilisateur> getLstUtilisateur() {
+		return lstUtilisateur;
+	}
+
+	public void setLstUtilisateur(List<Utilisateur> lstUtilisateur) {
+		this.lstUtilisateur = lstUtilisateur;
+	}
+
+=======
+>>>>>>> 9950017c635bc3cc63cdd8cdbc40c212ab3eced0
 	public String getMessage() {
 		return message;
 	}
 
+<<<<<<< HEAD
+=======
 	public List<Utilisateur> getLstUtilisateurs() {
 		return lstUtilisateurs;
 	}
@@ -60,10 +100,13 @@ public class UtilisateurModel {
 		this.current = current;
 	}
 
+>>>>>>> 9950017c635bc3cc63cdd8cdbc40c212ab3eced0
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
+<<<<<<< HEAD
+=======
 	public void setLstUtilisateurs(List<Utilisateur> lstUtilisateurs) {
 		this.lstUtilisateurs = lstUtilisateurs;
 	}
@@ -80,6 +123,7 @@ public class UtilisateurModel {
 		this.message = message;
 	}
 
+>>>>>>> 9950017c635bc3cc63cdd8cdbc40c212ab3eced0
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -89,6 +133,16 @@ public class UtilisateurModel {
 			builder.append(current);
 			builder.append(", ");
 		}
+<<<<<<< HEAD
+		if (lstUtilisateur != null) {
+			builder.append("lstUtilisateur=");
+			builder.append(lstUtilisateur);
+			builder.append(", ");
+		}
+		if (message != null) {
+			builder.append("message=");
+			builder.append(message);
+=======
 		if (message != null) {
 			builder.append("message=");
 			builder.append(message);
@@ -97,9 +151,15 @@ public class UtilisateurModel {
 		if (lstUtilisateurs != null) {
 			builder.append("lstUtilisateurs=");
 			builder.append(lstUtilisateurs);
+>>>>>>> 9950017c635bc3cc63cdd8cdbc40c212ab3eced0
 		}
 		builder.append("]");
 		return builder.toString();
 	}
 
+<<<<<<< HEAD
+	
+
+=======
+>>>>>>> 9950017c635bc3cc63cdd8cdbc40c212ab3eced0
 }
