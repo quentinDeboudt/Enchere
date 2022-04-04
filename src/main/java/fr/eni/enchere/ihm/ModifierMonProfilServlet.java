@@ -18,7 +18,9 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/ModifierMonProfilServlet")
 public class ModifierMonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//private UtilisateurManager manager = UtilisateurManagerSing.getIntance();
 	private UtilisateurManager manager = UtilisateurManagerSing.getInstance();
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -49,30 +51,43 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				utilisateur.setRue(request.getParameter("rue"));
 				utilisateur.setVille(request.getParameter("ville"));
 			}else {
-				model.setMessage("Le mot de passe de Confirmation n'est pas Correct");
+				model.setMessage("Le mot de passe de Confirmation n'est pas Correct"); //newMotDePasse == Confirmation
 			}
 			
+/*			try {
+				manager.UpDateUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
 			try {
 				manager.addUtilisateur(utilisateur);
+
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
-			}
+			}*/
 			model.setCurrent(utilisateur);
 		}
 		
-		try {
+
+		/*try {
 			model.setLstUtilisateurs(manager.getAll());
+
+		try {
+			model.setLstUtilisateur(manager.getAll());
+
 			
 		} catch (BLLException e) {
 			model.setMessage("Erreur !!!! : "+e.getMessage());
+		}*/
+		
+		if (request.getParameter("BT_SUPRIMER")!=null) {
+			request.getRequestDispatcher("/WEB-INF/AccueilNonConnecter.jsp").forward(request, response);
+			
+		}else {
+			request.setAttribute("model", model);
+			request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
 		}
 		
-		request.setAttribute("model", model);
-		request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
-		
-		
+	
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

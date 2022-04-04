@@ -6,6 +6,8 @@ import java.util.List;
 
 import fr.eni.enchere.bo.Utilisateur;
 
+
+
 public class UtilisateurModel {
 	private Utilisateur current;
 	private List<Utilisateur> lstUtilisateur = new ArrayList<>();
@@ -18,6 +20,7 @@ public class UtilisateurModel {
 		super();
 	}
 
+
 	/**
 	 * Constructeur.
 	 * 
@@ -25,27 +28,32 @@ public class UtilisateurModel {
 	 * @param lstUtilisateur
 	 * @param message
 	 */
+
 	public UtilisateurModel(Utilisateur current, List<Utilisateur> lstUtilisateur, String message) {
-		super();
 		this.current = current;
 		this.lstUtilisateur = lstUtilisateur;
 		this.message = message;
+		this.lstUtilisateur = lstUtilisateur;
 	}
 
 	public Utilisateur getCurrent() {
 		return current;
 	}
+	
+	public void setCurrent(Utilisateur current) {
+		this.current = current;
+	}
 
 	public List<Utilisateur> getLstUtilisateur() {
 		return lstUtilisateur;
 	}
-
+	
+	public void setLstUtilisateurs(List<Utilisateur> lstUtilisateurs) {
+		this.lstUtilisateur = lstUtilisateurs;
+	}
+	
 	public String getMessage() {
 		return message;
-	}
-
-	public void setCurrent(Utilisateur current) {
-		this.current = current;
 	}
 
 	public void setLstUtilisateur(List<Utilisateur> lstUtilisateur) {
@@ -55,6 +63,7 @@ public class UtilisateurModel {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
 
 	@Override
 	public String toString() {
@@ -77,5 +86,7 @@ public class UtilisateurModel {
 		builder.append("]");
 		return builder.toString();
 	}
+
+
 
 }
