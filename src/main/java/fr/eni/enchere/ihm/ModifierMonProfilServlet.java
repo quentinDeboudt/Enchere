@@ -18,7 +18,7 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/ModifierMonProfilServlet")
 public class ModifierMonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UtilisateurManager manager = UtilisateurManagerSing.getIntance();
+	private UtilisateurManager manager = UtilisateurManagerSing.getInstance();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,13 +36,13 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			Utilisateur utilisateur = new Utilisateur();
 			
-			if (request.getParameter("newMotDePasse").equals(request.getParameter("Confirmation"))) {
+			if (request.getParameter("newMotDePasse").equals(request.getParameter("confirmation"))) {
 			
 				utilisateur.setPseudo(request.getParameter("pseudo"));
 				utilisateur.setPrenom(request.getParameter("prenom"));
 				utilisateur.setTelephone(request.getParameter("telephone"));
-				utilisateur.setCodePostal(request.getParameter("codePostal")); //Mettre le code postal en String (suprimer ce massage quand c'est fais)...
-				utilisateur.setMotDePasse(request.getParameter("newMotDePasse")); // Je remplace "MotDePasse"  par  "NewMotDePasse"...
+				utilisateur.setCodePostal(request.getParameter("codePostal"));
+				utilisateur.setMotDePasse(request.getParameter("newMotDePasse")); // Je remplace le  "MotDePasse"  par  "NewMotDePasse"...
 				
 				utilisateur.setNom(request.getParameter("nom"));
 				utilisateur.setEmail(request.getParameter("email"));
@@ -53,7 +53,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 			}
 			
 			try {
-				manager.UpDateUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
+				manager.addUtilisateur(utilisateur);
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}
@@ -77,7 +77,6 @@ public class ModifierMonProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

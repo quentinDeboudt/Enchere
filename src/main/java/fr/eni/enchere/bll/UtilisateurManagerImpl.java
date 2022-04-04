@@ -45,5 +45,14 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 			throw new BLLException("erreur de getById !!! :" + e.getMessage());
 		}
 	}
+	
+	public void UpDate(Integer No_utilisateur) throws BLLException {
+
+		try {
+			dao.Update(No_utilisateur);
+		} catch (DALException e) {
+			throw new BLLException("erreur de Update (UtilisateurManagerImpl) :" + e.getMessage());
+		}
+	}
 
 }

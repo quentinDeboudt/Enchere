@@ -10,14 +10,17 @@ public class UtilisateurModel {
 	private Utilisateur current;
 	private List<Utilisateur> lstUtilisateur = new ArrayList<>();
 	private String message;
+
 	/**
 	 * Constructeur.
 	 */
 	public UtilisateurModel() {
 		super();
 	}
+
 	/**
 	 * Constructeur.
+	 * 
 	 * @param current
 	 * @param lstUtilisateur
 	 * @param message
@@ -28,24 +31,31 @@ public class UtilisateurModel {
 		this.lstUtilisateur = lstUtilisateur;
 		this.message = message;
 	}
+
 	public Utilisateur getCurrent() {
 		return current;
 	}
+
 	public List<Utilisateur> getLstUtilisateur() {
 		return lstUtilisateur;
 	}
+
 	public String getMessage() {
 		return message;
 	}
+
 	public void setCurrent(Utilisateur current) {
 		this.current = current;
 	}
+
 	public void setLstUtilisateur(List<Utilisateur> lstUtilisateur) {
 		this.lstUtilisateur = lstUtilisateur;
 	}
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -67,9 +77,5 @@ public class UtilisateurModel {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	
+
 }
-
-
