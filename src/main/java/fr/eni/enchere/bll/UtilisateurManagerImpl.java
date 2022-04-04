@@ -12,13 +12,34 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 
 	@Override
 	public void addUtilisateur(Utilisateur utilisateur) throws BLLException {
+		//Boolean isExistDeja = true;
 		try {
-			for (Utilisateur item : dao.selectAll()) {
+			/*for (Utilisateur item : dao.selectAll()) {
+
+				// vérifier que le pseudo est unique
 				if (!utilisateur.getPseudo().equals(item.getPseudo())
+
+						// vérifier que le pseudo ne contient que des caractères alphanumériques
+						&& utilisateur.getPseudo().matches("\\p{Alnum}")
+
+						// vérifier que l'email est unique
 						&& !utilisateur.getEmail().equals(item.getEmail())) {
-					dao.insert(utilisateur);
-				}
+
+					isExistDeja = false;
+
+				} 
 			}
+
+			if (isExistDeja) {*/
+				// initialisation du crédit à 100
+				utilisateur.setCredit(100);
+
+				// par défaut, l'utilisateur n'est pas administrateur
+				utilisateur.setAdministrateur(false);
+				
+				// insertion d'un utilisateur
+				dao.insert(utilisateur);
+			//}
 
 		} catch (DALException e) {
 			throw new BLLException("erreur de addUtilisateur !!! : " + e.getMessage());
@@ -45,7 +66,7 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 			throw new BLLException("erreur de getById !!! :" + e.getMessage());
 		}
 	}
-	
+
 	public void UpDate(Integer No_utilisateur) throws BLLException {
 
 		try {

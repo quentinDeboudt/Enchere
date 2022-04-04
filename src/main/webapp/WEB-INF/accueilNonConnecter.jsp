@@ -7,7 +7,6 @@
 <title>Accueil non connecter</title>
 </head>
 <body>
-
 	<h1>ENI-Encheres</h1> <p style="text-align:right;"><a href="" >S'inscrire-Se connecter</a></p>
 	<h2 style="text-align:center;">Liste des enchères</h2>
 	<form action="AccueilNonConnecterServlet" method="post"></form>
@@ -18,5 +17,7 @@
 	<br>
 	<p><p><span style="border: 1px solid black;">PC Gamer pour travailler</p></span></p>
 	
+	
+
 </body>
 </html>
