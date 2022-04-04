@@ -3,6 +3,7 @@ package fr.eni.enchere.bll;
 import java.util.List;
 
 import fr.eni.enchere.bo.Utilisateur;
+import fr.eni.enchere.dal.DALException;
 
 public interface UtilisateurManager {
 	public void addUtilisateur(Utilisateur utilisateur) throws BLLException;
@@ -10,4 +11,6 @@ public interface UtilisateurManager {
 	public List<Utilisateur> getAll() throws BLLException;
 
 	public Utilisateur getById(Integer id) throws BLLException;
+	
+	public void UpDate(Integer No_utilisateur) throws BLLException;
 }

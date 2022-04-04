@@ -41,8 +41,8 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				utilisateur.setPseudo(request.getParameter("pseudo"));
 				utilisateur.setPrenom(request.getParameter("prenom"));
 				utilisateur.setTelephone(request.getParameter("telephone"));
-				utilisateur.setCodePostal(request.getParameter("codePostal")); //Mettre le code postal en String (suprimer ce massage quand c'est fais )...
-				utilisateur.setMotDePasse(request.getParameter("newMotDePasse")); // Je remplace "MotDePasse"  par  "NewMotDePasse"...
+				utilisateur.setCodePostal(request.getParameter("codePostal"));
+				utilisateur.setMotDePasse(request.getParameter("newMotDePasse")); // Je remplace le  "MotDePasse"  par  "NewMotDePasse"...
 				
 				utilisateur.setNom(request.getParameter("nom"));
 				utilisateur.setEmail(request.getParameter("email"));
@@ -53,7 +53,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 			}
 			
 			try {
-				manager.addUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
+				manager.addUtilisateur(utilisateur);
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}
