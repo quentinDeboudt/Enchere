@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,13 +27,12 @@
 							
 					Description: <input type="text" name="Description" value="${model.current.Description}" /><br>
 			
-					
+				
 					Categorie: 
-					<select name="Categorie" id="Categorie">
-						<option value=""></option>
-					    <option value="informatique">informatique</option>
-					    <option value="hobby">hobby</option>
-					    <option value="Meuble">Meuble</option>
+					<select name="Categorie" >
+						<c:forEach items="${Categorie.lstCategorieArticle}" var="Categorie">
+							<option value="${CategorieArticle}"></option>
+						</c:forEach>
 					</select><br>
 										
 					Photo de larticle: <input type="text" name="PhotoDeLarticle" value="${model.current.PhotoDeLarticle}" /><br>
@@ -56,13 +57,13 @@
 					
 				</div>
 				
-				<div title="Retrait"  style="border: solid; margin-top:10px;  ">
+				<div title="Retrait"  style="border: solid; margin-top:10px; padding: 5px;  ">
 				
-					Rue: <input type="text" name="Rue" value="${model.current.Rue}" /><br>
+					Rue: <input type="text" name="Rue" value="${Retrait.getRue}" /><br>
 					
-					Code Postal: <input type="text" name="Code_Postal" value="${model.current.Code_Postal}" /><br>
+					Code Postal: <input type="text" name="Code_Postal" value="${Retrait.GetCode_Postal}" /><br>
 					
-					Ville: <input type="text" name="Ville" value="${model.current.Ville}" /><br>
+					Ville: <input type="text" name="Ville" value="${Retrait.getVille}" /><br>
 									
 				</div>
 				<br>

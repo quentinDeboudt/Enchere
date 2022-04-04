@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.enchere.bo.ArticleVendu;
+import fr.eni.enchere.bo.Categorie;
 import fr.eni.enchere.bo.Retrait;
 import fr.eni.enchere.bo.Utilisateur;
 
@@ -51,6 +52,8 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			*/
 			
 		}
+		
+		
 			
 		//request.setAttribute("model", model);
 		request.getRequestDispatcher("/WEB-INF/CreationNouvelleVente.jsp").forward(request, response);
