@@ -7,7 +7,11 @@
 <title>Accueil non connecter</title>
 </head>
 <body>
-	<h1>ENI-Encheres</h1> <p style="text-align:right;"><a href="" >S'inscrire-Se connecter</a></p>
+	<header style="display:flex; flex-direction: rows;">
+		<a href="AccueilDeconnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+		<a href="" >S'inscrire-Se connecter</a>
+	</header>
+	
 	<h2 style="text-align:center;">Liste des enchères</h2>
 	<form action="AccueilNonConnecterServlet" method="post"></form>
 	<h2>Filtres :</h2>

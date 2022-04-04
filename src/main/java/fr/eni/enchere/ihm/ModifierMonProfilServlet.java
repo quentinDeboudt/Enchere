@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bll.UtilisateurManager;
@@ -54,32 +55,22 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				model.setMessage("Le mot de passe de Confirmation n'est pas Correct"); //newMotDePasse == Confirmation
 			}
 			
-/*			try {
-				manager.UpDateUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
+			
+				     //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
 			try {
-				manager.addUtilisateur(utilisateur);
+				//HttpSession session = request.getSession();
+				//manager.UpDate(sessionScope.No_Utilisateur);
+				manager.UpDate(3);
 
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
-			}*/
+			}
 			model.setCurrent(utilisateur);
 		}
 		
-
-		/*try {
-			model.setLstUtilisateurs(manager.getAll());
-
-		try {
-			model.setLstUtilisateur(manager.getAll());
-
-			
-		} catch (BLLException e) {
-			model.setMessage("Erreur !!!! : "+e.getMessage());
-		}*/
-		
 		if (request.getParameter("BT_SUPRIMER")!=null) {
-			request.getRequestDispatcher("/WEB-INF/AccueilNonConnecter.jsp").forward(request, response);
-			
+			request.getRequestDispatcher("/WEB-INF/accueilNonConnecter.jsp").forward(request, response);
+			//manager.delet();
 		}else {
 			request.setAttribute("model", model);
 			request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
