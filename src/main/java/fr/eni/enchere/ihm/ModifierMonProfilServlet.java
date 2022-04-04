@@ -49,7 +49,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				utilisateur.setRue(request.getParameter("rue"));
 				utilisateur.setVille(request.getParameter("ville"));
 			}else {
-				model.setMessage("Le mot de passe de Confirmation n'est pas Correct");
+				model.setMessage("Le mot de passe de Confirmation n'est pas Correct"); //newMotDePasse == Confirmation
 			}
 			
 			try {
@@ -61,18 +61,23 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		}
 		
 		try {
-			model.setLstUtilisateurs(manager.getAll());
+			model.setLstUtilisateur(manager.getAll());
 			
 		} catch (BLLException e) {
 			model.setMessage("Erreur !!!! : "+e.getMessage());
 		}
 		
-		request.setAttribute("model", model);
-		request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
+		if (request.getParameter("BT_SUPRIMER")!=null) {
+			request.getRequestDispatcher("/WEB-INF/AccueilNonConnecter.jsp").forward(request, response);
+			
+		}else {
+			request.setAttribute("model", model);
+			request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
+		}
 		
-		
+	
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
