@@ -7,7 +7,7 @@
 <title>AccueilConnecter</title>
 </head>
 <body>
-	<h1>ENI-Encheres</h1> <p style="text-align:right;"><a href="" >S'inscrire-Se connecter</a></p>
+	<h1>ENI-Encheres</h1> <p style="text-align:right;"><a href="" >Enchères</a> <a href="" >Vendre un article</a> <a href="" >Mon profil</a> <a href="" >Déconnexion</a></p>
 	<h2 style="text-align:center;">Liste des enchères</h2>
 	<form action="AccueilNonConnecterServlet" method="post"></form>
 	<h2>Filtres :</h2>
