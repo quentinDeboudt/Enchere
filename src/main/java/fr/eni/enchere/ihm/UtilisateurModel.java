@@ -7,29 +7,33 @@ import java.util.List;
 import fr.eni.enchere.bo.Utilisateur;
 
 
+
 public class UtilisateurModel {
-
 	private Utilisateur current;
+	private List<Utilisateur> lstUtilisateur = new ArrayList<>();
 	private String message;
-	private List<Utilisateur> lstUtilisateur = new ArrayList<Utilisateur>();
-
-	/**
-	 * Constructeur.
-	 * 
-	 * @param current
-	 * @param message
-	 * @param lstUtilisateurs
-	 */
-	public UtilisateurModel(Utilisateur current, String message, List<Utilisateur> lstUtilisateurs) {
-		this.current = current;
-		this.message = message;
-		this.lstUtilisateur = lstUtilisateurs;
-	}
 
 	/**
 	 * Constructeur.
 	 */
 	public UtilisateurModel() {
+		super();
+	}
+
+
+	/**
+	 * Constructeur.
+	 * 
+	 * @param current
+	 * @param lstUtilisateur
+	 * @param message
+	 */
+
+	public UtilisateurModel(Utilisateur current, List<Utilisateur> lstUtilisateur, String message) {
+		this.current = current;
+		this.lstUtilisateur = lstUtilisateur;
+		this.message = message;
+		this.lstUtilisateur = lstUtilisateur;
 	}
 
 	public Utilisateur getCurrent() {
@@ -45,16 +49,21 @@ public class UtilisateurModel {
 	}
 	
 	public void setLstUtilisateurs(List<Utilisateur> lstUtilisateurs) {
-		this.lstUtilisateur = lstUtilisateur;
+		this.lstUtilisateur = lstUtilisateurs;
 	}
 	
 	public String getMessage() {
 		return message;
 	}
 
+	public void setLstUtilisateur(List<Utilisateur> lstUtilisateur) {
+		this.lstUtilisateur = lstUtilisateur;
+	}
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
 
 	@Override
 	public String toString() {
@@ -65,19 +74,19 @@ public class UtilisateurModel {
 			builder.append(current);
 			builder.append(", ");
 		}
-		if (message != null) {
-			builder.append("message=");
-			builder.append(message);
-			builder.append(", ");
-		}
 		if (lstUtilisateur != null) {
 			builder.append("lstUtilisateur=");
 			builder.append(lstUtilisateur);
+			builder.append(", ");
+		}
+		if (message != null) {
+			builder.append("message=");
+			builder.append(message);
 		}
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 
 
 }

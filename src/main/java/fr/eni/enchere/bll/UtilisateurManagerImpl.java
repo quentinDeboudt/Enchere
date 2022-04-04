@@ -13,7 +13,13 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 	@Override
 	public void addUtilisateur(Utilisateur utilisateur) throws BLLException {
 		try {
-			dao.insert(utilisateur);
+			for (Utilisateur item : dao.selectAll()) {
+				if (!utilisateur.getPseudo().equals(item.getPseudo())
+						&& !utilisateur.getEmail().equals(item.getEmail())) {
+					dao.insert(utilisateur);
+				}
+			}
+
 		} catch (DALException e) {
 			throw new BLLException("erreur de addUtilisateur !!! : " + e.getMessage());
 		}
@@ -37,6 +43,15 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 		} catch (DALException e) {
 
 			throw new BLLException("erreur de getById !!! :" + e.getMessage());
+		}
+	}
+	
+	public void UpDate(Integer No_utilisateur) throws BLLException {
+
+		try {
+			dao.Update(No_utilisateur);
+		} catch (DALException e) {
+			throw new BLLException("erreur de Update (UtilisateurManagerImpl) :" + e.getMessage());
 		}
 	}
 

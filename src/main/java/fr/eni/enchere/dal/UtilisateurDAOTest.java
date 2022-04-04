@@ -14,9 +14,9 @@ public class UtilisateurDAOTest {
 		UtilisateurDAO dao = DAOFact.getUtilisateurDAO();
 
 		// JEUX D'ESSAI A INSERER ET/OU SELECTIONNER
-		Utilisateur utilisateur1 = new Utilisateur(1, "DINO", "MAHAMOUD", "Inzoudine",
+		/*Utilisateur utilisateur1 = new Utilisateur(1, "DINO", "MAHAMOUD", "Inzoudine",
 				"inzoudine.mahamoud2022@campus-eni.fr", "06.12.91.93.61", "rue de fougères", "35700", "RENNES",
-				"rennes35", 1000, "admin");
+				"rennes35", 1000, "admin");*/
 		/*
 		 * Utilisateur utilisateur2=new Utilisateur(); Utilisateur utilisateur3=new
 		 * Utilisateur(); Utilisateur utilisateur4=new Utilisateur(); Utilisateur
@@ -24,7 +24,7 @@ public class UtilisateurDAOTest {
 		 */
 
 		// TEST D'INSERTION
-		dao.insert(utilisateur1);
+		//dao.insert(utilisateur1);
 		/*
 		 * dao.insert(utilisateur2); dao.insert(utilisateur3); dao.insert(utilisateur4);
 		 * dao.insert(utilisateur5);

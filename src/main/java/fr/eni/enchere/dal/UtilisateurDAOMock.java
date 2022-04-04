@@ -2,6 +2,8 @@ package fr.eni.enchere.dal;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bo.Utilisateur;
 
 
@@ -44,5 +46,13 @@ public class UtilisateurDAOMock implements UtilisateurDAO{
 		else {
 			throw new DALException("Erreur de selectById : la liste a parcourir pour avoir id est vide !!!");
 		}
+	}
+
+
+	@Override
+	public void Update(Integer no_article ) throws DALException {
+		//listeUtilisateur.set(no_article, utilisateur);
+		//Je sais pas comment faire...  :(   
+		
 	}
 }

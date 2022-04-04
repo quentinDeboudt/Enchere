@@ -19,6 +19,8 @@ import fr.eni.enchere.bo.Utilisateur;
 public class ModifierMonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private UtilisateurManager manager = UtilisateurManagerSing.getIntance();
+	private UtilisateurManager manager = UtilisateurManagerSing.getInstance();
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,48 +38,60 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			Utilisateur utilisateur = new Utilisateur();
 			
-			if (request.getParameter("newMotDePasse").equals(request.getParameter("Confirmation"))) {
+			if (request.getParameter("newMotDePasse").equals(request.getParameter("confirmation"))) {
 			
 				utilisateur.setPseudo(request.getParameter("pseudo"));
 				utilisateur.setPrenom(request.getParameter("prenom"));
 				utilisateur.setTelephone(request.getParameter("telephone"));
-				utilisateur.setCodePostal(request.getParameter("codePostal")); //Mettre le code postal en String (suprimer ce massage quand c'est fais)...
-				utilisateur.setMotDePasse(request.getParameter("newMotDePasse")); // Je remplace "MotDePasse"  par  "NewMotDePasse"...
+				utilisateur.setCodePostal(request.getParameter("codePostal"));
+				utilisateur.setMotDePasse(request.getParameter("newMotDePasse")); // Je remplace le  "MotDePasse"  par  "NewMotDePasse"...
 				
 				utilisateur.setNom(request.getParameter("nom"));
 				utilisateur.setEmail(request.getParameter("email"));
 				utilisateur.setRue(request.getParameter("rue"));
 				utilisateur.setVille(request.getParameter("ville"));
 			}else {
-				model.setMessage("Le mot de passe de Confirmation n'est pas Correct");
+				model.setMessage("Le mot de passe de Confirmation n'est pas Correct"); //newMotDePasse == Confirmation
 			}
 			
 /*			try {
 				manager.UpDateUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
+			try {
+				manager.addUtilisateur(utilisateur);
+
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}*/
 			model.setCurrent(utilisateur);
 		}
 		
+
 		/*try {
 			model.setLstUtilisateurs(manager.getAll());
+
+		try {
+			model.setLstUtilisateur(manager.getAll());
+
 			
 		} catch (BLLException e) {
 			model.setMessage("Erreur !!!! : "+e.getMessage());
 		}*/
 		
-		request.setAttribute("model", model);
-		request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
+		if (request.getParameter("BT_SUPRIMER")!=null) {
+			request.getRequestDispatcher("/WEB-INF/AccueilNonConnecter.jsp").forward(request, response);
+			
+		}else {
+			request.setAttribute("model", model);
+			request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
+		}
 		
-		
+	
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
