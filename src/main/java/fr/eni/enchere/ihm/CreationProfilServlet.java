@@ -46,7 +46,7 @@ public class CreationProfilServlet extends HttpServlet {
 		
 		if (request.getParameter("BT_CREER") != null) {
 
-			if (request.getParameter("motDePasse").equals(request.getParameter("verifMotDePasse"))) {
+			//if (request.getParameter("motDePasse").equals(request.getParameter("verifMotDePasse"))) {
 
 				Utilisateur utilisateur = new Utilisateur();
 				utilisateur.setPseudo(request.getParameter("pseudo"));
@@ -58,6 +58,8 @@ public class CreationProfilServlet extends HttpServlet {
 				utilisateur.setEmail(request.getParameter("email"));
 				utilisateur.setRue(request.getParameter("rue"));
 				utilisateur.setVille(request.getParameter("ville"));
+				utilisateur.setCredit(Integer.parseInt(request.getParameter("credit")));
+				utilisateur.setAdministrateur(Boolean.parseBoolean(request.getParameter("administrateur")));
 
 				try {
 					manager.addUtilisateur(utilisateur);
@@ -65,7 +67,7 @@ public class CreationProfilServlet extends HttpServlet {
 				} catch (BLLException e) {
 					model.setMessage(e.getMessage());
 				}
-			}
+			//}
 			
 			request.setAttribute("model", model);
 		}

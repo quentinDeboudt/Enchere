@@ -45,6 +45,10 @@
 			<input type="text" name="ville" value="${model.current.ville}"><br>
 		<label for="verifMotDePasse">Confirmation:</label>
 			<input type="password" name="verifMotDePasse" value="${model.current.motDePasse}"><br>
+		<label for="credit">Credit:</label>
+			<input type="text" name="credit" value="${model.current.credit}"><br>
+		<label for="administrateur">Administrateur:</label>
+			<input type="text" name="administrateur" value="${model.current.administrateur}"><br>
 	</div>
 </div>
 

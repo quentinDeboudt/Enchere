@@ -13,7 +13,13 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 	@Override
 	public void addUtilisateur(Utilisateur utilisateur) throws BLLException {
 		try {
-			dao.insert(utilisateur);
+			for (Utilisateur item : dao.selectAll()) {
+				if (!utilisateur.getPseudo().equals(item.getPseudo())
+						&& !utilisateur.getEmail().equals(item.getEmail())) {
+					dao.insert(utilisateur);
+				}
+			}
+
 		} catch (DALException e) {
 			throw new BLLException("erreur de addUtilisateur !!! : " + e.getMessage());
 		}
