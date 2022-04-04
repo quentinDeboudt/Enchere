@@ -28,7 +28,7 @@ public class ArticleVenduManagerTest {
 	 * @param args
 	 * @throws BLLException 
 	 */
-	public static void main(String[] args) throws BLLException {
+	/*public static void main(String[] args) throws BLLException {
 
 			manager.addArticleVendu(new ArticleVendu(1, "chaise", "magnifique chaise", LocalDate.of(2022, 1, 22),
 					LocalDate.of(2022, 2, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email",
@@ -40,6 +40,6 @@ public class ArticleVenduManagerTest {
 
 		
 			System.out.println(manager.getAllArticleVendu());
-	}
+	}*/
 
 }
