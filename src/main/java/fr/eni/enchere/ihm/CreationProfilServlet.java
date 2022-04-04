@@ -38,15 +38,11 @@ public class CreationProfilServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		UtilisateurModel model = new UtilisateurModel();
-		request.getRequestDispatcher("/WEB-INF/creationProfil.jsp").forward(request, response);
-
-		if (request.getParameter("BT_ANNULER") != null) {
-			request.getRequestDispatcher("/WEB-INF/page d'accueil jsp").forward(request, response);
-		}
+		
 		
 		if (request.getParameter("BT_CREER") != null) {
 
-			//if (request.getParameter("motDePasse").equals(request.getParameter("verifMotDePasse"))) {
+			if (request.getParameter("motDePasse").equals(request.getParameter("verifMotDePasse"))) {
 
 				Utilisateur utilisateur = new Utilisateur();
 				utilisateur.setPseudo(request.getParameter("pseudo"));
@@ -58,8 +54,8 @@ public class CreationProfilServlet extends HttpServlet {
 				utilisateur.setEmail(request.getParameter("email"));
 				utilisateur.setRue(request.getParameter("rue"));
 				utilisateur.setVille(request.getParameter("ville"));
-				utilisateur.setCredit(Integer.parseInt(request.getParameter("credit")));
-				utilisateur.setAdministrateur(Boolean.parseBoolean(request.getParameter("administrateur")));
+				utilisateur.setCredit(utilisateur.getCredit());
+				utilisateur.setAdministrateur(utilisateur.getAdministrateur());
 
 				try {
 					manager.addUtilisateur(utilisateur);
@@ -67,10 +63,15 @@ public class CreationProfilServlet extends HttpServlet {
 				} catch (BLLException e) {
 					model.setMessage(e.getMessage());
 				}
-			//}
-			
-			request.setAttribute("model", model);
+			}
 		}
+		
+		if (request.getParameter("BT_ANNULER") != null) {
+			request.getRequestDispatcher("/WEB-INF/AccueilDeconnecte.jsp").forward(request, response);
+		}
+		
+			request.setAttribute("model", model);
+			request.getRequestDispatcher("/WEB-INF/creationProfil.jsp").forward(request, response);
 		
 
 	}

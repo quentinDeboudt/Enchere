@@ -13,7 +13,7 @@
 
 <header>
 <div>
-<a href="jsp page d'accueil">Eni-Enchères</a>
+<a href="AccueilDeconnecte.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 </div>
 </header>
 
@@ -21,8 +21,8 @@
 
 <form action="CreationProfilServlet" method="POST">
 
-<div>
-	<div>
+<div style="display:flex;">
+	<div style="display:flex; flex-direction: column; max-width: 20%; margin: 5px;">
 		<label for="pseudo">Pseudo:</label>
 			<input type="text" name="pseudo" value="${model.current.pseudo}"><br>
 		<label for="prénom">Prénom:</label>
@@ -34,7 +34,7 @@
 		<label for="motDePasse">Mot de Passe:</label>
 			<input type="password" name="motDePasse" value="${model.current.motDePasse}"><br>
 	</div>
-	<div>
+	<div style="display:flex; flex-direction: column; max-width: 20%; margin: 5px;">
 		<label for="nom">Nom:</label>
 			<input type="text" name="nom" value="${model.current.nom}"><br>
 		<label for="email">Email:</label>
@@ -45,10 +45,6 @@
 			<input type="text" name="ville" value="${model.current.ville}"><br>
 		<label for="verifMotDePasse">Confirmation:</label>
 			<input type="password" name="verifMotDePasse" value="${model.current.motDePasse}"><br>
-		<label for="credit">Credit:</label>
-			<input type="text" name="credit" value="${model.current.credit}"><br>
-		<label for="administrateur">Administrateur:</label>
-			<input type="text" name="administrateur" value="${model.current.administrateur}"><br>
 	</div>
 </div>
 
