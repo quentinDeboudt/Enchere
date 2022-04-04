@@ -21,7 +21,7 @@ public class ArticleVenduDAOTest {
 	
 	private static ArticleVenduDAO dao = DAOFact.getArticleVenduDAO();
 	
-	public static void main(String[] args) throws DALException  {
+	/*public static void main(String[] args) throws DALException  {
 			dao.insert(new ArticleVendu(1, "chaise", "magnifique chaise", LocalDate.of(2022, 1, 22), LocalDate.of(2022, 2, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email", "telephone",
 					"rue", 35000, "ville", "motDePasse", 50, "administrateur"), new Categorie(5, "Informatique")) );
 			dao.insert(new ArticleVendu(2, "écran", "magnifique écran", LocalDate.of(2021, 3, 22), LocalDate.of(2021, 4, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email", "telephone",
@@ -35,6 +35,6 @@ public class ArticleVenduDAOTest {
 			
 			System.out.println(dao.selectById(5));
 		
-	}
+	}*/
 
 }

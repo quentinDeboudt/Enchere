@@ -18,7 +18,7 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/ModifierMonProfilServlet")
 public class ModifierMonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UtilisateurManager manager = UtilisateurManagerSing.getIntance();
+	//private UtilisateurManager manager = UtilisateurManagerSing.getIntance();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -52,20 +52,20 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				model.setMessage("Le mot de passe de Confirmation n'est pas Correct");
 			}
 			
-			try {
+/*			try {
 				manager.UpDateUtilisateur(utilisateur);  //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
-			}
+			}*/
 			model.setCurrent(utilisateur);
 		}
 		
-		try {
+		/*try {
 			model.setLstUtilisateurs(manager.getAll());
 			
 		} catch (BLLException e) {
 			model.setMessage("Erreur !!!! : "+e.getMessage());
-		}
+		}*/
 		
 		request.setAttribute("model", model);
 		request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
