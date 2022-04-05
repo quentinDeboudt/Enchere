@@ -40,7 +40,7 @@ public class ArticleVenduDAOMock implements ArticleVenduDAO {
 	*{@inheritedDoc}
 	*/
 	@Override
-	public ArticleVendu selectById(int id) throws DALException {
+	public ArticleVendu selectById(Integer noArticleVendu) throws DALException {
 		return articleVendu;
 	}
 

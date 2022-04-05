@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.enchere.bo.ArticleVendu;
 import fr.eni.enchere.bo.Utilisateur;
 import fr.eni.enchere.bll.UtilisateurManager;
 import fr.eni.enchere.bll.UtilisateurManagerSing;
@@ -33,6 +34,12 @@ public class AccueilNonConnecterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ArctileVenduModel model = new ArctileVenduModel();
+		if (request.getParameter("BT_Rechercher") != null) {
+			ArticleVendu arcticleVendu = new ArticleVendu();
+			arcticleVendu.setNomArticle(request.getParameter("nomArticle"));
+			arcticleVendu.setBrasserie(request.getParameter("brasserie"));
+			biere.setCouleur(request.getParameter("couleur"));
 		/*UtilisateurModel model = new UtilisateurModel();
 		if (request.getParameter("BT_VALID") != null) {
 			Utilisateur utilisateur = new Utilisateur();

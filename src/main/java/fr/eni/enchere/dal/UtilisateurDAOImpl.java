@@ -18,6 +18,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	private final String INSERT = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE noUtilisateur = ?";
 	private final String UPDATE = "UPDATE UTILISATEURS SET pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=?, mot_de_passe=? WHERE no_utilisateur=?";
+	private final String SELECT_BY_PSEUDO = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville FROM utilisateurs WHERE pseudo = ?";
 
 	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {// comunication directe avec la bdd ou mock apres
@@ -113,6 +114,31 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		} catch (SQLException ex) {
 			throw new DALException("Erreur dans la fonction update : " + ex.getMessage());
 		}
+	}
+	
+	public Utilisateur selectByPseudo (String pseudo) throws DALException {
+		
+		Utilisateur utilisateur = new Utilisateur();
+		
+		try (Connection con = ConnectionProvider.getConnection()) {
+			PreparedStatement stmt = con.prepareStatement(SELECT_BY_PSEUDO);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				utilisateur.setPseudo(rs.getString("pseudo"));
+				utilisateur.setNom(rs.getString("nom"));
+				utilisateur.setPrenom(rs.getString("prenom"));
+				utilisateur.setEmail(rs.getString("email"));
+				utilisateur.setTelephone(rs.getString("telephone"));
+				utilisateur.setRue(rs.getString("rue"));
+				utilisateur.setCodePostal(rs.getString("code_postal"));
+				utilisateur.setVille(rs.getString("ville"));}
+			
+		} catch (Exception e) {
+			throw new DALException ("Probleme dans le selectByPseudo");
+		}
+		
+		return utilisateur;
+		
 	}
 
 }

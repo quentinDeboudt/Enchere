@@ -55,4 +55,14 @@ public class UtilisateurDAOMock implements UtilisateurDAO{
 		//Je sais pas comment faire...  :(   
 		
 	}
+
+
+	/**
+	*{@inheritedDoc}
+	*/
+	@Override
+	public Utilisateur selectByPseudo(String Pseudo) throws DALException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

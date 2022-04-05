@@ -67,7 +67,7 @@ public class CreationProfilServlet extends HttpServlet {
 		}
 		
 		if (request.getParameter("BT_ANNULER") != null) {
-			request.getRequestDispatcher("/WEB-INF/AccueilDeconnecte.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/accueilNonConnecter.jsp").forward(request, response);
 		}
 		
 			request.setAttribute("model", model);
