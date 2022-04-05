@@ -46,7 +46,7 @@ public class AfficherProfilAutreUtilisateurServlet extends HttpServlet {
 		
 		
 		
-		request.getRequestDispatcher("/WEB-INF/infoAutreUtilisateur.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/afficherProfilAutreUtilisateur.jsp").forward(request, response);
 		
 	
 	

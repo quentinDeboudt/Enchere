@@ -18,15 +18,19 @@
 </header>
 
 <form action="AfficherMonProfilServlet" method="POST">
-<div>
-	<label for="pseudo">Pseudo: ${sessionScope.pseudo}</label><br>
-	<label for="nom">Nom: ${sessionScope.nom}</label><br>		
-	<label for="prénom">Prénom:{sessionScope.prenom}</label><br>			
-	<label for="email">Email: ${sessionScope.email}</label><br>
-	<label for="telephone">Téléphone:{sessionScope.telephone}</label><br>
-	<label for="rue">Rue:{sessionScope.rue}</label><br>	
-	<label for="codePostal">Code Postal:${sessionScope.codePostal}</label><br>
-	<label for="ville">Ville:${sessionScope.ville}</label><br>					
-</div>
+	<div>
+		<label for="pseudo">Pseudo: ${model.current.pseudo}</label><br>
+		<label for="nom">Nom: ${model.current.nom}</label><br>		
+		<label for="prénom">Prénom: ${model.current.prenom}</label><br>			
+		<label for="email">Email: ${model.current.email}</label><br>
+		<label for="telephone">Téléphone: ${model.current.telephone}</label><br>
+		<label for="rue">Rue: ${model.current.rue}</label><br>	
+		<label for="codePostal">Code Postal:${model.current.codePostal}</label><br>
+		<label for="ville">Ville: ${model.current.ville}</label><br>					
+	</div>
+	
+	<div>
+		<input type="submit" name="BT_MODIF" value="Modifier"/>
+	</div>
 </body>
 </html>
