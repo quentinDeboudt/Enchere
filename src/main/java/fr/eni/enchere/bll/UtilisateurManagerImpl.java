@@ -12,34 +12,35 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 
 	@Override
 	public void addUtilisateur(Utilisateur utilisateur) throws BLLException {
-		//Boolean isExistDeja = true;
+		// Boolean isExistDeja = true;
 		try {
-			/*for (Utilisateur item : dao.selectAll()) {
+			/*
+			 * for (Utilisateur item : dao.selectAll()) {
+			 * 
+			 * // vérifier que le pseudo est unique if
+			 * (!utilisateur.getPseudo().equals(item.getPseudo())
+			 * 
+			 * // vérifier que le pseudo ne contient que des caractères alphanumériques &&
+			 * utilisateur.getPseudo().matches("\\p{Alnum}")
+			 * 
+			 * // vérifier que l'email est unique &&
+			 * !utilisateur.getEmail().equals(item.getEmail())) {
+			 * 
+			 * isExistDeja = false;
+			 * 
+			 * } }
+			 * 
+			 * if (isExistDeja) {
+			 */
+			// initialisation du crédit à 100
+			utilisateur.setCredit(100);
 
-				// vérifier que le pseudo est unique
-				if (!utilisateur.getPseudo().equals(item.getPseudo())
+			// par défaut, l'utilisateur n'est pas administrateur
+			utilisateur.setAdministrateur(false);
 
-						// vérifier que le pseudo ne contient que des caractères alphanumériques
-						&& utilisateur.getPseudo().matches("\\p{Alnum}")
-
-						// vérifier que l'email est unique
-						&& !utilisateur.getEmail().equals(item.getEmail())) {
-
-					isExistDeja = false;
-
-				} 
-			}
-
-			if (isExistDeja) {*/
-				// initialisation du crédit à 100
-				utilisateur.setCredit(100);
-
-				// par défaut, l'utilisateur n'est pas administrateur
-				utilisateur.setAdministrateur(false);
-				
-				// insertion d'un utilisateur
-				dao.insert(utilisateur);
-			//}
+			// insertion d'un utilisateur
+			dao.insert(utilisateur);
+			// }
 
 		} catch (DALException e) {
 			throw new BLLException("erreur de addUtilisateur !!! : " + e.getMessage());
@@ -49,12 +50,12 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 	@Override
 	public List<Utilisateur> getAll() throws BLLException {
 		try {
-			dao.selectAll();
-			return null;
+			return dao.selectAll();
 		} catch (DALException e) {
 			throw new BLLException("erreur de getAll !!! : " + e.getMessage());
 		}
 	}
+	
 
 	@Override
 	public Utilisateur getById(Integer id) throws BLLException {
@@ -67,12 +68,24 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 		}
 	}
 
-	public void UpDate(Integer No_utilisateur) throws BLLException {
+	public void UpDate(Integer noUtilisateur) throws BLLException {
 
 		try {
-			dao.Update(No_utilisateur);
+			dao.Update(noUtilisateur);
 		} catch (DALException e) {
 			throw new BLLException("erreur de Update (UtilisateurManagerImpl) :" + e.getMessage());
+		}
+	}
+
+	/**
+	 * {@inheritedDoc}
+	 */
+	@Override
+	public Utilisateur getByPseudo(String pseudo) throws BLLException {
+		try {
+			return dao.selectByPseudo(pseudo);
+		} catch (DALException e) {
+			throw new BLLException("erreur dans la methode getByPseudo :" + e.getMessage());
 		}
 	}
 

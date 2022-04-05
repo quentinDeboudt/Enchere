@@ -14,7 +14,8 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager {
 
 	/**
 	 * {@inheritedDoc}
-	 * @throws BLLException 
+	 * 
+	 * @throws BLLException
 	 */
 	@Override
 	public void addArticleVendu(ArticleVendu articleVendu) throws BLLException {
@@ -27,32 +28,31 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager {
 
 	/**
 	 * {@inheritedDoc}
-	 * @throws BLLException 
+	 * 
+	 * @throws BLLException
 	 */
 	@Override
 	public List<ArticleVendu> getAllArticleVendu() throws BLLException {
 		try {
-			dao.selectAll();
+			return dao.selectAll();
 		} catch (DALException e) {
 			throw new BLLException(e.getMessage());
 		}
-		return lstArticlesVendus;
 	}
 
 	/**
 	 * {@inheritedDoc}
-	 * @throws BLLException 
+	 * 
+	 * @throws BLLException
 	 */
 	@Override
 	public ArticleVendu getById(Integer noArticleVendu) throws BLLException {
-		ArticleVendu articleVendu = new ArticleVendu();
 		try {
-			
-			dao.selectById(noArticleVendu);
+
+			return dao.selectById(noArticleVendu);
 		} catch (Exception e) {
 			throw new BLLException(e.getMessage());
-			}
-		return articleVendu;
-	}
+		}
 
+	}
 }

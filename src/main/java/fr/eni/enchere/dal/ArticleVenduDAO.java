@@ -19,6 +19,6 @@ public interface ArticleVenduDAO {
 	
 	public void insert (ArticleVendu articleVendu) throws DALException;
 	public List<ArticleVendu> selectAll() throws DALException;
-	public ArticleVendu selectById (int id) throws DALException;
+	public ArticleVendu selectById (Integer noArticle) throws DALException;
 
 }

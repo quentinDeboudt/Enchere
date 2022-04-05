@@ -13,7 +13,7 @@
 
 <header>
 <div>
-<a href="AccueilDeconnecte.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+<a href="accueilNonConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 </div>
 </header>
 

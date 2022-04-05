@@ -107,7 +107,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 		return result;
 	}
 
-	public ArticleVendu selectById(int noArticle) throws DALException {
+	public ArticleVendu selectById(Integer noArticle) throws DALException {
 
 		UtilisateurDAO daoUtilisateur = DAOFact.getUtilisateurDAO();
 		CategorieDAO daoCategorie = DAOFact.getCategorieDAO();
@@ -115,7 +115,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 		
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SelectById);
-			stmt.setInt(1, noArticle);
+			stmt.setInt(1, articleVendu.getNoArticle());
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 				articleVendu.setNoArticle(rs.getInt("no_article"));
