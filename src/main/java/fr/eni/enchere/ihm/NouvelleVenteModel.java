@@ -1,3 +1,4 @@
+package fr.eni.enchere.ihm;
 import java.util.ArrayList;
 import java.util.List;
 
