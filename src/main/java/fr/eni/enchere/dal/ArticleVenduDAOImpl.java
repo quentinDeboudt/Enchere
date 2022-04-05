@@ -115,7 +115,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 		
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SelectById);
-			stmt.setInt(1, articleVendu.getNoArticle());
+			stmt.setInt(1, noArticle);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 				articleVendu.setNoArticle(rs.getInt("no_article"));
