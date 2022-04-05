@@ -28,7 +28,6 @@ public class Enchere {
 	 */
 	public Enchere(Integer noEnchere, LocalDate dateEnchere, Integer montant_enchere, Utilisateur utilisateur,
 			ArticleVendu articleVendu) {
-		super();
 		this.noEnchere = noEnchere;
 		this.dateEnchere = dateEnchere;
 		this.montant_enchere = montant_enchere;
