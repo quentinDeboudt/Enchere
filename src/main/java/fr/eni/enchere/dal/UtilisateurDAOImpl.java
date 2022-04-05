@@ -46,8 +46,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		} catch (SQLException e) {
 			throw new DALException("Probleme de Insert dans la DAL : " + e.getMessage());
 		}
-	}
-
+	} 
+ 
 	@Override
 	public List<Utilisateur> selectAll() throws DALException {
 		List<Utilisateur> result = new ArrayList<Utilisateur>();
