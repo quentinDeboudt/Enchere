@@ -57,7 +57,7 @@ public class CategorieDAOImp implements CategorieDAO {
 		Categorie categorie = null;
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SelectById);
-			stmt.setInt(1, categorie.getNoCategorie());
+			stmt.setInt(1, noCategorie);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()){
 				categorie = new Categorie(
