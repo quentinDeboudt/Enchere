@@ -61,15 +61,11 @@ public class ConnexionServlet extends HttpServlet {
 		session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
 		
 		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
-<<<<<<< HEAD
-		doGet(request, response);
-=======
-		
+
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		
->>>>>>> 37e2584720a2d7291829a4fb49a3aad4fb07ee39
+
 	}
 
 }
