@@ -42,7 +42,7 @@ public class ConnexionServlet extends HttpServlet {
 		session.setAttribute("Identifiant", identifiant);
 		session.setAttribute("Mot de passe", motDePasse);
 		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
-		//doGet(request, response);
+		doGet(request, response);
 	}
 
 }
