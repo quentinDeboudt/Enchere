@@ -18,54 +18,59 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/ConnexionServlet")
 public class ConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	UtilisateurManager manager = UtilisateurManagerSing.getInstance();
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ConnexionServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ConnexionServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String identifiant = request.getParameter("Identifiant");
 		String motDePasse = request.getParameter("Mot de passe");
-		HttpSession session =request.getSession();
-		
+		HttpSession session = request.getSession();
+
 		try {
-			
-		session.setAttribute("noUtilisateur", manager.getByPseudo(identifiant).getNoUtilisateur());
-		session.setAttribute("Identifiant", identifiant);
-		session.setAttribute("Mot de passe", motDePasse);
-		session.setAttribute("pseudo", manager.getByPseudo(identifiant).getPseudo());
-		session.setAttribute("nom", manager.getByPseudo(identifiant).getNom());
-		session.setAttribute("prenom", manager.getByPseudo(identifiant).getPrenom());
-		session.setAttribute("email", manager.getByPseudo(identifiant).getEmail());
-		session.setAttribute("telephone", manager.getByPseudo(identifiant).getTelephone());
-		session.setAttribute("rue", manager.getByPseudo(identifiant).getRue());
-		session.setAttribute("codePostal", manager.getByPseudo(identifiant).getCodePostal());
-		session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
-		
-		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
-		
+
+			session.setAttribute("noUtilisateur", manager.getByPseudo(identifiant).getNoUtilisateur());
+			session.setAttribute("Identifiant", identifiant);
+			session.setAttribute("Mot de passe", motDePasse);
+			session.setAttribute("pseudo", manager.getByPseudo(identifiant).getPseudo());
+			session.setAttribute("nom", manager.getByPseudo(identifiant).getNom());
+			session.setAttribute("prenom", manager.getByPseudo(identifiant).getPrenom());
+			session.setAttribute("email", manager.getByPseudo(identifiant).getEmail());
+			session.setAttribute("telephone", manager.getByPseudo(identifiant).getTelephone());
+			session.setAttribute("rue", manager.getByPseudo(identifiant).getRue());
+			session.setAttribute("codePostal", manager.getByPseudo(identifiant).getCodePostal());
+			session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
+			session.setAttribute("credit", manager.getByPseudo(identifiant).getCredit());
+
+			request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		
+
 	}
 
 }

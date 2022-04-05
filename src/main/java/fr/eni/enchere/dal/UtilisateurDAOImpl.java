@@ -132,6 +132,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				utilisateur.setRue(rs.getString("rue"));
 				utilisateur.setCodePostal(rs.getString("code_postal"));
 				utilisateur.setVille(rs.getString("ville"));}
+				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
 			
 		} catch (Exception e) {
 			throw new DALException ("Probleme dans le selectByPseudo");
