@@ -35,6 +35,10 @@ public class ModifierMonProfilServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UtilisateurModel model = new UtilisateurModel();
+		HttpSession session = request.getSession();//recupere la session
+		
+		Integer numeroUtilisateur = (Integer) session.getAttribute("no_utilisateur");
+		
 		
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			Utilisateur utilisateur = new Utilisateur();
@@ -51,16 +55,17 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				utilisateur.setEmail(request.getParameter("email"));
 				utilisateur.setRue(request.getParameter("rue"));
 				utilisateur.setVille(request.getParameter("ville"));
+				
+				
+				session.setAttribute("utilisateur", utilisateur);
+				
+				
 			}else {
-				model.setMessage("Le mot de passe de Confirmation n'est pas Correct"); //newMotDePasse == Confirmation
+				model.setMessage("Le mot de passe de Confirmation n'est pas Correct"); //newMotDePasse == Confirmation |Sinon: Message d'erreur.
 			}
-			
-			
-				     //Crée une fonction "update" dans UtilisateurManager pour que ca fonctionne...
+				     
 			try {
-				//HttpSession session = request.getSession();
-				//manager.UpDate(sessionScope.No_Utilisateur);
-				manager.UpDate(3);
+				manager.UpDate(numeroUtilisateur);
 
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
