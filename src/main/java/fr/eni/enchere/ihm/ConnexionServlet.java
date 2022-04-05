@@ -47,20 +47,20 @@ public class ConnexionServlet extends HttpServlet {
 		HttpSession session =request.getSession();
 		
 		try {
+				
+			session.setAttribute("noUtilisateur", manager.getByPseudo(identifiant).getNoUtilisateur());
+			session.setAttribute("Identifiant", identifiant);
+			session.setAttribute("Mot de passe", motDePasse);
+			session.setAttribute("pseudo", manager.getByPseudo(identifiant).getPseudo());
+			session.setAttribute("nom", manager.getByPseudo(identifiant).getNom());
+			session.setAttribute("prenom", manager.getByPseudo(identifiant).getPrenom());
+			session.setAttribute("email", manager.getByPseudo(identifiant).getEmail());
+			session.setAttribute("telephone", manager.getByPseudo(identifiant).getTelephone());
+			session.setAttribute("rue", manager.getByPseudo(identifiant).getRue());
+			session.setAttribute("codePostal", manager.getByPseudo(identifiant).getCodePostal());
+			session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
 			
-		session.setAttribute("noUtilisateur", manager.getByPseudo(identifiant).getNoUtilisateur());
-		session.setAttribute("Identifiant", identifiant);
-		session.setAttribute("Mot de passe", motDePasse);
-		session.setAttribute("pseudo", manager.getByPseudo(identifiant).getPseudo());
-		session.setAttribute("nom", manager.getByPseudo(identifiant).getNom());
-		session.setAttribute("prenom", manager.getByPseudo(identifiant).getPrenom());
-		session.setAttribute("email", manager.getByPseudo(identifiant).getEmail());
-		session.setAttribute("telephone", manager.getByPseudo(identifiant).getTelephone());
-		session.setAttribute("rue", manager.getByPseudo(identifiant).getRue());
-		session.setAttribute("codePostal", manager.getByPseudo(identifiant).getCodePostal());
-		session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
-		
-		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 
 		} catch (Exception e) {
 			e.getMessage();

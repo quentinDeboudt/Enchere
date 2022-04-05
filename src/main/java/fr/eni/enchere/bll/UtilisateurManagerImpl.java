@@ -9,8 +9,8 @@ import fr.eni.enchere.dal.UtilisateurDAO;
 
 public class UtilisateurManagerImpl implements UtilisateurManager {
 	UtilisateurDAO dao = DAOFact.getUtilisateurDAO();
-
-	@Override
+ 
+	@Override 
 	public void addUtilisateur(Utilisateur utilisateur) throws BLLException {
 		// Boolean isExistDeja = true;
 		try {
@@ -88,5 +88,28 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 			throw new BLLException("erreur dans la methode getByPseudo :" + e.getMessage());
 		}
 	}
-
+	
+	public Boolean connexion(String identifiant, String moDePasse) {
+		Boolean reponse = false;
+		
+		try {
+			
+			/*for (Utilisateur utilisateur : getAll()) {
+				if (identifiant.equals(utilisateur.getPseudo())) {
+					if (getByPseudo(identifiant).getMotDePasse().equals(moDePasse)) {
+					reponse = true;
+					}	
+				}	
+			}*/
+			
+			if (getByPseudo(identifiant).getMotDePasse().equals(moDePasse)) {
+				reponse = true;
+			}
+			
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			return reponse;
+	}
 }
