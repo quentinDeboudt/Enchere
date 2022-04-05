@@ -24,7 +24,7 @@ import fr.eni.enchere.dal.util.ConnectionProvider;
  * @date 29 mars 2022
  * @version ENI-Encheres- V0.1
  * @since 29 mars 2022 - 14:30:29
- *
+ * 
  */
 public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 

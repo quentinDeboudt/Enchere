@@ -27,7 +27,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public ModifierMonProfilServlet() {
-        super();
+        super(); 
     }
 
 	/**

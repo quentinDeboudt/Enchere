@@ -19,7 +19,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	private final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE noUtilisateur = ?";
 	private final String UPDATE = "UPDATE UTILISATEURS SET pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=?, mot_de_passe=? WHERE no_utilisateur=?";
 	private final String SELECT_BY_PSEUDO = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville FROM utilisateurs WHERE pseudo = ?";
-
+ 
 	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {// comunication directe avec la bdd ou mock apres
 																		// le controle bll dans addUtilisateur()
@@ -133,7 +133,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				utilisateur.setCodePostal(rs.getString("code_postal"));
 				utilisateur.setVille(rs.getString("ville"));}
 				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
-			
+
 		} catch (Exception e) {
 			throw new DALException ("Probleme dans le selectByPseudo");
 		}

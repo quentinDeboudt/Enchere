@@ -18,7 +18,7 @@
 		
 		<form action="detailVenteServlet" method="post" style="display: flex;" >
 		
-			<div style="padding: 60px; margin:20px; border: solid; max-height: 20px; max-width: 60px; Background-color: E6E6E6;">
+			<div style="padding: 60px; margin:20px; border: solid; max-height: 20px; max-width: 60px; Background-color ;">
 				[Image]
 			</div>
 			

@@ -49,6 +49,8 @@ public class ConnexionServlet extends HttpServlet {
 		String identifiant = request.getParameter("Identifiant");
 		String motDePasse = request.getParameter("Mot de passe");
 		HttpSession session = request.getSession();
+		
+		manager.connexion(identifiant, motDePasse);
 
 		try {
 
