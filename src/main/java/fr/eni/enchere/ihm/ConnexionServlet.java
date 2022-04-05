@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bll.UtilisateurManager;
 import fr.eni.enchere.bll.UtilisateurManagerSing;
 import fr.eni.enchere.bo.Utilisateur;
@@ -46,33 +47,39 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String identifiant = request.getParameter("Identifiant");
-		String motDePasse = request.getParameter("Mot de passe");
-		HttpSession session = request.getSession();
-		
-		manager.connexion(identifiant, motDePasse);
+		if (request.getParameter("BT_Connexion") != null) {
+			String identifiant = request.getParameter("identifiant");
+			String motDePasse = request.getParameter("motDePasse");
+			HttpSession session = request.getSession();
 
-		try {
+			try {
+				if (manager.connexion(identifiant, motDePasse) == true) {
+	
+					session.setAttribute("noUtilisateur", manager.getByPseudo(identifiant).getNoUtilisateur());
+					session.setAttribute("Identifiant", identifiant);
+					session.setAttribute("Mot de passe", motDePasse);
+					session.setAttribute("pseudo", manager.getByPseudo(identifiant).getPseudo());
+					session.setAttribute("nom", manager.getByPseudo(identifiant).getNom());
+					session.setAttribute("prenom", manager.getByPseudo(identifiant).getPrenom());
+					session.setAttribute("email", manager.getByPseudo(identifiant).getEmail());
+					session.setAttribute("telephone", manager.getByPseudo(identifiant).getTelephone());
+					session.setAttribute("rue", manager.getByPseudo(identifiant).getRue());
+					session.setAttribute("codePostal", manager.getByPseudo(identifiant).getCodePostal());
+					session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
+					session.setAttribute("credit", manager.getByPseudo(identifiant).getCredit());
 
-			session.setAttribute("noUtilisateur", manager.getByPseudo(identifiant).getNoUtilisateur());
-			session.setAttribute("Identifiant", identifiant);
-			session.setAttribute("Mot de passe", motDePasse);
-			session.setAttribute("pseudo", manager.getByPseudo(identifiant).getPseudo());
-			session.setAttribute("nom", manager.getByPseudo(identifiant).getNom());
-			session.setAttribute("prenom", manager.getByPseudo(identifiant).getPrenom());
-			session.setAttribute("email", manager.getByPseudo(identifiant).getEmail());
-			session.setAttribute("telephone", manager.getByPseudo(identifiant).getTelephone());
-			session.setAttribute("rue", manager.getByPseudo(identifiant).getRue());
-			session.setAttribute("codePostal", manager.getByPseudo(identifiant).getCodePostal());
-			session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
-			session.setAttribute("credit", manager.getByPseudo(identifiant).getCredit());
+					request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 
-			request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+				} else {
+					request.setAttribute("error", "Identifiants ou mot de passe incorect");
+				}
 
-		} catch (Exception e) {
-			e.getMessage();
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
+
 		}
 
+		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	}
-
 }

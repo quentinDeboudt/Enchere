@@ -15,4 +15,6 @@ public interface UtilisateurManager {
 	public void UpDate(Integer noUtilisateur) throws BLLException;
 	
 	public Utilisateur getByPseudo (String pseudo) throws BLLException;
+
+	public Boolean connexion(String identifiant, String moDePasse) throws BLLException;
 }

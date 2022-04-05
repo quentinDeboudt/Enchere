@@ -89,27 +89,25 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 		}
 	}
 	
-	public Boolean connexion(String identifiant, String moDePasse) {
+	@Override
+	public Boolean connexion(String identifiant, String moDePasse) throws BLLException {
 		Boolean reponse = false;
-		
 		try {
-			
-			/*for (Utilisateur utilisateur : getAll()) {
+			for (Utilisateur utilisateur : getAll()) {
 				if (identifiant.equals(utilisateur.getPseudo())) {
 					if (getByPseudo(identifiant).getMotDePasse().equals(moDePasse)) {
 					reponse = true;
 					}	
 				}	
+			}
+			/*if (getByPseudo(identifiant).getMotDePasse().equals(moDePasse)) {
+				reponse = true;
 			}*/
 			
-			if (getByPseudo(identifiant).getMotDePasse().equals(moDePasse)) {
-				reponse = true;
-			}
-			
 		} catch (BLLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new BLLException("erreur dans methode connexion:" + e.getMessage());
 		}
-			return reponse;
+		
+		return reponse;
 	}
 }
