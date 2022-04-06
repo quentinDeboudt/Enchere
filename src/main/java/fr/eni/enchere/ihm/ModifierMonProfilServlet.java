@@ -78,7 +78,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 			//manager.delet(numeroUtilisateur);
 		}else {
 			request.setAttribute("model", model);
-			request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/modifierMonProfil.jsp").forward(request, response);
 		}
 		
 	

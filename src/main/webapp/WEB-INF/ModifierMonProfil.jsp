@@ -12,7 +12,7 @@
 	
 	<body>
 		<header> 
-			<a href="AccueilConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+			<a href="http://localhost:8080/Projet-ENI-Enchere/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 		</header>
 		
 		<div>
@@ -23,7 +23,7 @@
 					<div style="display:flex;">
 					
 							<div style="display:flex; flex-direction: column; max-width: 20%; margin: 5px;">
-								Pseudo: <input type="text" name="Pseudo" value="${sessionScope.utilisateurSession.pseudo}" /><br>
+								Pseudo: <input type="text" name="Pseudo" placeholder="${sessionScope.utilisateurSession.pseudo}" } value="${model.current.pseudo}" /><br>
 								
 								Prénom: <input type="text" name="prenom" value="${model.current.prenom}" /><br>
 								

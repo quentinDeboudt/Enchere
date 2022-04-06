@@ -65,7 +65,7 @@ public class AfficherMonProfilServlet extends HttpServlet {
 
 		// si l'utilisateur clique sur le bouton modifier, il est redirigé vers la page de modification
 		if (request.getParameter("BT_MODIF") != null) {
-			request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/ModifierMonProfilServlet").forward(request, response);
 		} else {
 			// sinon j'appelle la jsp pour afficher les infos de mon profil
 			request.getRequestDispatcher("/WEB-INF/afficherMonProfil.jsp").forward(request, response);

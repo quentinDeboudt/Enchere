@@ -19,6 +19,15 @@ public class NouvelleVenteModel {
 	private String message;
 	private Categorie categorie;
 	private Retrait retrait;
+	
+	
+
+	/**
+	 * Constructeur.
+	 */
+	public NouvelleVenteModel() {
+		super();
+	}
 
 	/**
 	 * Constructeur
