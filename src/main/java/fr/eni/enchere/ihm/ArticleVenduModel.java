@@ -6,19 +6,19 @@ import java.util.List;
 import fr.eni.enchere.bo.ArticleVendu;
 import fr.eni.enchere.bo.Enchere;
 
-public class ArctileVenduModel {
+public class ArticleVenduModel {
 	
 	private ArticleVendu current;
 	private String message;
 	private List<Enchere> listEnchere=new ArrayList<Enchere>();
 	
-	public ArctileVenduModel(){
+	public ArticleVenduModel(){
 		
 	}
 	
 	
 
-	public ArctileVenduModel(ArticleVendu current, String message, List<Enchere> listEnchere) {
+	public ArticleVenduModel(ArticleVendu current, String message, List<Enchere> listEnchere) {
 		this.current = current;
 		this.message = message;
 		this.listEnchere = listEnchere;
