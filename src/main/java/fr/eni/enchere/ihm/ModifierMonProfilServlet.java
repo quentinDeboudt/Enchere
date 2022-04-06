@@ -75,7 +75,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		
 		if (request.getParameter("BT_SUPRIMER")!=null) {
 			request.getRequestDispatcher("/WEB-INF/accueilNonConnecter.jsp").forward(request, response);
-			//manager.delet();
+			//manager.delet(numeroUtilisateur);
 		}else {
 			request.setAttribute("model", model);
 			request.getRequestDispatcher("/WEB-INF/ModifierMonProfil.jsp").forward(request, response);
