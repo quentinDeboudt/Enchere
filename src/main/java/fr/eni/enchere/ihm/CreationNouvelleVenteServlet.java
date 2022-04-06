@@ -64,7 +64,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 		} catch (BLLException e1) {
 			e1.printStackTrace();
 		}
-		System.out.println(model.getLstCategories());
+		
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			ArticleVendu articleVendu = new ArticleVendu();
 			Retrait retrait = new Retrait();
