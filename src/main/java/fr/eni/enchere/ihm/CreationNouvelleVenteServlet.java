@@ -89,7 +89,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 		}
 		
 		
-		request.getRequestDispatcher("/WEB-INF/CreationNouvelleVente.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/creationNouvelleVente.jsp").forward(request, response);
 	}
 
 	/**

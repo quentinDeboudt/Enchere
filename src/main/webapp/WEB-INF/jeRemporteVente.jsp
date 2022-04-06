@@ -26,12 +26,12 @@
 		</div>
 		
 		<div>
-			<label for="description">Description: ${model.current.description}</label><br>		
-			<label for="prixVente">Meilleure Offre: ${model.current.prixVente}</label><br>			
-			<label for="miseAPrix">Mise à prix: ${model.current.miseAPrix}</label><br>
-			<label for="lieuRetrait">Retrait: ${model.current.lieuRetrait}</label><br>
-			<label for="utilisateur">Vendeur: ${model.current.utilisateur.pseudo}</label><br>	
-			<label for="telephone">Tel: ${model.current.utilisateur.telephone}</label><br>	
+			<label for="description">Description: ${sessionScope.description}</label><br>		
+			<label for="prixVente">Meilleure Offre: ${sessionScope.prixVente}</label><br>			
+			<label for="miseAPrix">Mise à prix: ${sessionScope.miseAPrix}</label><br>
+			<label for="lieuRetrait">Retrait: ${sessionScope.lieuRetrait}</label><br>
+			<label for="utilisateur">Vendeur: ${sessionScope.utilisateur.pseudo}</label><br>	
+			<label for="telephone">Tel: ${sessionScope.utilisateur.telephone}</label><br>	
 			<input type="submit" name="BT_BACK" value="Back" />				
 		</div>
 		
