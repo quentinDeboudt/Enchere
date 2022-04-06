@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +13,7 @@
 <body>
 	<header >
 		<h1 href="AccueilDeconnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</h1> 
-		<a href="" > S'inscrire-Se connecter </a>
+		<a href="http://localhost:8080/Projet-ENI-Enchere/ConnexionServlet" > S'inscrire-Se connecter </a>
 	</header>
 	<h2 style="text-align:center;">Liste des enchères</h2>
 	<form action="AccueilNonConnecterServlet" method="post"></form>
