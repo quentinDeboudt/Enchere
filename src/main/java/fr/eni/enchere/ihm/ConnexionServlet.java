@@ -27,7 +27,6 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	public ConnexionServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

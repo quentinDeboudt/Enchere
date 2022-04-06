@@ -13,9 +13,9 @@
 	</head>
 	
 	<body>
-		<h1>ENI-Encheres</h1> <p style="text-align:right;"><a href="" >Enchères</a> <a href="http://localhost:8080/Projet-ENI-Enchere/CreationNouvelleVente" >Vendre un article</a> <a href="http://localhost:8080/Projet-ENI-Enchere/AfficherMonProfilServlet" >Mon profil</a> <a href="http://localhost:8080/Projet-ENI-Enchere/AcceuilNonConnecter" >Déconnexion</a></p>
+		<h1>ENI-Encheres</h1> <p style="text-align:right;"><a href="" >Enchères</a> <a href="<%=request.getContextPath()%>/CreationNouvelleVente" >Vendre un article</a> <a href="<%=request.getContextPath()%>/AfficherMonProfilServlet" >Mon profil</a> <a href="<%=request.getContextPath()%>/AcceuilNonConnecter" >Déconnexion</a></p>
 		<h2 style="text-align:center;">Liste des enchères</h2>
-		<form action="AccueilNonConnecterServlet" method="post"></form>
+		<form action="AccueilNonConnecterServlet" method="post"></form>                      
 		<h2>Filtres :</h2>
 		<input type="text" name="noUtilisateur" value="${model.current.nom}" />
 		<h2>Catégorie :</h2>
