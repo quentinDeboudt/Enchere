@@ -41,7 +41,7 @@ public class AccueilNonConnecterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException  {
-		/*EnchereModel model = new EnchereModel();
+		EnchereModel model = new EnchereModel();
 		if (request.getParameter("BT_rechercher") != null) {
 			Enchere enchere = new Enchere();
 			enchere.setNoEnchere(Integer.parseInt(request.getParameter("noEnchere")));
@@ -69,7 +69,7 @@ public class AccueilNonConnecterServlet extends HttpServlet {
 				model.setMessage("Erreur !!!"+e.getMessage());
 			}
 
-			request.setAttribute("model", model);*/
+			request.setAttribute("model", model);
 			List<Enchere> listeEnchere=new ArrayList<Enchere>();
 			try {
 				listeEnchere=manager.getAllEnchere();
@@ -86,7 +86,8 @@ public class AccueilNonConnecterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		
 	}
 
 }
