@@ -13,7 +13,7 @@
 	
 	<body>
 		<header> 
-				<a href="AccueilDeconnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+				<a href="http://localhost:11093/Projet-ENI-Enchere/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 		</header>
 		
 		<div action="CreationNouvelleVente" method="post" style="display:flex;">
@@ -37,21 +37,10 @@
 						</c:forEach>
 					</select><br>
 										
-					Photo de larticle: <input type="text" name="PhotoDeLarticle" value="${model.current.PhotoDeLarticle}" /><br>
+					Photo de larticle: <input type="image" name="PhotoDeLarticle" value="${model.current.PhotoDeLarticle}" /><br>
 					 
 					Mise à Prix:
-					<select name="MiseAPrix" id="MiseAPrix">
-						<option value="20">20<option>
-					    <option value="30">30</option>
-					    <option value="40">40</option>
-					    <option value="50">50</option>
-					    <option value="80">80</option>
-					    <option value="90">90</option>
-					    <option value="100">100</option>
-					    <option value="125">125</option>
-					    <option value="150">150</option>
-					    <option value="200">200</option>
-					</select><br> 
+					<input type="number"  name="MiseAPrix:" min="10" max="100"><br>
 
 					Debut Enchere: <input type="date" name="DebutEnchere" value="${model.current.DebutEnchere}" /><br>
 					
@@ -61,11 +50,11 @@
 				
 				<div title="Retrait"  style="border: solid; margin-top:10px; padding: 5px;  ">
 				
-					Rue: <input type="text" name="Rue" value="${Retrait.getRue}" /><br>
+					Rue: <input for="rue" type="text" name="Rue" value="${Retrait.getRue}" placeholder="${sessionScope.rue}"  /><br>
 					
-					Code Postal: <input type="text" name="Code_Postal" value="${Retrait.GetCode_Postal}" /><br>
+					Code Postal: <input type="text" name="Code_Postal" value="${Retrait.GetCode_Postal}" placeholder="${sessionScope.codePostal}" /><br>
 					
-					Ville: <input type="text" name="Ville" value="${Retrait.getVille}" /><br>
+					Ville: <input type="text" name="Ville" value="${Retrait.getVille}" placeholder="${sessionScope.ville}" /><br>
 									
 				</div>
 				<br>
