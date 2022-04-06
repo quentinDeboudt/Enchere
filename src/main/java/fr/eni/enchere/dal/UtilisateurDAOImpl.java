@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bo.Utilisateur;
 import fr.eni.enchere.dal.util.ConnectionProvider;
 
@@ -144,5 +143,15 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		return utilisateur;
 		
 	}
+	
+	//SUPPRESSION D'UNE LIGNE DANS LA BDD
+		@Override
+		public void deleteUtilisateur(Integer id) throws DALException {
+			try(var cnx = ConnectionProvider.getConnection()){
+				var requete = cnx.prepareStatement("DELETE UTILISATEURS WHERE id=?");
+				requete.setInt(1, id);
+				requete.executeUpdate();
+			}catch(SQLException e) {
+			throw new DALException("Erreur de suppression methode deletePersonne : "+e.getMessage());
 
-}
+}}}

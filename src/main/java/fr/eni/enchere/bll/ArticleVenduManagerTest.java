@@ -30,16 +30,16 @@ public class ArticleVenduManagerTest {
 	 */
 	/*public static void main(String[] args) throws BLLException {
 
-			manager.addArticleVendu(new ArticleVendu(1, "chaise", "magnifique chaise", LocalDate.of(2022, 1, 22),
+			managerUtilisateur.addArticleVendu(new ArticleVendu(1, "chaise", "magnifique chaise", LocalDate.of(2022, 1, 22),
 					LocalDate.of(2022, 2, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email",
 							"telephone", "rue", 35000, "ville", "motDePasse", 50, "administrateur"),
 					new Categorie(5, "Informatique")));
 		
-			manager.addArticleVendu(new ArticleVendu(2, "écran", "magnifique écran", LocalDate.of(2021, 3, 22), LocalDate.of(2021, 4, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email", "telephone",
+			managerUtilisateur.addArticleVendu(new ArticleVendu(2, "écran", "magnifique écran", LocalDate.of(2021, 3, 22), LocalDate.of(2021, 4, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email", "telephone",
 					"rue", 35000, "ville", "motDePasse", 50, "administrateur"), new Categorie(5, "Informatique")));
 
 		
-			System.out.println(manager.getAllArticleVendu());
+			System.out.println(managerUtilisateur.getAllArticleVendu());
 	}*/
 
 }

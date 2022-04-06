@@ -15,6 +15,8 @@ import org.apache.tomcat.util.modeler.modules.ModelerSource;
 import fr.eni.enchere.bll.ArticleVenduManager;
 import fr.eni.enchere.bll.ArticleVenduManagerSing;
 import fr.eni.enchere.bll.BLLException;
+import fr.eni.enchere.bll.CategorieManager;
+import fr.eni.enchere.bll.CategorieManagerSing;
 import fr.eni.enchere.bll.EnchereManager;
 import fr.eni.enchere.bll.EnchereManagerSing;
 import fr.eni.enchere.bll.UtilisateurManager;
@@ -30,8 +32,9 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/CreationNouvelleVente")
 public class CreationNouvelleVenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	ArticleVenduModel model = new ArticleVenduModel();
+	
 	private ArticleVenduManager manager = ArticleVenduManagerSing.getInstance();
+	private CategorieManager managerCategorie = CategorieManagerSing.getInstance();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -46,6 +49,8 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		ArticleVenduModel model = new ArticleVenduModel();
+		
 		// je récupère la session en cours
 		HttpSession session = request.getSession();
 		// info de la session dont j'ai besoin
@@ -53,16 +58,20 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 		String codePostal = (String) session.getAttribute("codePostal");
 		String ville = (String) session.getAttribute("ville");
 		
+		try {
+			//recuperer les categories
+			model.setLstCategories(managerCategorie.getAllCategorie());
+		} catch (BLLException e1) {
+			e1.printStackTrace();
+		}
 		
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			ArticleVendu articleVendu = new ArticleVendu();
 			Retrait retrait = new Retrait();
-			Categorie categorie = new Categorie();
 			
 			articleVendu.setNomArticle(request.getParameter("Article"));
-			articleVendu.setDescription(request.getParameter("Description"));
-			categorie.setLibelle(request.getParameter("Categorie")); //recuperer les categories
-			//articleVendu.setImage //insert image 
+			articleVendu.setDescription(request.getParameter("Description")); 
+		
 			articleVendu.setMiseAPrix(Integer.parseInt(request.getParameter("MiseAPrix")));
 			
 			articleVendu.setDateDebutEncheres(LocalDate.parse(request.getParameter("DateDebutEncheres")));
@@ -80,7 +89,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			
 			try {
 				manager.addArticleVendu(articleVendu);
-
+				model.setCurrent(articleVendu);
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}
@@ -88,8 +97,8 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 		}
 		
-		
-		request.getRequestDispatcher("/WEB-INF/CreationNouvelleVente.jsp").forward(request, response);
+		request.setAttribute("model", model);
+		request.getRequestDispatcher("/WEB-INF/creationNouvelleVente.jsp").forward(request, response);
 	}
 
 	/**

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.enchere.bo.Enchere;
 
 import fr.eni.enchere.bll.BLLException;
+import fr.eni.enchere.bll.CategorieManager;
+import fr.eni.enchere.bll.CategorieManagerSing;
 import fr.eni.enchere.bll.EnchereManager;
 import fr.eni.enchere.bll.EnchereManagerSing;
 
@@ -26,7 +28,8 @@ import fr.eni.enchere.bll.EnchereManagerSing;
 public class AccueilNonConnecterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	EnchereManager manager = EnchereManagerSing.getInstance();
+	private CategorieManager managerCategorie = CategorieManagerSing.getInstance();
+	private EnchereManager manager = EnchereManagerSing.getInstance();
 
 	/**
 	 * Default constructor.
@@ -41,6 +44,14 @@ public class AccueilNonConnecterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException  {
+		
+		//ajout des catégories en Base de données
+		try {
+			managerCategorie.addCategorie();
+		} catch (BLLException e1) {
+			e1.printStackTrace();
+		}
+		
 		EnchereModel model = new EnchereModel();
 		if (request.getParameter("BT_rechercher") != null) {
 			Enchere enchere = new Enchere();

@@ -20,7 +20,7 @@ import fr.eni.enchere.bo.Utilisateur;
 public class ConnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	UtilisateurManager manager = UtilisateurManagerSing.getInstance();
+	UtilisateurManager managerUtilisateur = UtilisateurManagerSing.getInstance();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -52,20 +52,20 @@ public class ConnexionServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 
 			try {
-				if (manager.connexion(identifiant, motDePasse) == true) {
+				if (managerUtilisateur.connexion(identifiant, motDePasse) == true) {
 	
-					session.setAttribute("noUtilisateur", manager.getByPseudo(identifiant).getNoUtilisateur());
+					session.setAttribute("noUtilisateur", managerUtilisateur.getByPseudo(identifiant).getNoUtilisateur());
 					session.setAttribute("Identifiant", identifiant);
 					session.setAttribute("Mot de passe", motDePasse);
-					session.setAttribute("pseudo", manager.getByPseudo(identifiant).getPseudo());
-					session.setAttribute("nom", manager.getByPseudo(identifiant).getNom());
-					session.setAttribute("prenom", manager.getByPseudo(identifiant).getPrenom());
-					session.setAttribute("email", manager.getByPseudo(identifiant).getEmail());
-					session.setAttribute("telephone", manager.getByPseudo(identifiant).getTelephone());
-					session.setAttribute("rue", manager.getByPseudo(identifiant).getRue());
-					session.setAttribute("codePostal", manager.getByPseudo(identifiant).getCodePostal());
-					session.setAttribute("ville", manager.getByPseudo(identifiant).getVille());
-					session.setAttribute("credit", manager.getByPseudo(identifiant).getCredit());
+					session.setAttribute("pseudo", managerUtilisateur.getByPseudo(identifiant).getPseudo());
+					session.setAttribute("nom", managerUtilisateur.getByPseudo(identifiant).getNom());
+					session.setAttribute("prenom", managerUtilisateur.getByPseudo(identifiant).getPrenom());
+					session.setAttribute("email", managerUtilisateur.getByPseudo(identifiant).getEmail());
+					session.setAttribute("telephone", managerUtilisateur.getByPseudo(identifiant).getTelephone());
+					session.setAttribute("rue", managerUtilisateur.getByPseudo(identifiant).getRue());
+					session.setAttribute("codePostal", managerUtilisateur.getByPseudo(identifiant).getCodePostal());
+					session.setAttribute("ville", managerUtilisateur.getByPseudo(identifiant).getVille());
+					session.setAttribute("credit", managerUtilisateur.getByPseudo(identifiant).getCredit());
 
 					request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 
