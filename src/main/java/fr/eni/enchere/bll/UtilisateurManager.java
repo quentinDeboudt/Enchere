@@ -12,7 +12,7 @@ public interface UtilisateurManager {
 
 	public Utilisateur getById(Integer id) throws BLLException;
 	
-	public void UpDate(Integer noUtilisateur) throws BLLException;
+	public void SetUpDate(Integer noUtilisateur) throws BLLException;
 	
 	public Utilisateur getByPseudo (String pseudo) throws BLLException;
 
