@@ -31,11 +31,11 @@ public class UtilisateurDAOTest {
 		 */
 
 		// TEST D'AFFICHAGE
-		List<Utilisateur> listeUtilisateur = dao.selectAll();
+		//List<Utilisateur> listeUtilisateur = dao.selectAll();
 
 		// 1.affichage du contenue de la BddMock dao avec selectAll() de La class
 		// UtilisateurDAOMock
-		System.out.println("1-------------------------------------------------------------------------------");
+		/*System.out.println("1-------------------------------------------------------------------------------");
 		System.out.println(listeUtilisateur);
 
 		Utilisateur utilisateur = dao.selectById(1);
@@ -43,7 +43,8 @@ public class UtilisateurDAOTest {
 		// 2.affichage de personne avec 1 comme noUtilisateur avec toString() de La
 		// class utilisateur
 		System.out.println("2---------------------------------------------------------------------------------");
-		System.out.println(utilisateur.toString());
+		System.out.println(utilisateur.toString());*/
+		dao.deleteUtilisateur(3);
 
 	}
 
