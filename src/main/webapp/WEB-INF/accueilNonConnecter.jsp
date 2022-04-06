@@ -18,8 +18,8 @@
 	<h2 style="text-align:center;">Liste des enchères</h2>
 	<form action="AccueilNonConnecterServlet" method="post"></form>
 	<h2>Filtres :</h2>
-	<input type="texte" name="noEnchere" value="${model.current.nom}" />
-	<h2>Catégorie : <input type="texte" name="catégorie" value="${model.current.nom}" /></h2>
+	<input type="text" name="noEnchere" id="noEnchere" />
+	<h2>Catégorie : <input type="text" name="catégorie" value=id="noEnchere" /></h2>
 	<input type="submit" name="BT_Rechercher" value="Rechercher" />
 	<br>
 	<p><p><span style="border: 1px solid black;">PC Gamer pour travailler</p></span></p>
