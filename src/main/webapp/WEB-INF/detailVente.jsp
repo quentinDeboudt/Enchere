@@ -13,7 +13,7 @@
 		</header>
 		
 		<div style="display: flex; justify-content: Center;">
-			<h2 style="">Datail Vente</h2> 	
+			<h2 style="">Detail Vente</h2> 	
 		</div>
 		
 		<form action="detailVenteServlet" method="post" style="display: flex;" >

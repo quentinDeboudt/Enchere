@@ -6,47 +6,48 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.taglibs.standard.tag.common.fmt.ParseDateSupport;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.enchere.bo.ArticleVendu;
-import fr.eni.enchere.bo.Enchere;
 
 /**
- * Servlet implementation class DetailVenteServlet
+ * Servlet implementation class AutreRemporteVenteServlet
  */
-@WebServlet("/DetailVenteServlet")
-public class DetailVenteServlet extends HttpServlet {
+@WebServlet("/AutreRemporteVenteServlet")
+public class AutreRemporteVenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DetailVenteServlet() {
+    public AutreRemporteVenteServlet() {
         super();
-    } 
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		NouvelleVenteModel model = new NouvelleVenteModel();
+		ArticleVendu articleVendu = new ArticleVendu();
 
-		
-		if (request.getParameter("BT_ENCHERIR")!=null) {
-			ArticleVendu articleVendu = new ArticleVendu();
-			
-			articleVendu.setPrixVente(Integer.parseInt(request.getParameter("Proposition")));
-		}
-	
+		// je récupère la session en cours
+		HttpSession session = request.getSession();
 		
 		
-		request.getRequestDispatcher("/WEB-INF/detailVente.jsp").forward(request, response);
+		model.setCurrent(articleVendu);
+		
+		// je fais le lien entre le model et la jsp
+		request.setAttribute("model", model);
+		request.getRequestDispatcher("/WEB-INF/autreRemporteVente.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
