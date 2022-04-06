@@ -13,7 +13,7 @@ import fr.eni.enchere.dal.DALException;
  * 31 mars 2022
  */
 public interface CategorieManager {
-	public void addCategorie(Categorie categorie) throws BLLException;
+	public void addCategorie() throws BLLException;
 	public List<Categorie> getAllCategorie() throws BLLException;
 	public Categorie getCategorieById(Integer noCategorie) throws BLLException;
 

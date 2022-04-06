@@ -10,7 +10,7 @@ public class UtilisateurManagerTest {
 				"inzoudine.mahamoud2022@campus-eni.fr", "06.12.91.93.61", "rue de fougères", "35700", "RENNES",
 				"rennes35", 1000, "admin");*/
 		/*try {
-			manager.addUtilisateur(utilisateur1);
+			managerUtilisateur.addUtilisateur(utilisateur1);
 		} catch (BLLException e) {
 			throw new BLLException(e.getMessage());
 		}*/

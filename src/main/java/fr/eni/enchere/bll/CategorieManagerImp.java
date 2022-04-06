@@ -3,6 +3,7 @@
  */
 package fr.eni.enchere.bll;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.enchere.bo.Categorie;
@@ -17,14 +18,23 @@ public class CategorieManagerImp implements CategorieManager {
 	private CategorieDAO dao = DAOFact.getCategorieDAO();
 
 	@Override
-	public void addCategorie(Categorie categorie) throws BLLException {
-
+	public void addCategorie() throws BLLException {
 		try {
-			dao.insert(categorie);
+			if (dao.selectAll().isEmpty()) {
+				Categorie informatique = new Categorie("Informatique");
+				Categorie ameublement = new Categorie("Ameublement");
+				Categorie vêtement = new Categorie("Vêtement");
+				Categorie sportEtLoisirs = new Categorie("Sport&Loisirs");
+
+				dao.insert(informatique);
+				dao.insert(ameublement);
+				dao.insert(vêtement);
+				dao.insert(sportEtLoisirs);
+			}
 		} catch (Exception e) {
-			throw new BLLException("Probleme a l'insertion de bll Categorie");
+ 
 		}
-		
+
 	}
 
 	@Override
@@ -34,7 +44,7 @@ public class CategorieManagerImp implements CategorieManager {
 		} catch (Exception e) {
 			throw new BLLException("Probleme a la selection des Categorie");
 		}
-		
+
 	}
 
 	@Override
@@ -44,7 +54,7 @@ public class CategorieManagerImp implements CategorieManager {
 		} catch (Exception e) {
 			throw new BLLException("Probleme a la selection des Categorie");
 		}
-		
+
 	}
-	
+
 }

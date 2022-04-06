@@ -68,7 +68,7 @@ public class AccueilConnecterServlet extends HttpServlet {
 		
 		/*List<Enchere> listeEnchere=new ArrayList<Enchere>();
 		try {
-			listeEnchere=manager.getAllEnchere();
+			listeEnchere=managerUtilisateur.getAllEnchere();
 		} catch (BLLException e) {
 			e.printStackTrace();
 		}*/

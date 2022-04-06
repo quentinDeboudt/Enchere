@@ -16,7 +16,7 @@
 				<a href="http://localhost:11093/Projet-ENI-Enchere/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 		</header>
 		
-		<div action="CreationNouvelleVente" method="post" style="display:flex;">
+		<div action="CreationNouvelleVenteServlet" method="post" style="display:flex;">
 		
 			<div style="padding: 60px; margin:20px; border: solid; max-height: 20px; max-width: 60px">
 				[image]
@@ -31,12 +31,12 @@
 			
 				
 					Categorie: 
-					<select name="Categorie" >
-						<c:forEach items="${Categorie.lstCategorieArticle}" var="Categorie">
-							<option value="${CategorieArticle}"></option>
+					<select name="categorie" >
+						<c:forEach items="${model.lstCategories}" var="categorie">
+							<option value="${categorie.noCategorie}">${categorie.libelle} </option>
 						</c:forEach>
 					</select><br>
-										
+				
 					Photo de larticle: <input type="image" name="PhotoDeLarticle" value="${model.current.PhotoDeLarticle}" /><br>
 					 
 					Mise à Prix:

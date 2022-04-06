@@ -19,7 +19,7 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/ModifierMonProfilServlet")
 public class ModifierMonProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private UtilisateurManager manager = UtilisateurManagerSing.getIntance();
+	//private UtilisateurManager managerUtilisateur = UtilisateurManagerSing.getIntance();
 	private UtilisateurManager manager = UtilisateurManagerSing.getInstance();
 
        
@@ -75,7 +75,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		
 		if (request.getParameter("BT_SUPRIMER")!=null) {
 			request.getRequestDispatcher("/WEB-INF/accueilNonConnecter.jsp").forward(request, response);
-			//manager.delet(numeroUtilisateur);
+			//managerUtilisateur.delet(numeroUtilisateur);
 		}else {
 			request.setAttribute("model", model);
 			request.getRequestDispatcher("/WEB-INF/modifierMonProfil.jsp").forward(request, response);

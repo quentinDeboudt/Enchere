@@ -8,6 +8,15 @@ public class Categorie {
 	private String libelle;
 	private List<ArticleVendu> lstCategorieArticle = new ArrayList<ArticleVendu>();
 	
+	
+	/**
+	 * Constructeur.
+	 * @param libelle
+	 */
+	public Categorie(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
 	/** 
 	 * 
 	 */

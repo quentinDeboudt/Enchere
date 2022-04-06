@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.enchere.bo.ArticleVendu;
+import fr.eni.enchere.bo.Categorie;
 import fr.eni.enchere.bo.Enchere;
 
 public class ArticleVenduModel {
@@ -11,12 +12,29 @@ public class ArticleVenduModel {
 	private ArticleVendu current;
 	private String message;
 	private List<Enchere> listEnchere=new ArrayList<Enchere>();
+	private List<Categorie> lstCategories = new ArrayList<Categorie>();
 	
 	public ArticleVenduModel(){
 		
 	}
-	
-	
+
+	/**
+	 * Constructeur.
+	 * @param current
+	 * @param message
+	 * @param listEnchere
+	 * @param lstCategories
+	 */
+	public ArticleVenduModel(ArticleVendu current, String message, List<Enchere> listEnchere,
+			List<Categorie> lstCategories) {
+		super();
+		this.current = current;
+		this.message = message;
+		this.listEnchere = listEnchere;
+		this.lstCategories = lstCategories;
+	}
+
+
 
 	public ArticleVenduModel(ArticleVendu current, String message, List<Enchere> listEnchere) {
 		this.current = current;
@@ -25,6 +43,14 @@ public class ArticleVenduModel {
 	}
 
 
+
+	public List<Categorie> getLstCategories() {
+		return lstCategories;
+	}
+
+	public void setLstCategories(List<Categorie> lstCategories) {
+		this.lstCategories = lstCategories;
+	}
 
 	public ArticleVendu getCurrent() {
 		return current;
@@ -55,7 +81,7 @@ public class ArticleVenduModel {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ArctileVenduModel [");
+		builder.append("ArticleVenduModel [");
 		if (current != null) {
 			builder.append("current=");
 			builder.append(current);
@@ -69,12 +95,15 @@ public class ArticleVenduModel {
 		if (listEnchere != null) {
 			builder.append("listEnchere=");
 			builder.append(listEnchere);
+			builder.append(", ");
+		}
+		if (lstCategories != null) {
+			builder.append("lstCategories=");
+			builder.append(lstCategories);
 		}
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
 	
 	
 }
