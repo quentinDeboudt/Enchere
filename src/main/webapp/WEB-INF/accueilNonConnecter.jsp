@@ -4,24 +4,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Accueil non connecter</title>
+<title>Accueil non connecter</title> 
 </head>
 <body>
-	<header style="display:flex; flex-direction: rows;">
-		<a href="AccueilDeconnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
-		<a href="" >S'inscrire-Se connecter</a>
+	<header >
+		<h1 href="AccueilDeconnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</h1> 
+		<a href="" > S'inscrire-Se connecter </a>
 	</header>
-	
 	<h2 style="text-align:center;">Liste des enchères</h2>
 	<form action="AccueilNonConnecterServlet" method="post"></form>
 	<h2>Filtres :</h2>
-	<input type="texte" name="nomArticle" value="${model.current.nom}" />
+	<input type="texte" name="noEnchere" value="${model.current.nom}" />
 	<h2>Catégorie : <input type="texte" name="catégorie" value="${model.current.nom}" /></h2>
 	<input type="submit" name="BT_Rechercher" value="Rechercher" />
 	<br>
 	<p><p><span style="border: 1px solid black;">PC Gamer pour travailler</p></span></p>
 	
 	
+	<c:forEach items="${listeEnchere}" var="enchere">
+		<p>${enchere.noEnchere}${enchere.dateEnchere}${enchere.montant_enchere}${enchere.utilisateur}${enchere.articleVendu}</p>
+	</c:forEach>
+	
+	<!-- style="display:flex; flex-direction: rows;" -->
 
 </body>
 </html>
