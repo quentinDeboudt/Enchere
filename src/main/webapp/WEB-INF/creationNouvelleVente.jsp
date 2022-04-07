@@ -16,7 +16,7 @@
 				<a href="http://localhost:11093/Projet-ENI-Enchere/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 		</header>
 		
-		<div action="CreationNouvelleVenteServlet" method="post" style="display:flex;">
+		<form action="CreationNouvelleVenteServlet" method="post" style="display:flex;">
 		
 			<div style="padding: 60px; margin:20px; border: solid; max-height: 20px; max-width: 60px">
 				[image]
@@ -66,7 +66,7 @@
 			</div>
 		
 		
-		</div>
+		</form>
 	
 	
 	</body>

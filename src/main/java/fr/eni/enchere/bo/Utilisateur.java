@@ -1,5 +1,8 @@
 package fr.eni.enchere.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Utilisateur {
 
 	private Integer noUtilisateur;
@@ -14,12 +17,24 @@ public class Utilisateur {
 	private String motDePasse;
 	private Integer credit;
 	private Boolean administrateur;
+	private List<ArticleVendu> lstArticles = new ArrayList<ArticleVendu>();
+
+	
 
 	/**
 	 * Constructeur.
 	 */
 	public Utilisateur() {
 		super();
+	}
+
+	/**
+	 * Constructeur.
+	 * @param noUtilisateur
+	 */
+	public Utilisateur(Integer noUtilisateur) {
+		super();
+		this.noUtilisateur = noUtilisateur;
 	}
 
 	/**
@@ -86,6 +101,14 @@ public class Utilisateur {
 		this.credit = credit;
 	}
 
+	public List<ArticleVendu> getLstArticles() {
+		return lstArticles;
+	}
+
+	public void setLstArticles(List<ArticleVendu> lstArticles) {
+		this.lstArticles = lstArticles;
+	}
+	
 	public Integer getNoUtilisateur() {
 		return noUtilisateur;
 	}
@@ -244,9 +267,15 @@ public class Utilisateur {
 		if (administrateur != null) {
 			builder.append("administrateur=");
 			builder.append(administrateur);
+			builder.append(", ");
+		}
+		if (lstArticles != null) {
+			builder.append("lstArticles=");
+			builder.append(lstArticles);
 		}
 		builder.append("]");
 		return builder.toString();
 	}
 
+	
 }

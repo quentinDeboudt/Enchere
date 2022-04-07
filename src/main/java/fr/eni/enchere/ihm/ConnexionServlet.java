@@ -45,6 +45,8 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		String destination = "/WEB-INF/connexion.jsp";
 
 		if (request.getParameter("BT_Connexion") != null) {
 			String identifiant = request.getParameter("identifiant");
@@ -67,7 +69,7 @@ public class ConnexionServlet extends HttpServlet {
 					session.setAttribute("ville", managerUtilisateur.getByPseudo(identifiant).getVille());
 					session.setAttribute("credit", managerUtilisateur.getByPseudo(identifiant).getCredit());
 
-					request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
+					destination = "AccueilConnecterServlet";
 
 				} else {
 					request.setAttribute("error", "Identifiants ou mot de passe incorect");
@@ -79,6 +81,6 @@ public class ConnexionServlet extends HttpServlet {
 
 		}
 
-		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+		request.getRequestDispatcher(destination).forward(request, response);
 	}
 }

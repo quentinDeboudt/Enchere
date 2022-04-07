@@ -27,6 +27,35 @@ public class ArticleVendu {
 
 	/**
 	 * Constructeur.
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebutEncheres
+	 * @param dateFinEncheres
+	 * @param miseAPrix
+	 * @param prixVente
+	 * @param etatVente
+	 * @param utilisateur
+	 * @param categorie
+	 * @param lieuRetrait
+	 */
+	public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			Integer miseAPrix, Integer prixVente, String etatVente, Utilisateur utilisateur, Categorie categorie,
+			Retrait lieuRetrait) {
+		super();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.etatVente = etatVente;
+		this.utilisateur = utilisateur;
+		this.categorie = categorie;
+		this.lieuRetrait = lieuRetrait;
+	}
+
+	/**
+	 * Constructeur.
 	 * @param noArticle
 	 * @param nomArticle
 	 * @param description
