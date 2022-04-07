@@ -73,7 +73,7 @@ public class ConnexionServlet extends HttpServlet {
 					session.setAttribute("ville", managerUtilisateur.getByPseudo(identifiant).getVille());
 					session.setAttribute("credit", managerUtilisateur.getByPseudo(identifiant).getCredit());
 
-					request.getRequestDispatcher("/AccueilConnecterServlet").forward(request, response);
+					request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 					
 
 				} else {
