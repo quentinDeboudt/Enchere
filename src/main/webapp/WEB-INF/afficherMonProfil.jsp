@@ -14,11 +14,11 @@
 		
 		<header>
 			<div>
-				<a href="accueilNonConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 			</div>
 		</header>
 		
-		<form action="AfficherMonProfilServlet" method="POST">
+		<form id="AfficherMonProfil" action="AfficherMonProfilServlet" method="POST">
 			<div>
 				<label for="pseudo">Pseudo: ${model.current.pseudo}</label><br>
 				<label for="nom">Nom: ${model.current.nom}</label><br>		
@@ -30,8 +30,8 @@
 				<label for="ville">Ville: ${model.current.ville}</label><br>					
 			</div>
 		
-			<div>
-				<input type="submit" name="BT_MODIF" value="Modifier"/>
+			<div >
+				<input id="BT_MODIF" type="submit" name="BT_MODIF" value="Modifier"/>
 			</div>
 		</form>
 	</body>

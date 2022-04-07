@@ -71,7 +71,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}
 			model.setCurrent(utilisateur);
-			request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
+			request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 		}
 		
 		if (request.getParameter("BT_SUPRIMER")!=null) {

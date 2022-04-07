@@ -9,9 +9,16 @@
 	</head>
 	
 	<body>
+		<header>
+			<h1 id="Eni-Enchères">ENI-Encheres</h1>
+		</header>
+		
+		
+		
+		
 		<form action="ConnexionServlet" method="post">
 		
-			<h1>ENI-Encheres</h1>
+			
 			
 			<p>${error}</p>
 			
@@ -20,9 +27,9 @@
 				Mot de passe :<input type="text" name="motDePasse" value="${motDePasse}" /><br>
 			</div>
 			
-			<div>
-				<p><input type="submit" name="BT_Connexion" value="Connexion" /></p><br>
-				<p><input type="submit" name="BT_Création" value="Créer un compte" /></p>
+			<div >
+				<p><input id="BT_Connexion" type="submit" name="BT_Connexion" value="Connexion" /></p><br>
+				<p><input id="BT_Connexion" type="submit" name="BT_Création" value="Créer un compte" /></p>
 			</div>
 		
 		</form>

@@ -14,7 +14,7 @@
 		
 		<header>
 			<div>
-			<a href="accueilNonConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+			<a id="Eni-Enchères" href="accueilNonConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
 			</div>
 		</header>
 		

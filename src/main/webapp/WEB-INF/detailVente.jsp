@@ -10,7 +10,7 @@
 	
 	<body>
 		<header> 
-			<a href="AccueilConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+			<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" >Eni-Enchères</a>
 		</header>
 		
 		<div style="display: flex; justify-content: Center;">
@@ -43,7 +43,7 @@
 				Proposition: <input type="number" name="Proposition" min="${enchere.articlevendu.MeilleurOrffre}" max="${utilisateur.getcredit}">
 			
 				<div>
-					<input type="submit" name="BT_ENCHERIR" value="Eencherir" />
+					<input id="BT_MODIF" type="submit" name="BT_ENCHERIR" value="Eencherir" />
 				</div>
 			
 			</div>

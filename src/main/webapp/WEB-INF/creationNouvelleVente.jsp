@@ -14,7 +14,7 @@
 	
 	<body>
 		<header> 
-				<a href="http://localhost:11093/Projet-ENI-Enchere/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" >Eni-Enchères</a>
 		</header>
 		
 		<div action="CreationNouvelleVenteServlet" method="post" style="display:flex;">
@@ -60,8 +60,8 @@
 				</div>
 				<br>
 				<div title="Bouton">
-					<input type="submit" name="BT_ENREGISTRER" value="Enregistrer" />
-					<input type="submit" name="BT_ANNULER" value="Annuler" />
+					<input id="BT_MODIF" type="submit" name="BT_ENREGISTRER" value="Enregistrer" />
+					<input id="BT_MODIF" type="submit" name="BT_ANNULER" value="Annuler" />
 				</div>
 			
 			</div>

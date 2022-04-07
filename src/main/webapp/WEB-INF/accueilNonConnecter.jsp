@@ -12,10 +12,10 @@
 	<body>
 		<header >
 			<div>
-				<a href="<%=request.getContextPath()%>/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" ">Eni-Enchères</a>
 			</div>
 			<div>
-				<a href="<%=request.getContextPath()%>/ConnexionServlet" > S'inscrire-Se connecter </a>
+				<a id="lien-inscrire" href="<%=request.getContextPath()%>/ConnexionServlet" > S'inscrire-Se connecter </a>
 			</div>
 		</header>
 	

@@ -10,7 +10,7 @@
 	
 	<body>
 		<header> 
-			<a href="AccueilConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+			<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" >Eni-Enchères</a>
 		</header>
 		
 		<div style="display: flex; justify-content: Center;">
@@ -34,7 +34,7 @@
 				<label for="lieuRetrait">Retrait: ${sessionScope.lieuRetrait}</label><br>
 				<label for="utilisateur">Vendeur: ${sessionScope.utilisateur.pseudo}</label><br>	
 				<label for="telephone">Tel: ${sessionScope.utilisateur.telephone}</label><br>	
-				<input type="submit" name="BT_BACK" value="Back" />				
+				<input id="BT_MODIF" type="submit" name="BT_BACK" value="Back" />				
 			</div>
 			
 		</form>
