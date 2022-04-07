@@ -19,7 +19,7 @@ import fr.eni.enchere.bo.Enchere;
 /**
  * Servlet implementation class ConnecterServlet
  */
-@WebServlet("/AccueilConnecterServlet")
+@WebServlet("/AccueilConnecter")
 public class AccueilConnecterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -86,6 +86,7 @@ public class AccueilConnecterServlet extends HttpServlet {
 		}*/
 			
 		request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
+		return;
 	}
 
 	/**

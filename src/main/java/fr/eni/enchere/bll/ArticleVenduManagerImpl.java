@@ -1,5 +1,6 @@
 package fr.eni.enchere.bll;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +20,18 @@ public class ArticleVenduManagerImpl implements ArticleVenduManager {
 	 */
 	@Override
 	public void addArticleVendu(ArticleVendu articleVendu) throws BLLException {
-		try {
+		if ((articleVendu.getDateDebutEncheres().isAfter(LocalDate.now()) 
+				|| articleVendu.getDateDebutEncheres().isEqual(LocalDate.now())) 
+				&& articleVendu.getDateDebutEncheres().isBefore(articleVendu.getDateFinEncheres())) {
+			try {
 			dao.insert(articleVendu);
 		} catch (DALException e) {
 			throw new BLLException(e.getMessage());
 		}
+		}
+		
 	}
+
 
 	/**
 	 * {@inheritedDoc}

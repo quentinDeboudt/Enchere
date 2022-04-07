@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 import fr.eni.enchere.bo.ArticleVendu;
 import fr.eni.enchere.bo.Categorie;
+import fr.eni.enchere.bo.Retrait;
 import fr.eni.enchere.bo.Utilisateur;
 
 /**
@@ -28,18 +29,16 @@ public class ArticleVenduManagerTest {
 	 * @param args
 	 * @throws BLLException 
 	 */
-	/*public static void main(String[] args) throws BLLException {
+	public static void main(String[] args) throws BLLException {
 
-			managerUtilisateur.addArticleVendu(new ArticleVendu(1, "chaise", "magnifique chaise", LocalDate.of(2022, 1, 22),
-					LocalDate.of(2022, 2, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email",
-							"telephone", "rue", 35000, "ville", "motDePasse", 50, "administrateur"),
-					new Categorie(5, "Informatique")));
+			manager.addArticleVendu(new ArticleVendu("chaise", "magnifique chaise", LocalDate.of(2022, 1, 22),
+					LocalDate.of(2022, 2, 22), 5, 40, "vendu",  new Utilisateur(1), new Categorie(1), new Retrait("rue", "ville", "codePostal")));
 		
-			managerUtilisateur.addArticleVendu(new ArticleVendu(2, "écran", "magnifique écran", LocalDate.of(2021, 3, 22), LocalDate.of(2021, 4, 22), 5, 40, new Utilisateur(5, "pseudo", "nom", "prenom", "email", "telephone",
-					"rue", 35000, "ville", "motDePasse", 50, "administrateur"), new Categorie(5, "Informatique")));
+			/*manager.addArticleVendu(new ArticleVendu("chaise", "magnifique chaise", LocalDate.of(2022, 1, 22),
+					LocalDate.of(2022, 2, 22), 5, 40, "vendu",  new Utilisateur(1), new Categorie(1), new Retrait("rue", "ville", "codePostal")));*/
 
 		
-			System.out.println(managerUtilisateur.getAllArticleVendu());
-	}*/
+			System.out.println(manager.getAllArticleVendu());
+	}
 
 }

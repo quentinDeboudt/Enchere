@@ -32,78 +32,129 @@ import fr.eni.enchere.bo.Utilisateur;
 @WebServlet("/CreationNouvelleVente")
 public class CreationNouvelleVenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private ArticleVenduManager manager = ArticleVenduManagerSing.getInstance();
 	private CategorieManager managerCategorie = CategorieManagerSing.getInstance();
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CreationNouvelleVenteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private UtilisateurManager managerUtilisateur = UtilisateurManagerSing.getInstance();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public CreationNouvelleVenteServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		ArticleVenduModel model = initPage(request);
+		request.setAttribute("model", model);
+		request.getRequestDispatcher("/WEB-INF/creationNouvelleVente.jsp").forward(request, response);
+		return;
+	}
+
+	/**
+	 * Méthode en charge de 
+	 * @param request
+	 * @return
+	 */
+	private ArticleVenduModel initPage(HttpServletRequest request) {
 		ArticleVenduModel model = new ArticleVenduModel();
-		
+
 		// je récupère la session en cours
 		HttpSession session = request.getSession();
 		// info de la session dont j'ai besoin
 		String rue = (String) session.getAttribute("rue");
 		String codePostal = (String) session.getAttribute("codePostal");
 		String ville = (String) session.getAttribute("ville");
+		String pseudo = (String) session.getAttribute("pseudo");
 		
-		
-		if (request.getParameter("BT_ENREGISTRER")!=null) {
-			ArticleVendu articleVendu = new ArticleVendu();
-			Retrait retrait = new Retrait();
-			
-			articleVendu.setNomArticle(request.getParameter("Article"));
-			articleVendu.setDescription(request.getParameter("Description")); 
-			articleVendu.setMiseAPrix(Integer.parseInt(request.getParameter("MiseAPrix")));
-			articleVendu.setDateDebutEncheres(LocalDate.parse(request.getParameter("DateDebutEncheres")));
-			articleVendu.setDateFinEncheres(LocalDate.parse(request.getParameter("DateFinEncheres")));
-			
-			retrait.setRue(request.getParameter("Article"));
-			retrait.setCode_postal(request.getParameter("Code_Postal"));
-			retrait.setVille(request.getParameter("Ville"));
-			
-			articleVendu.setLieuRetrait(retrait);
-			
-			try {
-				//recuperer les categories
-				model.setLstCategories(managerCategorie.getAllCategorie());
-			} catch (BLLException e1) {
-				e1.printStackTrace();
-			}	
-		
-			session.setAttribute("articleVendu", articleVendu);
-			
-			
-			try {
-				manager.addArticleVendu(articleVendu);
-				model.setCurrent(articleVendu);
-			} catch (BLLException e) {
-				model.setMessage("Erreur !!!! : "+e.getMessage());
-			}
-			request.setAttribute("model", model);
-			request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
+		// je récupère les categories
+		try {
+			model.setLstCategories(managerCategorie.getAllCategorie());
+		} catch (BLLException e1) {
+			e1.printStackTrace();
 		}
-		
-		request.setAttribute("model", model);
-		request.getRequestDispatcher("/WEB-INF/creationNouvelleVente.jsp").forward(request, response);
+		return model;
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ArticleVenduModel model = initPage(request);
+		request.setAttribute("model", model);
+	if (request.getParameter("BT_ENREGISTRER") != null) {
+			
+			ArticleVendu articleVendu = new ArticleVendu();
+			Retrait retrait = new Retrait();
+			Categorie categorie = new Categorie();
+			Utilisateur utilisateur = new Utilisateur();
+
+			articleVendu.setNomArticle(request.getParameter("Article"));
+			articleVendu.setDescription(request.getParameter("Description"));
+			articleVendu.setMiseAPrix(Integer.parseInt(request.getParameter("MiseAPrix")));
+			System.out.println("coucou");
+			articleVendu.setDateDebutEncheres(LocalDate.parse(request.getParameter("DateDebutEncheres")));
+			articleVendu.setDateFinEncheres(LocalDate.parse(request.getParameter("DateFinEncheres")));
+
+			retrait.setRue(request.getParameter("Article"));
+			retrait.setCode_postal(request.getParameter("Code_Postal"));
+			retrait.setVille(request.getParameter("Ville"));
+
+			articleVendu.setLieuRetrait(retrait);
+
+
+			request.getSession().setAttribute("articleVendu", articleVendu);
+			
+			//je récupère une categorie grâce au noCategorie sélectionné
+
+			try {
+				categorie = managerCategorie.getCategorieById(Integer.parseInt(request.getParameter("noCategorie")));
+				articleVendu.setCategorie(categorie);
+			} catch (BLLException e1) {
+				e1.printStackTrace();
+			}
+			
+			//je récupère le vendeur grâce au pseudo en session
+			try {
+				utilisateur = managerUtilisateur.getByPseudo(((Utilisateur)request.getSession().getAttribute("utilisateur")).getPseudo());
+				articleVendu.setUtilisateur(utilisateur);
+			} catch (BLLException e1) {
+				e1.printStackTrace();
+			}
+			
+			//j'adapte l'état de vente
+			if (articleVendu.getDateDebutEncheres().isAfter(LocalDate.now())) {
+				articleVendu.setEtatVente("enchère non débutée");
+			}
+			if (articleVendu.getDateFinEncheres().isAfter(LocalDate.now())) {
+				articleVendu.setEtatVente("enchère en cours");
+			}
+			if (articleVendu.getDateFinEncheres().isBefore(LocalDate.now())) {
+				articleVendu.setEtatVente("enchère terminée");
+			}
+			
+			
+			
+			try {
+				
+				manager.addArticleVendu(articleVendu);
+				model.setCurrent(articleVendu);
+			} catch (BLLException e) {
+				model.setMessage("Erreur !!!! : " + e.getMessage());
+			}
+		}
+		request.setAttribute("model", model);
+		request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
+		return;
 	}
 
 }

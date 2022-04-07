@@ -45,8 +45,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		} catch (SQLException e) {
 			throw new DALException("Probleme de Insert dans la DAL : " + e.getMessage());
 		}
-	} 
- 
+	}
+
 	@Override
 	public List<Utilisateur> selectAll() throws DALException {
 		List<Utilisateur> result = new ArrayList<Utilisateur>();
@@ -115,11 +115,11 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			throw new DALException("Erreur dans la fonction update : " + ex.getMessage());
 		}
 	}
-	
-	public Utilisateur selectByPseudo (String pseudo) throws DALException {
-		
+
+	public Utilisateur selectByPseudo(String pseudo) throws DALException {
+
 		Utilisateur utilisateur = new Utilisateur();
-		
+
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SELECT_BY_PSEUDO);
 			stmt.setString(1, pseudo);
@@ -133,16 +133,14 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				utilisateur.setTelephone(rs.getString("telephone"));
 				utilisateur.setRue(rs.getString("rue"));
 				utilisateur.setCodePostal(rs.getString("code_postal"));
-				utilisateur.setVille(rs.getString("ville"));}
-				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
-				utilisateur.setCredit(Integer.parseInt(rs.getString("credit")));
-
+				utilisateur.setVille(rs.getString("ville"));
+			}
+			utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
+			utilisateur.setCredit(Integer.parseInt(rs.getString("credit")));
 		} catch (Exception e) {
-			throw new DALException ("Probleme dans le selectByPseudo");
+			throw new DALException("Probleme dans le selectByPseudo");
 		}
-		
 		return utilisateur;
-		
 	}
 	
 	//SUPPRESSION D'UNE LIGNE DANS LA BDD
@@ -155,4 +153,6 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			}catch(SQLException e) {
 			throw new DALException("Erreur de suppression methode deletePersonne : "+e.getMessage());
 
-}}}
+		}
+	}
+}

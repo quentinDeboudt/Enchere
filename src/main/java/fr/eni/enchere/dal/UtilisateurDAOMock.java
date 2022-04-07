@@ -3,7 +3,6 @@ package fr.eni.enchere.dal;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bo.Utilisateur;
 
 
@@ -68,7 +67,7 @@ public class UtilisateurDAOMock implements UtilisateurDAO{
 
 
 	@Override
-	public void deleteUtilisateur(Integer id) throws DALException {
+	public void deleteUtilisateur(String Pseudo) throws DALException {
 		// TODO Auto-generated method stub
 		
 	}
