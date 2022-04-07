@@ -74,7 +74,6 @@ public class ConnexionServlet extends HttpServlet {
 					session.setAttribute("credit", managerUtilisateur.getByPseudo(identifiant).getCredit());
 
 					request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
-					
 
 				} else {
 					request.setAttribute("error", "Identifiants ou mot de passe incorect");
