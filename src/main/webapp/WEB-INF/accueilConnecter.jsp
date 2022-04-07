@@ -7,13 +7,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF-8">
-	
-	<title>AccueilConnecter</title>
+		<meta charset="UTF-8">
+		<title>AccueilConnecter</title>
 	</head>
 	
 	<body>
-		<h1>ENI-Encheres</h1> <p style="text-align:right;"><a href="" >Enchères</a> <a href="<%=request.getContextPath()%>/CreationNouvelleVente" >Vendre un article</a> <a href="<%=request.getContextPath()%>/AfficherMonProfilServlet" >Mon profil</a> <a href="<%=request.getContextPath()%>/AcceuilNonConnecter" >Déconnexion</a></p>
+		<header> 
+			<a href="<%=request.getContextPath()%>/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+		</header>
+	
+		<p style="text-align:right;"><a href="" >Enchères</a> <a href="<%=request.getContextPath()%>/CreationNouvelleVente" >Vendre un article</a> <a href="<%=request.getContextPath()%>/AfficherMonProfilServlet" >Mon profil</a> <a href="<%=request.getContextPath()%>/AcceuilNonConnecter" >Déconnexion</a></p>
 		<h2 style="text-align:center;">Liste des enchères</h2>
 		<form action="AccueilNonConnecterServlet" method="post"></form>                      
 		<h2>Filtres :</h2>
