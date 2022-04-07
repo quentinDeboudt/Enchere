@@ -69,7 +69,7 @@ public class ConnexionServlet extends HttpServlet {
 					session.setAttribute("ville", managerUtilisateur.getByPseudo(identifiant).getVille());
 					session.setAttribute("credit", managerUtilisateur.getByPseudo(identifiant).getCredit());
 
-					destination = "AccueilConnecterServlet";
+					destination = "/AccueilConnecter";
 
 				} else {
 					request.setAttribute("error", "Identifiants ou mot de passe incorect");

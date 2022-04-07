@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.util.modeler.modules.ModelerSource;
-
 import fr.eni.enchere.bll.ArticleVenduManager;
 import fr.eni.enchere.bll.ArticleVenduManagerSing;
 import fr.eni.enchere.bll.BLLException;
@@ -100,8 +98,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 
 			articleVendu.setNomArticle(request.getParameter("Article"));
 			articleVendu.setDescription(request.getParameter("Description"));
-			articleVendu.setMiseAPrix(Integer.parseInt(request.getParameter("MiseAPrix")));
-			System.out.println("coucou");
+			articleVendu.setMiseAPrix(Integer.parseInt(request.getParameter("MiseAPrix")));   
 			articleVendu.setDateDebutEncheres(LocalDate.parse(request.getParameter("DateDebutEncheres")));
 			articleVendu.setDateFinEncheres(LocalDate.parse(request.getParameter("DateFinEncheres")));
 
