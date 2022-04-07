@@ -3,6 +3,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/main.css" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Index.css" />
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,7 +14,7 @@
 	
 	<body>
 		<header> 
-				<a href="http://localhost:11093/Projet-ENI-Enchere/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" >Eni-Enchères</a>
 		</header>
 		
 		<form action="CreationNouvelleVenteServlet" method="post" style="display:flex;">
@@ -59,8 +60,8 @@
 				</div>
 				<br>
 				<div title="Bouton">
-					<input type="submit" name="BT_ENREGISTRER" value="Enregistrer" />
-					<input type="submit" name="BT_ANNULER" value="Annuler" />
+					<input id="BT_MODIF" type="submit" name="BT_ENREGISTRER" value="Enregistrer" />
+					<input id="BT_MODIF" type="submit" name="BT_ANNULER" value="Annuler" />
 				</div>
 			
 			</div>

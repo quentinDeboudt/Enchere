@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Index.css" />
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,7 +13,7 @@
 	
 	<body>
 		<header> 
-			<a href="<%=request.getContextPath()%>/AccueilConnecterServlet" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+			<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" >Eni-Enchères</a>
 		</header>
 		
 		<div>
@@ -55,8 +56,8 @@
 					</div>
 					
 					<div>
-						<input type="submit" name="BT_ENREGISTRER" value="Inserer" />
-						<input type="submit" name="BT_SUPRIMER" value="Suprimer mon compte" />
+						<input id="BT_MODIF" type="submit" name="BT_ENREGISTRER" value="Inserer" />
+						<input id="BT_MODIF" type="submit" name="BT_SUPRIMER" value="Suprimer mon compte" />
 					</div>
 					
 				</form>

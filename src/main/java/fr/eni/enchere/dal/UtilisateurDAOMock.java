@@ -68,7 +68,7 @@ public class UtilisateurDAOMock implements UtilisateurDAO{
 
 
 	@Override
-	public void deleteUtilisateur(Integer id) throws DALException {
+	public void deleteUtilisateur(String Pseudo) throws DALException {
 		// TODO Auto-generated method stub
 		
 	}

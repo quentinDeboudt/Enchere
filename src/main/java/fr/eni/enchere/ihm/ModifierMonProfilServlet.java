@@ -12,6 +12,7 @@ import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bll.UtilisateurManager;
 import fr.eni.enchere.bll.UtilisateurManagerSing;
 import fr.eni.enchere.bo.Utilisateur;
+import fr.eni.enchere.dal.DALException;
 
 /**
  * Servlet implementation class ModifierMonProfilServlet
@@ -38,13 +39,13 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		HttpSession session = request.getSession();//recupere la session
 		
 		Integer numeroUtilisateur = (Integer) session.getAttribute("no_utilisateur");
-		
-		
+		String pseudo = (String) session.getAttribute("pseudo");
+	
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			Utilisateur utilisateur = new Utilisateur();
 			
 			if (request.getParameter("newMotDePasse").equals(request.getParameter("confirmation"))) {
-			
+				
 				utilisateur.setPseudo(request.getParameter("pseudo"));
 				utilisateur.setPrenom(request.getParameter("prenom"));
 				utilisateur.setTelephone(request.getParameter("telephone"));
@@ -71,12 +72,20 @@ public class ModifierMonProfilServlet extends HttpServlet {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}
 			model.setCurrent(utilisateur);
-			request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
+			request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 		}
 		
 		if (request.getParameter("BT_SUPRIMER")!=null) {
+			try {
+				System.out.println("pseudo:" + pseudo);
+				manager.supprimeUtilisateur(pseudo);
+			} catch (DALException e) {
+				e.printStackTrace();
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
 			request.getRequestDispatcher("/WEB-INF/accueilNonConnecter.jsp").forward(request, response);
-			//managerUtilisateur.delet(numeroUtilisateur);
+
 		}else {
 			request.setAttribute("model", model);
 			request.getRequestDispatcher("/WEB-INF/modifierMonProfil.jsp").forward(request, response);
