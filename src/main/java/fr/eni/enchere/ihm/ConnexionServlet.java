@@ -45,6 +45,11 @@ public class ConnexionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		if (request.getParameter("BT_Création") != null) {
+			request.getRequestDispatcher("CreationProfilServlet").forward(request, response);
+			//response.sendRedirect("CreationProfilServlet");
+		}
 
 		if (request.getParameter("BT_Connexion") != null) {
 			String identifiant = request.getParameter("identifiant");
@@ -78,7 +83,7 @@ public class ConnexionServlet extends HttpServlet {
 			}
 
 		}
-
+		
 		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	}
 }

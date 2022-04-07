@@ -74,7 +74,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			retrait.setVille(request.getParameter("Ville"));
 			
 			articleVendu.setLieuRetrait(retrait);
-			
+			System.out.println(articleVendu);
 			try {
 				//recuperer les categories
 				model.setLstCategories(managerCategorie.getAllCategorie());
@@ -86,6 +86,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			
 			
 			try {
+				
 				manager.addArticleVendu(articleVendu);
 				model.setCurrent(articleVendu);
 			} catch (BLLException e) {

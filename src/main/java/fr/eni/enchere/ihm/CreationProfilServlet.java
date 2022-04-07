@@ -60,10 +60,12 @@ public class CreationProfilServlet extends HttpServlet {
 				try {
 					manager.addUtilisateur(utilisateur);
 					model.setCurrent(utilisateur);
+					request.getRequestDispatcher("AccueilConnecter").forward(request, response);
 				} catch (BLLException e) {
 					model.setMessage(e.getMessage());
 				}
 			}
+			
 		}
 		
 		if (request.getParameter("BT_ANNULER") != null) {

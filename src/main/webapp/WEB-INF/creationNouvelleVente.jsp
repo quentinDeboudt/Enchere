@@ -61,7 +61,7 @@
 				<br>
 				<div title="Bouton">
 					<input id="BT_MODIF" type="submit" name="BT_ENREGISTRER" value="Enregistrer" />
-					<input id="BT_MODIF" type="submit" name="BT_ANNULER" value="Annuler" />
+					<input id="BT_MODIF" type="delete" name="BT_ANNULER" value="Annuler" />
 				</div>
 			
 			</div>
