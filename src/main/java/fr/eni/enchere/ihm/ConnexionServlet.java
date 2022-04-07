@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bll.UtilisateurManager;
 import fr.eni.enchere.bll.UtilisateurManagerSing;
-import fr.eni.enchere.bo.Utilisateur;
+
 
 /**
  * Servlet implementation class ConnexionServlet
