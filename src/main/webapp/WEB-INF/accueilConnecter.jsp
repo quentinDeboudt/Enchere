@@ -23,7 +23,7 @@
 				<a href="<%=request.getContextPath()%>/AcceuilNonConnecter" >Déconnexion</a>
 			</div>
 		</header>
-		
+	
 		<div>
 			<h2 style="text-align:center;">Liste des enchères</h2>
 		</div>
@@ -33,7 +33,13 @@
 			<h2>Filtres :</h2>
 			<input type="text" name="noUtilisateur" value="${model.current.nom}" />
 			<h2>Catégorie :</h2>
-			<input type="submit" name="BT_Creation" value="Rechercher" />
+			<select name="categorie" >
+				<option>Toutes</option>
+				<c:forEach items="${modelAV.lstCategories}" var="categorie">
+					<option value="${categorie.noCategorie}">${categorie.libelle} </option>
+				</c:forEach>
+			</select><br>
+			<input type="submit" name="BT_Rechercher" value="Rechercher" />
 		</div>		
 		
 		<div>

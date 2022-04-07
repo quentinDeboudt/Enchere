@@ -52,7 +52,9 @@ public class AccueilNonConnecterServlet extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
+		ArticleVenduModel modelAV = new ArticleVenduModel();
 		EnchereModel model = new EnchereModel();
+		
 		if (request.getParameter("BT_rechercher") != null) {
 			Enchere enchere = new Enchere();
 			enchere.setNoEnchere(Integer.parseInt(request.getParameter("noEnchere")));
@@ -79,9 +81,18 @@ public class AccueilNonConnecterServlet extends HttpServlet {
 			catch(BLLException e) {
 				model.setMessage("Erreur !!!"+e.getMessage());
 			}
+			
+			try {
+				//recuperer les categories
+				modelAV.setLstCategories(managerCategorie.getAllCategorie());
+			} catch (BLLException e1) {
+				e1.printStackTrace();
+			}
 
+			request.setAttribute("modelAV", modelAV);
 			request.setAttribute("model", model);
 			List<Enchere> listeEnchere=new ArrayList<Enchere>();
+			
 			try {
 				listeEnchere=manager.getAllEnchere();
 			} catch (BLLException e) {

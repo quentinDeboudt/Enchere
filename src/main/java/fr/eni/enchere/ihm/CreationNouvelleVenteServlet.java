@@ -58,12 +58,6 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 		String codePostal = (String) session.getAttribute("codePostal");
 		String ville = (String) session.getAttribute("ville");
 		
-		try {
-			//recuperer les categories
-			model.setLstCategories(managerCategorie.getAllCategorie());
-		} catch (BLLException e1) {
-			e1.printStackTrace();
-		}
 		
 		if (request.getParameter("BT_ENREGISTRER")!=null) {
 			ArticleVendu articleVendu = new ArticleVendu();
@@ -71,9 +65,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			
 			articleVendu.setNomArticle(request.getParameter("Article"));
 			articleVendu.setDescription(request.getParameter("Description")); 
-		
 			articleVendu.setMiseAPrix(Integer.parseInt(request.getParameter("MiseAPrix")));
-			
 			articleVendu.setDateDebutEncheres(LocalDate.parse(request.getParameter("DateDebutEncheres")));
 			articleVendu.setDateFinEncheres(LocalDate.parse(request.getParameter("DateFinEncheres")));
 			
@@ -82,7 +74,13 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			retrait.setVille(request.getParameter("Ville"));
 			
 			articleVendu.setLieuRetrait(retrait);
-					
+			
+			try {
+				//recuperer les categories
+				model.setLstCategories(managerCategorie.getAllCategorie());
+			} catch (BLLException e1) {
+				e1.printStackTrace();
+			}	
 		
 			session.setAttribute("articleVendu", articleVendu);
 			

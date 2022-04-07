@@ -5,31 +5,33 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Index.css" />
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Info ${model.current.pseudo}</title>
-</head>
-
-<body>
-<p style="color:#F08080">${model.message}</p>
-
-<header>
-<div>
-<a href="accueilNonConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
-</div>
-</header>
-
-<form action="AfficherProfilAutreUtilisateurServlet" method="POST">
-<div>
-	<label for="pseudo">Pseudo: ${model.current.pseudo}</label><br>
-	<label for="nom">Nom: ${model.current.nom}</label><br>		
-	<label for="prénom">Prénom:{model.current.prenom}</label><br>			
-	<label for="email">Email: ${model.current.email}</label><br>
-	<label for="telephone">Téléphone:{model.current.telephone}</label><br>
-	<label for="rue">Rue:{model.current.rue}</label><br>	
-	<label for="codePostal">Code Postal:${model.current.codePostal}</label><br>
-	<label for="ville">Ville:${model.current.ville}</label><br>					
-</div>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Info ${model.current.pseudo}</title>
+	</head>
+	
+	<body>
+		
+		<header>
+			<div>
+			<a href="accueilNonConnecter.jsp" style="text-decoration:none; color:black; font-size: 25px; ">Eni-Enchères</a>
+			</div>
+		</header>
+		
+		<form action="AfficherProfilAutreUtilisateurServlet" method="POST">
+			<div>
+				<label for="pseudo">Pseudo: ${model.current.pseudo}</label><br>
+				<label for="nom">Nom: ${model.current.nom}</label><br>		
+				<label for="prénom">Prénom:{model.current.prenom}</label><br>			
+				<label for="email">Email: ${model.current.email}</label><br>
+				<label for="telephone">Téléphone:{model.current.telephone}</label><br>
+				<label for="rue">Rue:{model.current.rue}</label><br>	
+				<label for="codePostal">Code Postal:${model.current.codePostal}</label><br>
+				<label for="ville">Ville:${model.current.ville}</label><br>					
+			</div>
+			
+		</form>
+	
+	</body>
+	
 </html>

@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF-8">
-	<title>Connexion</title>
+		<meta charset="UTF-8">
+		<title>Connexion</title>
 	</head>
 	
 	<body>
