@@ -110,4 +110,13 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 		
 		return reponse;
 	}
+
+	@Override
+	public void supprimeUtilisateur(String pseudo) throws BLLException,DALException {
+		try {
+		dao.deleteUtilisateur(pseudo);
+	}catch(DALException e) {
+		throw new BLLException(e.getMessage());
+	}
+	}
 }

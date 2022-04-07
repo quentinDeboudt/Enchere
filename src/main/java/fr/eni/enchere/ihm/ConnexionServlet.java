@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bll.UtilisateurManager;
 import fr.eni.enchere.bll.UtilisateurManagerSing;
-import fr.eni.enchere.bo.Utilisateur;
+
 
 /**
  * Servlet implementation class ConnexionServlet
@@ -51,6 +51,7 @@ public class ConnexionServlet extends HttpServlet {
 			//response.sendRedirect("CreationProfilServlet");
 		}
 
+
 		if (request.getParameter("BT_Connexion") != null) {
 			String identifiant = request.getParameter("identifiant");
 			String motDePasse = request.getParameter("motDePasse");
@@ -72,7 +73,7 @@ public class ConnexionServlet extends HttpServlet {
 					session.setAttribute("ville", managerUtilisateur.getByPseudo(identifiant).getVille());
 					session.setAttribute("credit", managerUtilisateur.getByPseudo(identifiant).getCredit());
 
-					request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
+				
 
 				} else {
 					request.setAttribute("error", "Identifiants ou mot de passe incorect");
@@ -83,7 +84,9 @@ public class ConnexionServlet extends HttpServlet {
 			}
 
 		}
+
 		
-		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
+
 	}
 }

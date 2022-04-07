@@ -11,6 +11,14 @@ public class Categorie {
 	
 	/**
 	 * Constructeur.
+	 * @param noCategorie
+	 */
+	public Categorie(Integer noCategorie) {
+		super();
+		this.noCategorie = noCategorie;
+	}
+	/**
+	 * Constructeur.
 	 * @param libelle
 	 */
 	public Categorie(String libelle) {

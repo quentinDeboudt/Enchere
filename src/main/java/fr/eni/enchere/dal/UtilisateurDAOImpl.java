@@ -17,7 +17,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	private final String INSERT = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE noUtilisateur = ?";
 	private final String UPDATE = "UPDATE UTILISATEURS SET pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=?, mot_de_passe=? WHERE no_utilisateur=?";
-	private final String SELECT_BY_PSEUDO = "SELECT pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit FROM utilisateurs WHERE pseudo = ?";
+	private final String SELECT_BY_PSEUDO = "SELECT no_utilisateur ,pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit FROM utilisateurs WHERE pseudo = ?";
  
 	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {// comunication directe avec la bdd ou mock apres
@@ -45,8 +45,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		} catch (SQLException e) {
 			throw new DALException("Probleme de Insert dans la DAL : " + e.getMessage());
 		}
-	} 
- 
+	}
+
 	@Override
 	public List<Utilisateur> selectAll() throws DALException {
 		List<Utilisateur> result = new ArrayList<Utilisateur>();
@@ -115,16 +115,17 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			throw new DALException("Erreur dans la fonction update : " + ex.getMessage());
 		}
 	}
-	
-	public Utilisateur selectByPseudo (String pseudo) throws DALException {
-		
+
+	public Utilisateur selectByPseudo(String pseudo) throws DALException {
+
 		Utilisateur utilisateur = new Utilisateur();
-		
+
 		try (Connection con = ConnectionProvider.getConnection()) {
 			PreparedStatement stmt = con.prepareStatement(SELECT_BY_PSEUDO);
 			stmt.setString(1, pseudo);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
+				utilisateur.setNoUtilisateur(rs.getInt("no_utilisateur"));
 				utilisateur.setPseudo(rs.getString("pseudo"));
 				utilisateur.setNom(rs.getString("nom"));
 				utilisateur.setPrenom(rs.getString("prenom"));
@@ -132,26 +133,26 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				utilisateur.setTelephone(rs.getString("telephone"));
 				utilisateur.setRue(rs.getString("rue"));
 				utilisateur.setCodePostal(rs.getString("code_postal"));
-				utilisateur.setVille(rs.getString("ville"));}
-				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
-				utilisateur.setCredit(Integer.parseInt(rs.getString("credit")));
-
+				utilisateur.setVille(rs.getString("ville"));
+			}
+			utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
+			utilisateur.setCredit(Integer.parseInt(rs.getString("credit")));
 		} catch (Exception e) {
-			throw new DALException ("Probleme dans le selectByPseudo");
+			throw new DALException("Probleme dans le selectByPseudo");
 		}
-		
 		return utilisateur;
-		
 	}
 	
 	//SUPPRESSION D'UNE LIGNE DANS LA BDD
 		@Override
-		public void deleteUtilisateur(Integer id) throws DALException {
+		public void deleteUtilisateur(String pseudo) throws DALException {
 			try(var cnx = ConnectionProvider.getConnection()){
-				var requete = cnx.prepareStatement("DELETE UTILISATEURS WHERE id=?");
-				requete.setInt(1, id);
+				var requete = cnx.prepareStatement("DELETE UTILISATEURS WHERE pseudo=?");
+				requete.setString(1, pseudo);
 				requete.executeUpdate();
 			}catch(SQLException e) {
 			throw new DALException("Erreur de suppression methode deletePersonne : "+e.getMessage());
 
-}}}
+		}
+	}
+}

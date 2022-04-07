@@ -17,4 +17,6 @@ public interface UtilisateurManager {
 	public Utilisateur getByPseudo (String pseudo) throws BLLException;
 
 	public Boolean connexion(String identifiant, String moDePasse) throws BLLException;
+
+	public void supprimeUtilisateur(String pseudo) throws DALException, BLLException;
 }

@@ -18,11 +18,13 @@ public class CategorieDAOMock implements CategorieDAO {
 	private List<Categorie> lstCategorie = new ArrayList<>();
 	private Categorie categorie;
 	
+	
 	public void insert(Categorie categorie) throws Exception {
 		lstCategorie.add(categorie);
 	}
 
 	public List<Categorie> selectAll() throws Exception {
+		//lstCategorie= categorieDAO.selectAll();
 		return lstCategorie;
 	}
 

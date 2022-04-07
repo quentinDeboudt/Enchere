@@ -13,6 +13,11 @@ package fr.eni.enchere.dal;
  */
 public class DALException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8114977278554686953L;
+
 	public DALException(String message) {
 		super(message);
 	}

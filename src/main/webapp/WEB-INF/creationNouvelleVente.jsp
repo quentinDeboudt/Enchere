@@ -2,22 +2,21 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/main.css" />
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Index.css" />
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Index.css" />
 	
 		<title>Nouvelle Vente</title>
 	</head>
 	
 	<body>
 		<header> 
-				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecterServlet" >Eni-Enchères</a>
+				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/" >Eni-Enchères</a>
 		</header>
 		
-		<div action="CreationNouvelleVenteServlet" method="post" style="display:flex;">
+		<form action="<%=request.getContextPath()%>/CreationNouvelleVente" method="post" style="display:flex;">
 		
 			<div style="padding: 60px; margin:20px; border: solid; max-height: 20px; max-width: 60px">
 				[image]
@@ -41,7 +40,7 @@
 					Photo de larticle: <input type="image" name="PhotoDeLarticle" value="${model.current.PhotoDeLarticle}" /><br>
 					 
 					Mise à Prix:
-					<input type="number"  name="MiseAPrix:" min="10" max="100"><br>
+					<input type="number"  name="MiseAPrix" min="10" max="100"><br>
 
 					Debut Enchere: <input type="date" name="DebutEnchere" value="${model.current.DebutEnchere}" /><br>
 					
@@ -61,13 +60,17 @@
 				<br>
 				<div title="Bouton">
 					<input id="BT_MODIF" type="submit" name="BT_ENREGISTRER" value="Enregistrer" />
+<<<<<<< HEAD
 					<input id="BT_MODIF" type="delete" name="BT_ANNULER" value="Annuler" />
+=======
+					<input id="BT_MODIF" type="reset" name="BT_ANNULER" value="Annuler" />
+>>>>>>> 2372b34bce8b2d46130602fc06fd9b00d7036bb4
 				</div>
 			
 			</div>
 		
 		
-		</div>
+		</form>
 	
 	
 	</body>

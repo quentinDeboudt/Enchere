@@ -20,7 +20,7 @@ import fr.eni.enchere.dal.util.ConnectionProvider;
 public class CategorieDAOImp implements CategorieDAO {
 	private final String INSERT = "INSERT INTO CATEGORIES (libelle) VALUES (?)";
 	private final String SELECT = "SELECT no_categorie, libelle FROM CATEGORIES";
-	private final String SelectById = "SELECT no_categorie, libelle FROM CATEGORIES";
+	private final String SelectById = "SELECT no_categorie, libelle FROM CATEGORIES WHERE no_categorie=?";
 
 	public void insert(Categorie categorie) throws DALException {
 		try (Connection con = ConnectionProvider.getConnection()) {
@@ -34,7 +34,7 @@ public class CategorieDAOImp implements CategorieDAO {
 				}
 			}
 		} catch (SQLException e) {
-			throw new DALException("Probleme de Insert -> (CategorieDAOImpl)");
+			throw new DALException("Probleme de Insert -> (CategorieDAOImpl) "+e.getMessage());
 		}
 
 	}
@@ -52,7 +52,7 @@ public class CategorieDAOImp implements CategorieDAO {
 				result.add(categorie);
 			}
 		} catch (SQLException e) {
-			throw new DALException("Probleme de select -> (CategorieDAOImpl)");
+			throw new DALException("Probleme de select -> (CategorieDAOImpl)"+e.getMessage());
 		}
 		return result;
 	}
@@ -67,7 +67,7 @@ public class CategorieDAOImp implements CategorieDAO {
 				categorie = new Categorie(rs.getInt("no_categorie"), rs.getString("libelle"));
 			}
 		} catch (Exception e) {
-			throw new DALException("Probleme dans le selectByNoCategorie -> (CategorieDAOImpl)");
+			throw new DALException("Probleme dans le selectByNoCategorie -> (CategorieDAOImpl)"+e.getMessage());
 		}
 		return categorie;
 
