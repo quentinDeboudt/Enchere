@@ -73,7 +73,7 @@ public class ConnexionServlet extends HttpServlet {
 					session.setAttribute("ville", managerUtilisateur.getByPseudo(identifiant).getVille());
 					session.setAttribute("credit", managerUtilisateur.getByPseudo(identifiant).getCredit());
 
-				
+					request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 
 				} else {
 					request.setAttribute("error", "Identifiants ou mot de passe incorect");
@@ -86,7 +86,7 @@ public class ConnexionServlet extends HttpServlet {
 		}
 
 		
-		request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 
 	}
 }
