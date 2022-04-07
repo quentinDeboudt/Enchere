@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
@@ -19,7 +18,13 @@
 	<form action="AccueilNonConnecterServlet" method="post"></form>
 	<h2>Filtres :</h2>
 	<input type="text" name="noEnchere" id="noEnchere" />
-	<h2>Catégorie : <input type="text" name="catégorie" value=id="noEnchere" /></h2>
+	<h2>Catégorie : </h2>
+		<select name="categorie" >
+			<option>Toutes</option>
+			<c:forEach items="${modelAV.lstCategories}" var="categorie">
+				<option value="${categorie.noCategorie}">${categorie.libelle} </option>
+			</c:forEach>
+		</select><br>
 	<input type="submit" name="BT_Rechercher" value="Rechercher" />
 	<br>
 	<p><p><span style="border: 1px solid black;">PC Gamer pour travailler</p></span></p>

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.enchere.bll.BLLException;
+import fr.eni.enchere.bll.CategorieManager;
+import fr.eni.enchere.bll.CategorieManagerSing;
 import fr.eni.enchere.bll.EnchereManager;
 import fr.eni.enchere.bll.EnchereManagerSing;
 import fr.eni.enchere.bo.Enchere;
@@ -22,7 +24,7 @@ public class AccueilConnecterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	EnchereManager manager = EnchereManagerSing.getInstance();
-       
+	CategorieManager managerCategorie = CategorieManagerSing.getInstance();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,7 +38,9 @@ public class AccueilConnecterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		ArticleVenduModel modelAV = new ArticleVenduModel();
 		EnchereModel model = new EnchereModel();
+		
 		if (request.getParameter("BT_rechercher") != null) {
 			Enchere enchere = new Enchere();
 			enchere.setNoEnchere(Integer.parseInt(request.getParameter("noEnchere")));
@@ -63,7 +67,15 @@ public class AccueilConnecterServlet extends HttpServlet {
 			catch(BLLException e) {
 				model.setMessage("Erreur !!!"+e.getMessage());
 			}
+			
+			try {
+				//recuperer les categories
+				modelAV.setLstCategories(managerCategorie.getAllCategorie());
+			} catch (BLLException e1) {
+				e1.printStackTrace();
+			}
 
+			request.setAttribute("modelAV", modelAV);
 			request.setAttribute("model", model);
 		
 		/*List<Enchere> listeEnchere=new ArrayList<Enchere>();
