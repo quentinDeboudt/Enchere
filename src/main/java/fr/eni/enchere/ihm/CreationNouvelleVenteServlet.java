@@ -108,9 +108,11 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 
 			articleVendu.setLieuRetrait(retrait);
 
+
 			request.getSession().setAttribute("articleVendu", articleVendu);
 			
 			//je récupère une categorie grâce au noCategorie sélectionné
+
 			try {
 				categorie = managerCategorie.getCategorieById(Integer.parseInt(request.getParameter("noCategorie")));
 				articleVendu.setCategorie(categorie);
@@ -140,6 +142,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			
 			
 			try {
+				
 				manager.addArticleVendu(articleVendu);
 				model.setCurrent(articleVendu);
 			} catch (BLLException e) {
