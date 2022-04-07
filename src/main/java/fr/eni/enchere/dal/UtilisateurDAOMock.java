@@ -3,7 +3,6 @@ package fr.eni.enchere.dal;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bo.Utilisateur;
 
 

@@ -52,6 +52,18 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		ArticleVenduModel model = initPage(request);
+		request.setAttribute("model", model);
+		request.getRequestDispatcher("/WEB-INF/creationNouvelleVente.jsp").forward(request, response);
+		return;
+	}
+
+	/**
+	 * Méthode en charge de 
+	 * @param request
+	 * @return
+	 */
+	private ArticleVenduModel initPage(HttpServletRequest request) {
 		ArticleVenduModel model = new ArticleVenduModel();
 
 		// je récupère la session en cours
@@ -68,8 +80,18 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 		} catch (BLLException e1) {
 			e1.printStackTrace();
 		}
+		return model;
+	}
 
-		if (request.getParameter("BT_ENREGISTRER") != null) {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ArticleVenduModel model = initPage(request);
+		request.setAttribute("model", model);
+	if (request.getParameter("BT_ENREGISTRER") != null) {
 			
 			ArticleVendu articleVendu = new ArticleVendu();
 			Retrait retrait = new Retrait();
@@ -79,6 +101,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			articleVendu.setNomArticle(request.getParameter("Article"));
 			articleVendu.setDescription(request.getParameter("Description"));
 			articleVendu.setMiseAPrix(Integer.parseInt(request.getParameter("MiseAPrix")));
+			System.out.println("coucou");
 			articleVendu.setDateDebutEncheres(LocalDate.parse(request.getParameter("DateDebutEncheres")));
 			articleVendu.setDateFinEncheres(LocalDate.parse(request.getParameter("DateFinEncheres")));
 
@@ -88,7 +111,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 
 			articleVendu.setLieuRetrait(retrait);
 
-			session.setAttribute("articleVendu", articleVendu);
+			request.getSession().setAttribute("articleVendu", articleVendu);
 			
 			//je récupère une categorie grâce au noCategorie sélectionné
 			try {
@@ -100,7 +123,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			
 			//je récupère le vendeur grâce au pseudo en session
 			try {
-				utilisateur = managerUtilisateur.getByPseudo(pseudo);
+				utilisateur = managerUtilisateur.getByPseudo(((Utilisateur)request.getSession().getAttribute("utilisateur")).getPseudo());
 				articleVendu.setUtilisateur(utilisateur);
 			} catch (BLLException e1) {
 				e1.printStackTrace();
@@ -118,6 +141,7 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 			}
 			
 			
+			
 			try {
 				manager.addArticleVendu(articleVendu);
 				model.setCurrent(articleVendu);
@@ -125,21 +149,9 @@ public class CreationNouvelleVenteServlet extends HttpServlet {
 				model.setMessage("Erreur !!!! : " + e.getMessage());
 			}
 		}
-
-		if (request.getParameter("BT_ANNULER") != null) {
-			response.sendRedirect(request.getContextPath() + "/AccueilConnecterServlet");
-		}
 		request.setAttribute("model", model);
-		request.getRequestDispatcher("/WEB-INF/creationNouvelleVente.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
+		request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
+		return;
 	}
 
 }
