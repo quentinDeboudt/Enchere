@@ -13,7 +13,7 @@
 	
 	<body>
 		<header> 
-				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/" >Eni-Enchères</a>
+				<a id="Eni-Enchères" href="<%=request.getContextPath()%>/AccueilConnecter" >Eni-Enchères</a>
 		</header>
 		
 		<form action="<%=request.getContextPath()%>/CreationNouvelleVente" method="post" style="display:flex;">
