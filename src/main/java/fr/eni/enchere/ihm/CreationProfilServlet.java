@@ -72,8 +72,6 @@ public class CreationProfilServlet extends HttpServlet {
 		
 			request.setAttribute("model", model);
 			request.getRequestDispatcher("/WEB-INF/creationProfil.jsp").forward(request, response);
-		
-
 	}
 
 	/**

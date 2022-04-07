@@ -66,12 +66,13 @@ public class ModifierMonProfilServlet extends HttpServlet {
 			}
 				     
 			try {
-				manager.UpDate(numeroUtilisateur);
+				manager.SetUpDate(numeroUtilisateur);
 
 			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : "+e.getMessage());
 			}
 			model.setCurrent(utilisateur);
+			request.getRequestDispatcher("AccueilConnecterServlet").forward(request, response);
 		}
 		
 		if (request.getParameter("BT_SUPRIMER")!=null) {

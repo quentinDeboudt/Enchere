@@ -68,7 +68,7 @@ public class UtilisateurManagerImpl implements UtilisateurManager {
 		}
 	}
 
-	public void UpDate(Integer noUtilisateur) throws BLLException {
+	public void SetUpDate(Integer noUtilisateur) throws BLLException {
 
 		try {
 			dao.Update(noUtilisateur);
