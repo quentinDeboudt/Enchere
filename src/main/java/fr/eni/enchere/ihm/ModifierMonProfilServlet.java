@@ -77,7 +77,7 @@ public class ModifierMonProfilServlet extends HttpServlet {
 		
 		if (request.getParameter("BT_SUPRIMER")!=null) {
 			try {
-				System.out.println("pseudo:" + pseudo);
+				//System.out.println("pseudo:" + pseudo);
 				manager.supprimeUtilisateur(pseudo);
 			} catch (DALException e) {
 				e.printStackTrace();
