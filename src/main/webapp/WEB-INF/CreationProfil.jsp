@@ -50,10 +50,16 @@
 						<input type="password" name="verifMotDePasse" value="${model.current.motDePasse}"><br>
 				</div>
 			</div>
-			<div>
-				<input type="submit" name="BT_CREER" value="Créer"/>
-				<input type="submit" name="BT_ANNULER" value="Annuler"/>
-			</div>
 		</form>
+		
+		<div>
+			<form action="AccueilConnecterServlet" method="POST">
+				<input type="submit" name="BT_CREER" value="Créer"/>
+			</form>
+			
+			<form action="ConnexionServlet" method="POST">
+				<input type="submit" name="BT_ANNULER" value="Annuler"/>
+			</form>
+		</div>
 	</body>
 </html>
