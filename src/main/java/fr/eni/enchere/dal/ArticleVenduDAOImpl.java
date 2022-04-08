@@ -39,6 +39,8 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 			+ "FROM articles_vendus AS a JOIN utilisateurs AS u ON a.no_utilisateur = u.no_utilisateur"
 			+ "JOIN categories AS c ON a.no_categorie = c.no_categorie WHERE no_article = ?";
 
+	private final String SELECT1 = "SELECT no_article, nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie FROM articles_vendus " ;      
+	
 	/**
 	 * {@inheritedDoc}
 	 * 
@@ -82,7 +84,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO {
 		List<ArticleVendu> result = new ArrayList<ArticleVendu>();
 
 		try (Connection con = ConnectionProvider.getConnection()) {
-			PreparedStatement stmt = con.prepareStatement(SELECT);
+			PreparedStatement stmt = con.prepareStatement(SELECT1);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				ArticleVendu articleVendu = new ArticleVendu();

@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Index.css" />
+
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Index.css" />
 		<meta charset="UTF-8">
 		<title>Modifier Mon Profil</title>
-		<link type="text/css" rel="stylesheet" href="WEB-INF/ModifierMonProfil.CSS" />
 	</head>
 	
 	<body>
@@ -51,8 +51,7 @@
 					</div>
 					
 					<div>
-						<p>Crédit: ${Credit}</p> <!-- chercher credit autre part (créer un fonction) -->
-
+						<p id="Texte-Credit">Crédit: ${sessionScope.credit}</p>
 					</div>
 					
 					<div>

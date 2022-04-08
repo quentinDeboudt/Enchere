@@ -9,12 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.Manager;
+
+import fr.eni.enchere.bll.ArticleVenduManager;
+import fr.eni.enchere.bll.ArticleVenduManagerSing;
 import fr.eni.enchere.bll.BLLException;
 import fr.eni.enchere.bll.CategorieManager;
 import fr.eni.enchere.bll.CategorieManagerSing;
 import fr.eni.enchere.bll.EnchereManager;
 import fr.eni.enchere.bll.EnchereManagerSing;
+import fr.eni.enchere.bo.ArticleVendu;
 import fr.eni.enchere.bo.Enchere;
+import fr.eni.enchere.dal.ArticleVenduDAOImpl;
 
 /**
  * Servlet implementation class ConnecterServlet
@@ -40,6 +46,8 @@ public class AccueilConnecterServlet extends HttpServlet {
 		
 		ArticleVenduModel modelAV = new ArticleVenduModel();
 		EnchereModel model = new EnchereModel();
+			
+		
 		
 		if (request.getParameter("BT_rechercher") != null) {
 			Enchere enchere = new Enchere();
@@ -49,7 +57,7 @@ public class AccueilConnecterServlet extends HttpServlet {
 			
 			try {
 				manager.addEnchere(enchere);
-			} catch (fr.eni.enchere.bll.BLLException e) {
+			} catch (BLLException e) {
 				model.setMessage("Erreur !!!! : " + e.getMessage());
 			}
 			model.setCurrent(enchere);
@@ -62,13 +70,6 @@ public class AccueilConnecterServlet extends HttpServlet {
 			}
 			
 			try {
-				model.setLstEnchere(manager.getAllEnchere());
-			}
-			catch(BLLException e) {
-				model.setMessage("Erreur !!!"+e.getMessage());
-			}
-			
-			try {
 				//recuperer les categories
 				modelAV.setLstCategories(managerCategorie.getAllCategorie());
 			} catch (BLLException e1) {
@@ -77,13 +78,6 @@ public class AccueilConnecterServlet extends HttpServlet {
 
 			request.setAttribute("modelAV", modelAV);
 			request.setAttribute("model", model);
-		
-		/*List<Enchere> listeEnchere=new ArrayList<Enchere>();
-		try {
-			listeEnchere=managerUtilisateur.getAllEnchere();
-		} catch (BLLException e) {
-			e.printStackTrace();
-		}*/
 			
 		request.getRequestDispatcher("/WEB-INF/accueilConnecter.jsp").forward(request, response);
 		return;

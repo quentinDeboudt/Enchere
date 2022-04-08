@@ -44,13 +44,13 @@
 				</form>
 			</div>		
 			
-			<div id="listDesEnchere">
-				<c:forEach items="${model.lstEnchere}" var="enchere">
-					<p>${enchere.noEnchere}</p>
-					<p>${enchere.dateEnchere}</p>
-					<p>${enchere.montant_enchere}</p>
-					<p>${enchere.utilisateur}</p>
-					<p>${enchere.articleVendu}</p>
+			<div id="listDesEnchere" >
+				<c:forEach items="${modelAV.listEnchere}" var="enchere">
+					<p>${Enchere.noEnchere}</p>
+					<p>${modelAV.current.dateEnchere}</p>
+					<p>${modelAV.current.montant_enchere}</p>
+					<p>${modelAV.current.utilisateur}</p>
+					<p>${modelAV.current.articleVendu}</p>
 				</c:forEach>
 			</div>
 		</div>

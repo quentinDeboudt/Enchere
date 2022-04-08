@@ -21,7 +21,7 @@
 		
 			
 			
-			<p>${error}</p>
+			<p Style="color:red;" >${error}</p>
 			
 			<div>
 				Identifiant : <input type="text" name="identifiant" value="${identifiant}" /><br>
@@ -31,7 +31,7 @@
 			<p><input id="BT_Connexion" type="submit" name="BT_Connexion" value="Connexion" /></p><br>
 		</form>	
 		
-		<form action="ConnexionServlet" method="post">	
+		<form action="CreationProfilServlet" method="post">	
 			<p><input id="BT_Connexion" type="submit" name="BT_Création" value="Créer un compte" /></p>
 		</form>	
 		

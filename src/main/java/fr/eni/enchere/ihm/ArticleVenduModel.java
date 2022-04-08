@@ -11,6 +11,7 @@ public class ArticleVenduModel {
 	
 	private ArticleVendu current;
 	private String message;
+	private List<ArticleVendu> listArticleVendu =new ArrayList<ArticleVendu>();
 	private List<Enchere> listEnchere=new ArrayList<Enchere>();
 	private List<Categorie> lstCategories = new ArrayList<Categorie>();
 	
@@ -36,13 +37,27 @@ public class ArticleVenduModel {
 
 
 
+	/**
+	 * @return the listArticleVendu
+	 */
+	public List<ArticleVendu> getListArticleVendu() {
+		return listArticleVendu;
+	}
+
+	/**
+	 * @param listArticleVendu the listArticleVendu to set
+	 */
+	public void setListArticleVendu(List<ArticleVendu> listArticleVendu) {
+		this.listArticleVendu = listArticleVendu;
+	}
+
 	public ArticleVenduModel(ArticleVendu current, String message, List<Enchere> listEnchere) {
 		this.current = current;
 		this.message = message;
 		this.listEnchere = listEnchere;
 	}
 
-
+	
 
 	public List<Categorie> getLstCategories() {
 		return lstCategories;
